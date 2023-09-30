@@ -1,0 +1,231 @@
+{
+  "frames": {
+    "graphics/vrag_2": {
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 264,
+        "h": 247
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 264,
+        "h": 247
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 247
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "graphics/table": {
+      "frame": {
+        "x": 0,
+        "y": 247,
+        "w": 327,
+        "h": 221
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 327,
+        "h": 221
+      },
+      "sourceSize": {
+        "w": 327,
+        "h": 221
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "graphics/vrag_1": {
+      "frame": {
+        "x": 264,
+        "y": 0,
+        "w": 203,
+        "h": 247
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 203,
+        "h": 247
+      },
+      "sourceSize": {
+        "w": 203,
+        "h": 247
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "graphics/gg": {
+      "frame": {
+        "x": 327,
+        "y": 247,
+        "w": 115,
+        "h": 287
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 115,
+        "h": 287
+      },
+      "sourceSize": {
+        "w": 115,
+        "h": 287
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "graphics/barman": {
+      "frame": {
+        "x": 0,
+        "y": 468,
+        "w": 143,
+        "h": 169
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 143,
+        "h": 169
+      },
+      "sourceSize": {
+        "w": 143,
+        "h": 169
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "graphics/гг_icon": {
+      "frame": {
+        "x": 143,
+        "y": 468,
+        "w": 124,
+        "h": 160
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 124,
+        "h": 160
+      },
+      "sourceSize": {
+        "w": 124,
+        "h": 160
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "graphics/coctal": {
+      "frame": {
+        "x": 267,
+        "y": 468,
+        "w": 36,
+        "h": 49
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 36,
+        "h": 49
+      },
+      "sourceSize": {
+        "w": 36,
+        "h": 49
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "graphics/vodka": {
+      "frame": {
+        "x": 267,
+        "y": 517,
+        "w": 26,
+        "h": 32
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 26,
+        "h": 32
+      },
+      "sourceSize": {
+        "w": 26,
+        "h": 32
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "graphics/beer": {
+      "frame": {
+        "x": 293,
+        "y": 534,
+        "w": 63,
+        "h": 77
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 63,
+        "h": 77
+      },
+      "sourceSize": {
+        "w": 63,
+        "h": 77
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    }
+  },
+  "meta": {
+    "app": "http://github.com/odrick/free-tex-packer-cli",
+    "version": "0.3.0",
+    "image": "assets.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 467,
+      "h": 637
+    },
+    "scale": 1
+  }
+}
