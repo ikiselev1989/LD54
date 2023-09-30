@@ -1,0 +1,38 @@
+name: Deploy stage
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - run: npm i
+      - run: npm run build
+      - name: Copy repository contents via scp
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SSHKEY }}
+          source: 'dist/*, makefile, package.json, docker-compose.stage.yml, .Dockerfile'
+          rm: true
+          target: ~/sites/ld54
+
+      - name: Executing remote command
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SSHKEY }}
+          script_stop: true
+          script: |
+            cd ~/sites/ld54
+            make stage-up

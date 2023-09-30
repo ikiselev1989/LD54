@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  app:
+    container_name: ld54
+    build:
+      context: .
+      dockerfile: .Dockerfile
+    networks:
+      - global
+
+networks:
+  global:
+    external: true
