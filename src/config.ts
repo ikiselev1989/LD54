@@ -4,7 +4,6 @@ export default {
 	debug: true,
 	showFps: false,
 	sceneFadeDuration: 400,
-	characterSpeed: 300,
 	input: {
 		keyboard: {
 			left: Keys.A,
@@ -16,9 +15,16 @@ export default {
 			clinch: Keys.L,
 		},
 	},
-	fightTrigger: {
-		xOffset: 100,
-		width: 50,
+	character: {
+		speed: 300,
+		width: 70,
 		height: 50,
+		hurtImpulse: 15,
+		trigger: {
+			xOffset: 70,
+			width: 70,
+			height: 50,
+		},
+		punchCount: 3,
 	},
 };

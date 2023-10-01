@@ -1,23 +1,37 @@
-import { Actor, ActorArgs, CollisionGroup, PossibleStates, Shape, StateMachine, vec } from 'excalibur';
+import {
+	Actor,
+	ActorArgs,
+	CollisionType,
+	EasingFunctions,
+	PossibleStates,
+	Shape,
+	StateMachine,
+	vec,
+	Vector,
+} from 'excalibur';
 import config from '../config';
-import { characterCollisionGroup } from '../collisions';
+import { characterCanCollide } from '../collisions';
 
 export default abstract class Character extends Actor {
 	enemy!: Character | undefined;
 	fightTrigger!: Actor;
+	protected punchCount!: number;
 	protected fsm!: StateMachine<PossibleStates<any>>;
 
 	constructor(props: ActorArgs = {}) {
 		super({
 			...props,
-			width: 50,
-			height: 50,
 			anchor: vec(0.5, 1),
+			collider: Shape.Box(config.character.width, config.character.height),
+			collisionType: CollisionType.Active,
 		});
 	}
 
 	onInitialize() {
+		this.resetPunchCount();
+
 		this.addFightTrigger();
+
 		this.fsm = StateMachine.create({
 			start: 'INIT',
 			states: {
@@ -34,11 +48,11 @@ export default abstract class Character extends Actor {
 				},
 				PUNCH: {
 					onState: this.onPunchState.bind(this),
-					transitions: ['IDLE', 'MOVE'],
+					transitions: ['IDLE'],
 				},
 				HURT: {
 					onState: this.onHurtState.bind(this),
-					transitions: ['HURT'],
+					transitions: ['IDLE'],
 				},
 			},
 		});
@@ -46,8 +60,17 @@ export default abstract class Character extends Actor {
 		this.fsm.go('IDLE');
 	}
 
-	hurt() {
+	async hurt(dir: Vector, punchCount: number) {
+		if (this.fsm.in('HURT')) return;
+
 		this.fsm.go('HURT');
+
+		const hurtImpulse = config.character.hurtImpulse * (punchCount === 3 ? 20 : 1);
+		const time = 100 * (punchCount === 3 ? 10 : 1);
+
+		await this.actions.easeTo(this.pos.add(dir.scaleEqual(hurtImpulse)), time, EasingFunctions.EaseOutCubic).toPromise();
+
+		this.fsm.go('IDLE');
 	}
 
 	onPunchState() {
@@ -61,26 +84,32 @@ export default abstract class Character extends Actor {
 	}
 
 	onHurtState() {
-		this.actions.blink(100, 100, 2);
+		// this.actions.blink(100, 100, 2);
+	}
+
+	protected resetPunchCount() {
+		this.punchCount = -1;
 	}
 
 	protected flipX(val = false) {
 		this.graphics.flipHorizontal = val;
-		this.fightTrigger.pos.x = (val ? -1 : 1) * config.fightTrigger.xOffset;
+		this.fightTrigger.pos.x = (val ? -1 : 1) * config.character.trigger.xOffset;
 	}
 
 	protected addFightTrigger() {
 		this.fightTrigger = new Actor({
-			pos: vec(config.fightTrigger.xOffset, 0),
-			collider: Shape.Box(config.fightTrigger.width, config.fightTrigger.height),
-			collisionGroup: CollisionGroup.collidesWith([characterCollisionGroup]),
+			pos: vec(config.character.trigger.xOffset, 0),
+			collider: Shape.Box(config.character.trigger.width, config.character.trigger.height),
+			collisionGroup: characterCanCollide,
 		});
 
 		this.fightTrigger.on('collisionstart', e => {
+			this.resetPunchCount();
 			this.enemy = <Character>e.other;
 		});
 
 		this.fightTrigger.on('collisionend', () => {
+			this.resetPunchCount();
 			this.enemy = undefined;
 		});
 
@@ -89,9 +118,6 @@ export default abstract class Character extends Actor {
 
 	protected punch() {
 		this.fsm.go('PUNCH');
-
-		console.log('punch');
-		this.enemy && this.enemy.hurt();
 	}
 
 	protected kick() {

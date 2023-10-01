@@ -4,5 +4,5 @@ stage-up:
 
 graphics:
 	free-tex-packer-cli --project ./assets/graphics/assets.ftpp
-	free-tex-packer-cli --project ./assets/graphics/animations/player-anims.ftpp
+	free-tex-packer-cli --project ./assets/animations/player-anims.ftpp
 	sharp -i ./public/*.png -o ./public -f webp --nearLossless true

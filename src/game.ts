@@ -37,6 +37,12 @@ class Game extends Engine {
 		this.addScene(SCENES.LEVEL, new Level());
 	}
 
+	waitFor(time: number): Promise<void> {
+		return new Promise(res => {
+			this.clock.schedule(() => res(), time);
+		});
+	}
+
 	async play() {
 		await this.start(new Loader([
 			...Object.values(res),

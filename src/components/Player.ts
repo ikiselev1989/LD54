@@ -1,4 +1,4 @@
-import { Animation, Vector } from 'excalibur';
+import { Animation, AnimationStrategy, vec, Vector } from 'excalibur';
 import config from '../config';
 import res from '../res';
 import game from '../game';
@@ -17,6 +17,8 @@ export default class Player extends Character {
 	}
 
 	onIdleState() {
+		this.vel.setTo(0, 0);
+
 		const anims = this.animations.getAnimation('animations/idle');
 		anims?.play();
 		this.graphics.use(<Animation>anims);
@@ -28,10 +30,41 @@ export default class Player extends Character {
 		this.graphics.use(<Animation>anims);
 	}
 
-	onPunchState() {
-		const anims = this.animations.getAnimation('animations/punch');
+	async onPunchState() {
+		this.vel.setTo(0, 0);
+		this.punchCount = this.enemy ? (this.punchCount + 1) % config.character.punchCount : 0;
+
+		const anims = <Animation>this.animations.getAnimation(`animations/punch/punch${this.punchCount + 1}`, {
+			strategy: AnimationStrategy.End,
+		});
+
+		anims.reset();
+
+		if (this.punchCount < 2) {
+			const anchor = vec(65 / (anims?.width || 1), 1);
+
+			this.graphics.use(<Animation>anims, {
+				anchor: this.graphics.flipHorizontal ? vec(1 - 65 / (anims?.width || 1), 1) : anchor,
+			});
+		} else {
+			const anchor = vec(260 / (anims?.width || 1), 1);
+
+			this.graphics.use(<Animation>anims, {
+				anchor: this.graphics.flipHorizontal ? vec(1 - 260 / (anims?.width || 1), 1) : anchor,
+			});
+		}
+
 		anims?.play();
-		this.graphics.use(<Animation>anims);
+
+		anims.events.once('end', () => {
+			this.fsm.go('IDLE');
+		});
+
+		if (this.punchCount === config.character.punchCount - 1) {
+			await game.waitFor(800);
+		}
+
+		this.enemy && this.enemy.hurt(this.enemy.pos.sub(this.pos).normalize(), this.punchCount + 1);
 	}
 
 	private addGraphics() {
@@ -39,16 +72,18 @@ export default class Player extends Character {
 	}
 
 	private setVel(vel: Vector) {
-		this.vel = vel.scaleEqual(config.characterSpeed);
+		if (this.fsm.in('MOVE') || this.fsm.in('IDLE')) {
+			if (vel.equals(Vector.Zero)) {
+				this.fsm.go('IDLE');
+			} else {
+				this.fsm.go('MOVE');
+			}
 
-		if (this.vel.equals(Vector.Zero)) {
-			this.fsm.in('MOVE') && this.fsm.go('IDLE');
-		} else {
-			this.fsm.go('MOVE');
+			this.vel = vel.scaleEqual(config.character.speed);
+
+			if (vel.x === 0) return;
+			this.flipX(vel.x < -1);
 		}
-
-		if (vel.x === 0) return;
-		this.flipX(vel.x < -1);
 	}
 
 	private registerEvents() {
