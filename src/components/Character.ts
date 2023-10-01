@@ -40,7 +40,7 @@ export default abstract class Character extends Actor {
 				},
 				IDLE: {
 					onState: this.onIdleState.bind(this),
-					transitions: ['MOVE', 'PUNCH', 'HURT', 'BLOCK'],
+					transitions: ['MOVE', 'PUNCH', 'DAMAGE', 'BLOCK'],
 				},
 				MOVE: {
 					onState: this.onMoveState.bind(this),
@@ -54,9 +54,9 @@ export default abstract class Character extends Actor {
 					onState: this.onBlockState.bind(this),
 					transitions: ['IDLE', 'MOVE'],
 				},
-				HURT: {
+				DAMAGE: {
 					onState: this.onHurtState.bind(this),
-					transitions: ['IDLE'],
+					transitions: ['IDLE', 'DAMAGE'],
 				},
 			},
 		});
@@ -64,14 +64,14 @@ export default abstract class Character extends Actor {
 		this.fsm.go('IDLE');
 	}
 
-	async hurt(dir: Vector, punchCount: number) {
-		if (this.fsm.in('HURT')) return;
+	async damage(dir: Vector, punchCount: number) {
+		if (this.fsm.in('DAMAGE')) return;
 
 
 		const hurtImpulse = config.character.hurtImpulse * (punchCount === 3 ? 20 : 1);
 		const time = 100 * (punchCount === 3 ? 10 : 1);
 
-		this.fsm.go('HURT');
+		this.fsm.go('DAMAGE');
 		await this.actions.easeTo(this.pos.add(dir.scaleEqual(hurtImpulse)), time, EasingFunctions.EaseOutCubic).toPromise();
 	}
 
@@ -120,7 +120,7 @@ export default abstract class Character extends Actor {
 
 	protected kick() {
 		console.log('kick');
-		this.enemy && this.enemy.hurt();
+		this.enemy && this.enemy.damage();
 	}
 
 	protected block() {

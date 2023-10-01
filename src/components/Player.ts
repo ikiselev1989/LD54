@@ -82,7 +82,7 @@ export default class Player extends Character {
 			await game.waitFor(800);
 		}
 
-		this.enemy && this.enemy.hurt(this.enemy.pos.sub(this.pos).normalize(), this.punchCount + 1);
+		this.enemy && this.enemy.damage(this.enemy.pos.sub(this.pos).normalize(), this.punchCount + 1);
 	}
 
 	onHurtState(): void {
