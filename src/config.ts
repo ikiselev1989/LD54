@@ -1,7 +1,7 @@
 import { Keys } from 'excalibur';
 
 export default {
-	debug: true,
+	debug: false,
 	showFps: false,
 	sceneFadeDuration: 400,
 	input: {

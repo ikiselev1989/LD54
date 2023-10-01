@@ -73,8 +73,6 @@ export default abstract class Character extends Actor {
 
 		this.fsm.go('HURT');
 		await this.actions.easeTo(this.pos.add(dir.scaleEqual(hurtImpulse)), time, EasingFunctions.EaseOutCubic).toPromise();
-
-		// this.fsm.go('IDLE');
 	}
 
 	abstract onPunchState(): void
