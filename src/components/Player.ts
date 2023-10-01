@@ -1,12 +1,20 @@
-import { Animation, AnimationStrategy, vec, Vector } from 'excalibur';
+import { ActorArgs, Animation, AnimationStrategy, vec, Vector } from 'excalibur';
 import config from '../config';
 import res from '../res';
 import game from '../game';
 import Character from './Character';
 import SpriteSheetAnimation from '../partials/spritesheet-animation';
+import { CHARACTER_STATES } from '../enums';
 
 export default class Player extends Character {
 	private animations!: SpriteSheetAnimation;
+
+	constructor(props: ActorArgs) {
+		super({
+			...props,
+			name: 'Player',
+		});
+	}
 
 	onInitialize() {
 		this.animations = new SpriteSheetAnimation([res.player]);
@@ -75,7 +83,7 @@ export default class Player extends Character {
 		anims.play();
 
 		anims.events.once('end', () => {
-			this.fsm.go('IDLE');
+			this.fsm.go(CHARACTER_STATES.IDLE);
 		});
 
 		if (this.punchCount === config.character.punchCount - 1) {
@@ -85,19 +93,18 @@ export default class Player extends Character {
 		this.enemy && this.enemy.damage(this.enemy.pos.sub(this.pos).normalize(), this.punchCount + 1);
 	}
 
-	onHurtState(): void {
-	}
+	onHurtState(): void {}
 
 	private addGraphics() {
 		// this.graphics.add(<Sprite>res.assets.getFrameSprite('graphics/gg'));
 	}
 
 	private setVel(vel: Vector) {
-		if (this.fsm.in('MOVE') || this.fsm.in('IDLE')) {
+		if (this.fsm.in(CHARACTER_STATES.MOVE) || this.fsm.in(CHARACTER_STATES.IDLE)) {
 			if (vel.equals(Vector.Zero)) {
-				this.fsm.go('IDLE');
+				this.fsm.go(CHARACTER_STATES.IDLE);
 			} else {
-				this.fsm.go('MOVE');
+				this.fsm.go(CHARACTER_STATES.MOVE);
 			}
 
 			this.vel = vel.scaleEqual(config.character.speed);
@@ -117,16 +124,12 @@ export default class Player extends Character {
 			return Vector.Zero;
 		}, this.setVel.bind(this));
 
-		game.inputMapper.on(({ keyboard }) => keyboard.wasPressed(config.input.keyboard.punch),
-			this.punch.bind(this));
+		game.inputMapper.on(({ keyboard }) => keyboard.wasPressed(config.input.keyboard.punch), this.punch.bind(this));
 
-		game.inputMapper.on(({ keyboard }) => keyboard.wasPressed(config.input.keyboard.kick),
-			this.kick.bind(this));
+		game.inputMapper.on(({ keyboard }) => keyboard.wasPressed(config.input.keyboard.kick), this.kick.bind(this));
 
-		game.inputMapper.on(({ keyboard }) => keyboard.wasPressed(config.input.keyboard.block),
-			this.block.bind(this));
+		game.inputMapper.on(({ keyboard }) => keyboard.wasPressed(config.input.keyboard.block), this.block.bind(this));
 
-		game.inputMapper.on(({ keyboard }) => keyboard.wasReleased(config.input.keyboard.block),
-			this.unBlock.bind(this));
+		game.inputMapper.on(({ keyboard }) => keyboard.wasReleased(config.input.keyboard.block), this.unBlock.bind(this));
 	}
 }

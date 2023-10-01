@@ -1,7 +1,8 @@
 import Character from './Character';
 import res from '../res';
-import { Animation, AnimationStrategy, Sprite } from 'excalibur';
+import { Actor, Animation, AnimationStrategy, Sprite } from 'excalibur';
 import SpriteSheetAnimation from '../partials/spritesheet-animation';
+import { CHARACTER_STATES } from '../enums';
 
 export class Enemy extends Character {
 	private animations!: SpriteSheetAnimation;
@@ -12,12 +13,15 @@ export class Enemy extends Character {
 		super.onInitialize();
 
 		this.addGraphics();
+
+		this.fsm.go(CHARACTER_STATES.MOVE);
 	}
 
-	onBlockState(): void {
-	}
+	onBlockState(): void {}
 
 	onHurtState(): void {
+		this.actions.clearActions();
+
 		const anim = <Animation>this.animations.getAnimation('enemy/enemy1/damage-up', {
 			strategy: AnimationStrategy.Freeze,
 		});
@@ -25,20 +29,28 @@ export class Enemy extends Character {
 		anim.reset();
 		this.graphics.use(anim);
 
-		anim.events.on('end', () => this.fsm.go('IDLE'));
+		anim.events.on('end', () => this.fsm.go(CHARACTER_STATES.IDLE));
 
 		anim.play();
 	}
 
 	onIdleState(): void {
-		this.graphics.use(<Sprite>res.assets.getFrameSprite('graphics/vrag_1'));
+		this.actions.clearActions();
+
+		const anims = <Animation>this.animations.getAnimation('enemy/enemy1/idle');
+		anims.play();
+		this.graphics.use(anims);
 	}
 
 	onMoveState(): void {
+		this.actions.follow(<Actor>this.scene.world.entityManager.getByName('Player')[0]);
+
+		const anims = this.animations.getAnimation('enemy/enemy1/move');
+		anims?.play();
+		this.graphics.use(<Animation>anims);
 	}
 
-	onPunchState(): void {
-	}
+	onPunchState(): void {}
 
 	private addGraphics() {
 		this.graphics.use(<Sprite>res.assets.getFrameSprite('graphics/vrag_1'));

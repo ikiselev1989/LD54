@@ -1,16 +1,7 @@
-import {
-	Actor,
-	ActorArgs,
-	CollisionType,
-	EasingFunctions,
-	PossibleStates,
-	Shape,
-	StateMachine,
-	vec,
-	Vector,
-} from 'excalibur';
+import { Actor, ActorArgs, CollisionType, EasingFunctions, PossibleStates, Shape, StateMachine, vec, Vector } from 'excalibur';
 import config from '../config';
 import { characterCanCollide } from '../collisions';
+import { CHARACTER_STATES } from '../enums';
 
 export default abstract class Character extends Actor {
 	enemy!: Character | undefined;
@@ -36,54 +27,53 @@ export default abstract class Character extends Actor {
 			start: 'INIT',
 			states: {
 				INIT: {
-					transitions: ['IDLE'],
+					transitions: [CHARACTER_STATES.IDLE],
 				},
-				IDLE: {
+				[CHARACTER_STATES.IDLE]: {
 					onState: this.onIdleState.bind(this),
-					transitions: ['MOVE', 'PUNCH', 'DAMAGE', 'BLOCK'],
+					transitions: [CHARACTER_STATES.MOVE, CHARACTER_STATES.PUNCH, CHARACTER_STATES.DAMAGE, CHARACTER_STATES.BLOCK],
 				},
-				MOVE: {
+				[CHARACTER_STATES.MOVE]: {
 					onState: this.onMoveState.bind(this),
-					transitions: ['IDLE', 'PUNCH', 'BLOCK'],
+					transitions: [CHARACTER_STATES.IDLE, CHARACTER_STATES.PUNCH, CHARACTER_STATES.BLOCK, CHARACTER_STATES.DAMAGE],
 				},
-				PUNCH: {
+				[CHARACTER_STATES.PUNCH]: {
 					onState: this.onPunchState.bind(this),
-					transitions: ['IDLE'],
+					transitions: [CHARACTER_STATES.IDLE],
 				},
-				BLOCK: {
+				[CHARACTER_STATES.BLOCK]: {
 					onState: this.onBlockState.bind(this),
-					transitions: ['IDLE', 'MOVE'],
+					transitions: [CHARACTER_STATES.IDLE, CHARACTER_STATES.MOVE],
 				},
-				DAMAGE: {
+				[CHARACTER_STATES.DAMAGE]: {
 					onState: this.onHurtState.bind(this),
-					transitions: ['IDLE', 'DAMAGE'],
+					transitions: [CHARACTER_STATES.IDLE, CHARACTER_STATES.DAMAGE],
 				},
 			},
 		});
 
-		this.fsm.go('IDLE');
+		this.fsm.go(CHARACTER_STATES.IDLE);
 	}
 
 	async damage(dir: Vector, punchCount: number) {
-		if (this.fsm.in('DAMAGE')) return;
-
+		if (this.fsm.in(CHARACTER_STATES.BLOCK)) return;
 
 		const hurtImpulse = config.character.hurtImpulse * (punchCount === 3 ? 20 : 1);
 		const time = 100 * (punchCount === 3 ? 10 : 1);
 
-		this.fsm.go('DAMAGE');
+		this.fsm.go(CHARACTER_STATES.DAMAGE);
 		await this.actions.easeTo(this.pos.add(dir.scaleEqual(hurtImpulse)), time, EasingFunctions.EaseOutCubic).toPromise();
 	}
 
-	abstract onPunchState(): void
+	abstract onPunchState(): void;
 
-	abstract onBlockState(): void
+	abstract onBlockState(): void;
 
-	abstract onIdleState(): void
+	abstract onIdleState(): void;
 
-	abstract onMoveState(): void
+	abstract onMoveState(): void;
 
-	abstract onHurtState(): void
+	abstract onHurtState(): void;
 
 	protected resetPunchCount() {
 		this.punchCount = -1;
@@ -115,7 +105,7 @@ export default abstract class Character extends Actor {
 	}
 
 	protected punch() {
-		this.fsm.go('PUNCH');
+		this.fsm.go(CHARACTER_STATES.PUNCH);
 	}
 
 	protected kick() {
@@ -124,12 +114,10 @@ export default abstract class Character extends Actor {
 	}
 
 	protected block() {
-		console.log('block');
-		this.fsm.go('BLOCK');
+		this.fsm.go(CHARACTER_STATES.BLOCK);
 	}
 
 	protected unBlock() {
-		console.log('unBlock');
-		this.fsm.go('IDLE');
+		this.fsm.go(CHARACTER_STATES.IDLE);
 	}
 }
