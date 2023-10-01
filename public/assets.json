@@ -1,23 +1,47 @@
 {
   "frames": {
-    "graphics/table": {
+    "graphics/bg": {
       "frame": {
         "x": 2,
         "y": 2,
-        "w": 334,
-        "h": 270
+        "w": 1920,
+        "h": 1080
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 334,
-        "h": 270
+        "w": 1920,
+        "h": 1080
       },
       "sourceSize": {
-        "w": 334,
-        "h": 270
+        "w": 1920,
+        "h": 1080
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "graphics/bar": {
+      "frame": {
+        "x": 1926,
+        "y": 2,
+        "w": 846,
+        "h": 234
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 846,
+        "h": 234
+      },
+      "sourceSize": {
+        "w": 846,
+        "h": 234
       },
       "pivot": {
         "x": 0.5,
@@ -26,7 +50,7 @@
     },
     "graphics/beam": {
       "frame": {
-        "x": 340,
+        "x": 2776,
         "y": 2,
         "w": 262,
         "h": 753
@@ -48,10 +72,82 @@
         "y": 0.5
       }
     },
+    "graphics/table": {
+      "frame": {
+        "x": 1926,
+        "y": 240,
+        "w": 334,
+        "h": 270
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 334,
+        "h": 270
+      },
+      "sourceSize": {
+        "w": 334,
+        "h": 270
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "graphics/door": {
+      "frame": {
+        "x": 2264,
+        "y": 240,
+        "w": 172,
+        "h": 264
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 172,
+        "h": 264
+      },
+      "sourceSize": {
+        "w": 172,
+        "h": 264
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "graphics/scale": {
+      "frame": {
+        "x": 2440,
+        "y": 240,
+        "w": 42,
+        "h": 226
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 42,
+        "h": 226
+      },
+      "sourceSize": {
+        "w": 42,
+        "h": 226
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
     "graphics/barman": {
       "frame": {
-        "x": 2,
-        "y": 276,
+        "x": 2486,
+        "y": 240,
         "w": 143,
         "h": 169
       },
@@ -74,8 +170,8 @@
     },
     "graphics/player-state/1": {
       "frame": {
-        "x": 2,
-        "y": 449,
+        "x": 2633,
+        "y": 240,
         "w": 128,
         "h": 161
       },
@@ -98,8 +194,8 @@
     },
     "graphics/player-state/3": {
       "frame": {
-        "x": 2,
-        "y": 614,
+        "x": 2633,
+        "y": 405,
         "w": 128,
         "h": 161
       },
@@ -122,8 +218,8 @@
     },
     "graphics/player-state/4": {
       "frame": {
-        "x": 134,
-        "y": 449,
+        "x": 2486,
+        "y": 413,
         "w": 128,
         "h": 161
       },
@@ -138,30 +234,6 @@
       "sourceSize": {
         "w": 128,
         "h": 161
-      },
-      "pivot": {
-        "x": 0.5,
-        "y": 0.5
-      }
-    },
-    "graphics/player-state/0": {
-      "frame": {
-        "x": 149,
-        "y": 276,
-        "w": 127,
-        "h": 155
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 127,
-        "h": 155
-      },
-      "sourceSize": {
-        "w": 127,
-        "h": 155
       },
       "pivot": {
         "x": 0.5,
@@ -170,8 +242,8 @@
     },
     "graphics/player-state/2": {
       "frame": {
-        "x": 134,
-        "y": 614,
+        "x": 2618,
+        "y": 570,
         "w": 124,
         "h": 159
       },
@@ -186,6 +258,30 @@
       "sourceSize": {
         "w": 124,
         "h": 159
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "graphics/player-state/0": {
+      "frame": {
+        "x": 2264,
+        "y": 508,
+        "w": 127,
+        "h": 155
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 127,
+        "h": 155
+      },
+      "sourceSize": {
+        "w": 127,
+        "h": 155
       },
       "pivot": {
         "x": 0.5,
@@ -194,8 +290,8 @@
     },
     "graphics/beer": {
       "frame": {
-        "x": 262,
-        "y": 614,
+        "x": 2395,
+        "y": 508,
         "w": 63,
         "h": 77
       },
@@ -216,10 +312,34 @@
         "y": 0.5
       }
     },
+    "graphics/scale-indicator": {
+      "frame": {
+        "x": 2462,
+        "y": 578,
+        "w": 51,
+        "h": 53
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 51,
+        "h": 53
+      },
+      "sourceSize": {
+        "w": 51,
+        "h": 53
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
     "graphics/cocktail": {
       "frame": {
-        "x": 266,
-        "y": 435,
+        "x": 2395,
+        "y": 589,
         "w": 36,
         "h": 49
       },
@@ -242,8 +362,8 @@
     },
     "graphics/vodka": {
       "frame": {
-        "x": 280,
-        "y": 488,
+        "x": 2746,
+        "y": 570,
         "w": 26,
         "h": 32
       },
@@ -271,8 +391,8 @@
     "image": "assets.png",
     "format": "RGBA8888",
     "size": {
-      "w": 604,
-      "h": 777
+      "w": 3040,
+      "h": 1084
     },
     "scale": 1
   }

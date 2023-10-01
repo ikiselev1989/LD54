@@ -1,4 +1,4 @@
-import { Actor, CollisionType, Engine, range, Scene, SceneActivationContext, Timer, vec, Vector } from 'excalibur';
+import { Actor, CollisionType, Engine, range, Scene, SceneActivationContext, Sprite, Timer, vec, Vector } from 'excalibur';
 import res from '../res';
 import Player from '../components/Player';
 import game from '../game';
@@ -22,6 +22,8 @@ export default class Level extends Scene {
 	onActivate(_context: SceneActivationContext<unknown>) {
 		this.addBackground();
 		this.addBorders();
+		this.addBar();
+		this.addDoor();
 		this.addUI();
 		this.addBeam();
 		this.addTables();
@@ -44,6 +46,21 @@ export default class Level extends Scene {
 				(<Actor>actor).z = game.halfDrawHeight + (<Actor>actor).pos.y;
 			}
 		}
+	}
+
+	private addDoor() {
+		const layer = <LDtkLayer>res.map.getLevelLayersByName(0, 'Entities')[0];
+		const doorConfig = (layer?.entityInstances || []).filter(ent => ent.__identifier === 'Door')[0];
+		const { __worldX, __worldY } = doorConfig;
+
+		const door = new Actor({
+			pos: vec(__worldX, __worldY),
+			anchor: vec(0.5, 1),
+		});
+
+		door.graphics.use(<Sprite>res.assets.getFrameSprite('graphics/door'));
+
+		this.add(door);
 	}
 
 	private addUI() {
@@ -103,7 +120,7 @@ export default class Level extends Scene {
 
 	private addBackground() {
 		const bg = new Actor();
-		bg.graphics.use(res.bg.toSprite(), {
+		bg.graphics.use(<Sprite>res.assets.getFrameSprite('graphics/bg'), {
 			anchor: Vector.Zero,
 		});
 
@@ -125,6 +142,21 @@ export default class Level extends Scene {
 
 			this.add(border);
 		}
+	}
+
+	private addBar() {
+		const layer = <LDtkLayer>res.map.getLevelLayersByName(0, 'Entities')[0];
+		const barConfig = (layer?.entityInstances || []).filter(ent => ent.__identifier === 'Bar')[0];
+		const { __worldX, __worldY } = barConfig;
+
+		const bar = new Actor({
+			pos: vec(__worldX, __worldY),
+			anchor: vec(0.5, 1),
+		});
+
+		bar.graphics.use(<Sprite>res.assets.getFrameSprite('graphics/bar'));
+
+		this.add(bar);
 	}
 
 	private addBooze() {
