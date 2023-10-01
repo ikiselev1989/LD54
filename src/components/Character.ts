@@ -1,4 +1,4 @@
-import { Actor, ActorArgs, CollisionType, EasingFunctions, Shape, StateMachine, vec, Vector } from 'excalibur';
+import { Actor, ActorArgs, CollisionType, Shape, StateMachine, vec, Vector } from 'excalibur';
 import config from '../config';
 import { characterCanCollide } from '../collisions';
 import { CHARACTER_STATES } from '../enums';
@@ -62,7 +62,7 @@ export default abstract class Character extends Actor {
 		const time = 100 * (punchCount === 3 ? 10 : 1);
 
 		this.fsm.go(CHARACTER_STATES.DAMAGE);
-		await this.actions.easeTo(this.pos.add(dir.scaleEqual(hurtImpulse)), time, EasingFunctions.EaseOutCubic).toPromise();
+		await this.actions.moveTo(this.pos.add(dir.scaleEqual(hurtImpulse)), time).toPromise();
 	}
 
 	abstract onPunchState(): void;

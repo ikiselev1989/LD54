@@ -1,4 +1,4 @@
-import { Actor, Engine, range, Scene, SceneActivationContext, Timer, vec, Vector } from 'excalibur';
+import { Actor, CollisionType, Engine, range, Scene, SceneActivationContext, Timer, vec, Vector } from 'excalibur';
 import res from '../res';
 import Player from '../components/Player';
 import game from '../game';
@@ -17,11 +17,11 @@ export default class Level extends Scene {
 	private player!: Player;
 	private prevSpawnInd!: number;
 
-	onInitialize(_engine: Engine) {
-		this.addBackground();
-	}
+	onInitialize(_engine: Engine) {}
 
 	onActivate(_context: SceneActivationContext<unknown>) {
+		this.addBackground();
+		this.addBorders();
 		this.addUI();
 		this.addBeam();
 		this.addTables();
@@ -108,6 +108,23 @@ export default class Level extends Scene {
 		});
 
 		this.add(bg);
+	}
+
+	private addBorders() {
+		const layer = <LDtkLayer>res.map.getLevelLayersByName(0, 'Entities')[0];
+		const borders = (layer?.entityInstances || []).filter(ent => ent.__identifier === 'Border');
+
+		for (let borderConfig of borders) {
+			const { width, height, __worldX, __worldY } = borderConfig;
+			const border = new Actor({
+				width,
+				height,
+				pos: vec(__worldX, __worldY),
+				collisionType: CollisionType.Fixed,
+			});
+
+			this.add(border);
+		}
 	}
 
 	private addBooze() {

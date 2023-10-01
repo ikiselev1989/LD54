@@ -41,6 +41,8 @@ export interface LDtkEntity {
 	__pivot: [x: number, y: number];
 	__worldX: number;
 	__worldY: number;
+	width: number;
+	height: number;
 	fieldInstances: LDtkField[];
 	iid: string;
 }
