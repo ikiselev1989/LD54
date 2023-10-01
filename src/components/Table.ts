@@ -5,9 +5,9 @@ export default class Table extends Actor {
 	constructor(props: ActorArgs) {
 		super({
 			...props,
-			width: 50,
-			height: 50,
-			anchor: vec(0.5, 1),
+			width: 300,
+			height: 100,
+			anchor: vec(0.5, 0.8),
 			collisionType: CollisionType.Fixed,
 		});
 	}

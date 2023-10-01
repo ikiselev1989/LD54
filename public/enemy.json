@@ -1,0 +1,543 @@
+{
+  "frames": {
+    "enemy/enemy1/damage-up/Untitled-10001": {
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 295,
+        "h": 250
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 295,
+        "h": 250
+      },
+      "sourceSize": {
+        "w": 295,
+        "h": 250
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "enemy/enemy1/damage-up/Untitled-10003": {
+      "frame": {
+        "x": 295,
+        "y": 0,
+        "w": 295,
+        "h": 250
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 295,
+        "h": 250
+      },
+      "sourceSize": {
+        "w": 295,
+        "h": 250
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "enemy/enemy1/damage-up/Untitled-10005": {
+      "frame": {
+        "x": 590,
+        "y": 0,
+        "w": 295,
+        "h": 250
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 295,
+        "h": 250
+      },
+      "sourceSize": {
+        "w": 295,
+        "h": 250
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "enemy/enemy1/damage-up/Untitled-10007": {
+      "frame": {
+        "x": 885,
+        "y": 0,
+        "w": 295,
+        "h": 250
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 295,
+        "h": 250
+      },
+      "sourceSize": {
+        "w": 295,
+        "h": 250
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "enemy/enemy1/damage-up/Untitled-10009": {
+      "frame": {
+        "x": 1180,
+        "y": 0,
+        "w": 295,
+        "h": 250
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 295,
+        "h": 250
+      },
+      "sourceSize": {
+        "w": 295,
+        "h": 250
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "enemy/enemy1/damage-up/Untitled-10011": {
+      "frame": {
+        "x": 1475,
+        "y": 0,
+        "w": 295,
+        "h": 250
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 295,
+        "h": 250
+      },
+      "sourceSize": {
+        "w": 295,
+        "h": 250
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "enemy/enemy1/punch/003450001": {
+      "frame": {
+        "x": 1770,
+        "y": 0,
+        "w": 264,
+        "h": 247
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 264,
+        "h": 247
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 247
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "enemy/enemy1/punch/003450004": {
+      "frame": {
+        "x": 2034,
+        "y": 0,
+        "w": 264,
+        "h": 247
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 264,
+        "h": 247
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 247
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "enemy/enemy1/punch/003450006": {
+      "frame": {
+        "x": 2298,
+        "y": 0,
+        "w": 264,
+        "h": 247
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 264,
+        "h": 247
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 247
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "enemy/enemy1/punch/003450008": {
+      "frame": {
+        "x": 2562,
+        "y": 0,
+        "w": 264,
+        "h": 247
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 264,
+        "h": 247
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 247
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "enemy/enemy1/punch/003450010": {
+      "frame": {
+        "x": 2826,
+        "y": 0,
+        "w": 264,
+        "h": 247
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 264,
+        "h": 247
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 247
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "enemy/enemy1/damage-up/Untitled-10002": {
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 295,
+        "h": 250
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 295,
+        "h": 250
+      },
+      "sourceSize": {
+        "w": 295,
+        "h": 250
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "enemy/enemy1/damage-up/Untitled-10004": {
+      "frame": {
+        "x": 295,
+        "y": 0,
+        "w": 295,
+        "h": 250
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 295,
+        "h": 250
+      },
+      "sourceSize": {
+        "w": 295,
+        "h": 250
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "enemy/enemy1/damage-up/Untitled-10006": {
+      "frame": {
+        "x": 590,
+        "y": 0,
+        "w": 295,
+        "h": 250
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 295,
+        "h": 250
+      },
+      "sourceSize": {
+        "w": 295,
+        "h": 250
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "enemy/enemy1/damage-up/Untitled-10008": {
+      "frame": {
+        "x": 885,
+        "y": 0,
+        "w": 295,
+        "h": 250
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 295,
+        "h": 250
+      },
+      "sourceSize": {
+        "w": 295,
+        "h": 250
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "enemy/enemy1/damage-up/Untitled-10010": {
+      "frame": {
+        "x": 1180,
+        "y": 0,
+        "w": 295,
+        "h": 250
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 295,
+        "h": 250
+      },
+      "sourceSize": {
+        "w": 295,
+        "h": 250
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "enemy/enemy1/punch/003450002": {
+      "frame": {
+        "x": 1770,
+        "y": 0,
+        "w": 264,
+        "h": 247
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 264,
+        "h": 247
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 247
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "enemy/enemy1/punch/003450003": {
+      "frame": {
+        "x": 1770,
+        "y": 0,
+        "w": 264,
+        "h": 247
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 264,
+        "h": 247
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 247
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "enemy/enemy1/punch/003450005": {
+      "frame": {
+        "x": 2034,
+        "y": 0,
+        "w": 264,
+        "h": 247
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 264,
+        "h": 247
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 247
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "enemy/enemy1/punch/003450007": {
+      "frame": {
+        "x": 2298,
+        "y": 0,
+        "w": 264,
+        "h": 247
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 264,
+        "h": 247
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 247
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "enemy/enemy1/punch/003450009": {
+      "frame": {
+        "x": 2562,
+        "y": 0,
+        "w": 264,
+        "h": 247
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 264,
+        "h": 247
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 247
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "enemy/enemy1/punch/003450011": {
+      "frame": {
+        "x": 2826,
+        "y": 0,
+        "w": 264,
+        "h": 247
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 264,
+        "h": 247
+      },
+      "sourceSize": {
+        "w": 264,
+        "h": 247
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    }
+  },
+  "meta": {
+    "app": "http://github.com/odrick/free-tex-packer-cli",
+    "version": "0.3.0",
+    "image": "enemy.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 3090,
+      "h": 250
+    },
+    "scale": 1
+  }
+}

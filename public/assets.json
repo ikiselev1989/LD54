@@ -4,44 +4,20 @@
       "frame": {
         "x": 0,
         "y": 0,
-        "w": 327,
-        "h": 221
+        "w": 334,
+        "h": 270
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 327,
-        "h": 221
+        "w": 334,
+        "h": 270
       },
       "sourceSize": {
-        "w": 327,
-        "h": 221
-      },
-      "pivot": {
-        "x": 0.5,
-        "y": 0.5
-      }
-    },
-    "graphics/gg": {
-      "frame": {
-        "x": 0,
-        "y": 221,
-        "w": 115,
-        "h": 287
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 115,
-        "h": 287
-      },
-      "sourceSize": {
-        "w": 115,
-        "h": 287
+        "w": 334,
+        "h": 270
       },
       "pivot": {
         "x": 0.5,
@@ -50,7 +26,7 @@
     },
     "graphics/vrag_2": {
       "frame": {
-        "x": 327,
+        "x": 334,
         "y": 0,
         "w": 264,
         "h": 247
@@ -74,8 +50,8 @@
     },
     "graphics/vrag_1": {
       "frame": {
-        "x": 115,
-        "y": 221,
+        "x": 598,
+        "y": 0,
         "w": 203,
         "h": 247
       },
@@ -96,9 +72,33 @@
         "y": 0.5
       }
     },
+    "graphics/gg": {
+      "frame": {
+        "x": 801,
+        "y": 0,
+        "w": 115,
+        "h": 287
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 115,
+        "h": 287
+      },
+      "sourceSize": {
+        "w": 115,
+        "h": 287
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
     "graphics/barman": {
       "frame": {
-        "x": 318,
+        "x": 334,
         "y": 247,
         "w": 143,
         "h": 169
@@ -122,7 +122,7 @@
     },
     "graphics/player-state/icon0002": {
       "frame": {
-        "x": 461,
+        "x": 477,
         "y": 247,
         "w": 128,
         "h": 161
@@ -146,8 +146,8 @@
     },
     "graphics/player-state/icon0004": {
       "frame": {
-        "x": 0,
-        "y": 508,
+        "x": 605,
+        "y": 247,
         "w": 128,
         "h": 161
       },
@@ -170,8 +170,8 @@
     },
     "graphics/player-state/icon0005": {
       "frame": {
-        "x": 461,
-        "y": 408,
+        "x": 0,
+        "y": 270,
         "w": 128,
         "h": 161
       },
@@ -194,8 +194,8 @@
     },
     "graphics/player-state/icon0003": {
       "frame": {
-        "x": 318,
-        "y": 416,
+        "x": 128,
+        "y": 270,
         "w": 124,
         "h": 159
       },
@@ -218,8 +218,8 @@
     },
     "graphics/player-state/icon0001": {
       "frame": {
-        "x": 128,
-        "y": 468,
+        "x": 733,
+        "y": 287,
         "w": 127,
         "h": 155
       },
@@ -242,8 +242,8 @@
     },
     "graphics/beer": {
       "frame": {
-        "x": 255,
-        "y": 468,
+        "x": 252,
+        "y": 270,
         "w": 63,
         "h": 77
       },
@@ -266,8 +266,8 @@
     },
     "graphics/coctal": {
       "frame": {
-        "x": 255,
-        "y": 545,
+        "x": 252,
+        "y": 347,
         "w": 36,
         "h": 49
       },
@@ -290,8 +290,8 @@
     },
     "graphics/vodka": {
       "frame": {
-        "x": 291,
-        "y": 545,
+        "x": 733,
+        "y": 247,
         "w": 26,
         "h": 32
       },
@@ -319,8 +319,8 @@
     "image": "assets.png",
     "format": "RGBA8888",
     "size": {
-      "w": 591,
-      "h": 669
+      "w": 916,
+      "h": 442
     },
     "scale": 1
   }

@@ -9,7 +9,7 @@ export default class Player extends Character {
 	private animations!: SpriteSheetAnimation;
 
 	onInitialize() {
-		this.animations = new SpriteSheetAnimation([res.playerAnims]);
+		this.animations = new SpriteSheetAnimation([res.player]);
 		super.onInitialize();
 
 		this.addGraphics();
@@ -83,6 +83,9 @@ export default class Player extends Character {
 		}
 
 		this.enemy && this.enemy.hurt(this.enemy.pos.sub(this.pos).normalize(), this.punchCount + 1);
+	}
+
+	onHurtState(): void {
 	}
 
 	private addGraphics() {

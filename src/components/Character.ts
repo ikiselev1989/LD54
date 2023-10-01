@@ -67,32 +67,25 @@ export default abstract class Character extends Actor {
 	async hurt(dir: Vector, punchCount: number) {
 		if (this.fsm.in('HURT')) return;
 
-		this.fsm.go('HURT');
 
 		const hurtImpulse = config.character.hurtImpulse * (punchCount === 3 ? 20 : 1);
 		const time = 100 * (punchCount === 3 ? 10 : 1);
 
+		this.fsm.go('HURT');
 		await this.actions.easeTo(this.pos.add(dir.scaleEqual(hurtImpulse)), time, EasingFunctions.EaseOutCubic).toPromise();
 
-		this.fsm.go('IDLE');
+		// this.fsm.go('IDLE');
 	}
 
-	onPunchState() {
-	}
+	abstract onPunchState(): void
 
-	onBlockState() {
-	}
+	abstract onBlockState(): void
 
-	onIdleState() {
+	abstract onIdleState(): void
 
-	}
+	abstract onMoveState(): void
 
-	onMoveState() {
-	}
-
-	onHurtState() {
-		// this.actions.blink(100, 100, 2);
-	}
+	abstract onHurtState(): void
 
 	protected resetPunchCount() {
 		this.punchCount = -1;
