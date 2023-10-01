@@ -3,6 +3,7 @@ import { SCENES } from './enums';
 import Level from './scenes/Level';
 import res from './res';
 import config from './config';
+import { Pane } from 'tweakpane';
 
 class Game extends Engine {
 	constructor() {
@@ -21,7 +22,7 @@ class Game extends Engine {
 			suppressConsoleBootMessage: true,
 			suppressPlayButton: true,
 			fixedUpdateFps: 60,
-			maxFps: 60,
+			// maxFps: 60,
 			pointerScope: PointerScope.Canvas,
 			scrollPreventionMode: ScrollPreventionMode.All,
 			displayMode: DisplayMode.FitScreen,
@@ -52,12 +53,12 @@ class Game extends Engine {
 	}
 
 	private showFpsCounter() {
-		// const fpsPane = new Pane();
-		// fpsPane.addBinding(this.clock.fpsSampler, 'fps', {
-		// 	readonly: true,
-		// 	// view: 'graph',
-		// 	min: 20,
-		// });
+		const fpsPane = new Pane();
+		fpsPane.addBinding(this.clock.fpsSampler, 'fps', {
+			readonly: true,
+			// view: 'graph',
+			min: 20,
+		});
 	}
 
 	private activateDebug() {

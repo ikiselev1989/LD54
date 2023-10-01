@@ -13,8 +13,10 @@
     "vite": "^4.4.5"
   },
   "dependencies": {
+    "@tweakpane/core": "^2.0.1",
     "excalibur": "^0.29.0-alpha.746",
     "free-tex-packer-cli": "^0.3.0",
-    "sharp-cli": "^4.1.1"
+    "sharp-cli": "^4.1.1",
+    "tweakpane": "^4.0.1"
   }
 }
