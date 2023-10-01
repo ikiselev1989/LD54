@@ -1,200 +1,8 @@
 {
   "frames": {
-    "graphics/vodka": {
+    "animations/idle/gg_010001": {
       "frame": {
         "x": 0,
-        "y": 0,
-        "w": 26,
-        "h": 32
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 26,
-        "h": 32
-      },
-      "sourceSize": {
-        "w": 26,
-        "h": 32
-      },
-      "pivot": {
-        "x": 0.5,
-        "y": 0.5
-      }
-    },
-    "graphics/coctal": {
-      "frame": {
-        "x": 26,
-        "y": 0,
-        "w": 36,
-        "h": 49
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 36,
-        "h": 49
-      },
-      "sourceSize": {
-        "w": 36,
-        "h": 49
-      },
-      "pivot": {
-        "x": 0.5,
-        "y": 0.5
-      }
-    },
-    "graphics/beer": {
-      "frame": {
-        "x": 62,
-        "y": 0,
-        "w": 63,
-        "h": 77
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 63,
-        "h": 77
-      },
-      "sourceSize": {
-        "w": 63,
-        "h": 77
-      },
-      "pivot": {
-        "x": 0.5,
-        "y": 0.5
-      }
-    },
-    "graphics/гг_icon": {
-      "frame": {
-        "x": 125,
-        "y": 0,
-        "w": 124,
-        "h": 160
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 124,
-        "h": 160
-      },
-      "sourceSize": {
-        "w": 124,
-        "h": 160
-      },
-      "pivot": {
-        "x": 0.5,
-        "y": 0.5
-      }
-    },
-    "graphics/barman": {
-      "frame": {
-        "x": 249,
-        "y": 0,
-        "w": 143,
-        "h": 169
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 143,
-        "h": 169
-      },
-      "sourceSize": {
-        "w": 143,
-        "h": 169
-      },
-      "pivot": {
-        "x": 0.5,
-        "y": 0.5
-      }
-    },
-    "graphics/table": {
-      "frame": {
-        "x": 392,
-        "y": 0,
-        "w": 327,
-        "h": 221
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 327,
-        "h": 221
-      },
-      "sourceSize": {
-        "w": 327,
-        "h": 221
-      },
-      "pivot": {
-        "x": 0.5,
-        "y": 0.5
-      }
-    },
-    "graphics/vrag_1": {
-      "frame": {
-        "x": 719,
-        "y": 0,
-        "w": 203,
-        "h": 247
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 203,
-        "h": 247
-      },
-      "sourceSize": {
-        "w": 203,
-        "h": 247
-      },
-      "pivot": {
-        "x": 0.5,
-        "y": 0.5
-      }
-    },
-    "graphics/vrag_2": {
-      "frame": {
-        "x": 922,
-        "y": 0,
-        "w": 264,
-        "h": 247
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 264,
-        "h": 247
-      },
-      "sourceSize": {
-        "w": 264,
-        "h": 247
-      },
-      "pivot": {
-        "x": 0.5,
-        "y": 0.5
-      }
-    },
-    "graphics/animations/idle/gg_010001": {
-      "frame": {
-        "x": 1186,
         "y": 0,
         "w": 117,
         "h": 284
@@ -216,9 +24,9 @@
         "y": 0.5
       }
     },
-    "graphics/animations/idle/gg_010003": {
+    "animations/idle/gg_010003": {
       "frame": {
-        "x": 1303,
+        "x": 117,
         "y": 0,
         "w": 117,
         "h": 284
@@ -240,9 +48,9 @@
         "y": 0.5
       }
     },
-    "graphics/animations/idle/gg_010005": {
+    "animations/idle/gg_010005": {
       "frame": {
-        "x": 1420,
+        "x": 234,
         "y": 0,
         "w": 117,
         "h": 284
@@ -264,9 +72,9 @@
         "y": 0.5
       }
     },
-    "graphics/animations/idle/gg_010007": {
+    "animations/idle/gg_010007": {
       "frame": {
-        "x": 1537,
+        "x": 351,
         "y": 0,
         "w": 117,
         "h": 284
@@ -288,9 +96,9 @@
         "y": 0.5
       }
     },
-    "graphics/animations/idle/gg_010009": {
+    "animations/idle/gg_010009": {
       "frame": {
-        "x": 1654,
+        "x": 468,
         "y": 0,
         "w": 117,
         "h": 284
@@ -312,9 +120,9 @@
         "y": 0.5
       }
     },
-    "graphics/animations/move/gg_0030001": {
+    "animations/move/gg_0030001": {
       "frame": {
-        "x": 1771,
+        "x": 585,
         "y": 0,
         "w": 168,
         "h": 284
@@ -336,9 +144,9 @@
         "y": 0.5
       }
     },
-    "graphics/animations/move/gg_0030003": {
+    "animations/move/gg_0030003": {
       "frame": {
-        "x": 1939,
+        "x": 753,
         "y": 0,
         "w": 168,
         "h": 284
@@ -360,9 +168,9 @@
         "y": 0.5
       }
     },
-    "graphics/animations/move/gg_0030005": {
+    "animations/move/gg_0030005": {
       "frame": {
-        "x": 2107,
+        "x": 921,
         "y": 0,
         "w": 168,
         "h": 284
@@ -384,9 +192,9 @@
         "y": 0.5
       }
     },
-    "graphics/animations/move/gg_0030007": {
+    "animations/move/gg_0030007": {
       "frame": {
-        "x": 2275,
+        "x": 1089,
         "y": 0,
         "w": 168,
         "h": 284
@@ -408,9 +216,9 @@
         "y": 0.5
       }
     },
-    "graphics/animations/move/gg_0030009": {
+    "animations/move/gg_0030009": {
       "frame": {
-        "x": 2443,
+        "x": 1257,
         "y": 0,
         "w": 168,
         "h": 284
@@ -432,33 +240,9 @@
         "y": 0.5
       }
     },
-    "graphics/gg": {
+    "animations/punch/gg_kulaki0001": {
       "frame": {
-        "x": 2611,
-        "y": 0,
-        "w": 115,
-        "h": 287
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 115,
-        "h": 287
-      },
-      "sourceSize": {
-        "w": 115,
-        "h": 287
-      },
-      "pivot": {
-        "x": 0.5,
-        "y": 0.5
-      }
-    },
-    "graphics/animations/punch/gg_kulaki0001": {
-      "frame": {
-        "x": 2726,
+        "x": 1425,
         "y": 0,
         "w": 178,
         "h": 292
@@ -480,9 +264,9 @@
         "y": 0.5
       }
     },
-    "graphics/animations/punch/gg_kulaki0003": {
+    "animations/punch/gg_kulaki0003": {
       "frame": {
-        "x": 2904,
+        "x": 1603,
         "y": 0,
         "w": 178,
         "h": 292
@@ -504,9 +288,9 @@
         "y": 0.5
       }
     },
-    "graphics/animations/punch/gg_kulaki0005": {
+    "animations/punch/gg_kulaki0005": {
       "frame": {
-        "x": 3082,
+        "x": 1781,
         "y": 0,
         "w": 178,
         "h": 292
@@ -528,9 +312,9 @@
         "y": 0.5
       }
     },
-    "graphics/animations/punch/gg_kulaki0007": {
+    "animations/punch/gg_kulaki0007": {
       "frame": {
-        "x": 3260,
+        "x": 1959,
         "y": 0,
         "w": 178,
         "h": 292
@@ -552,9 +336,9 @@
         "y": 0.5
       }
     },
-    "graphics/animations/punch/gg_kulaki0009": {
+    "animations/punch/gg_kulaki0009": {
       "frame": {
-        "x": 3438,
+        "x": 2137,
         "y": 0,
         "w": 178,
         "h": 292
@@ -576,33 +360,9 @@
         "y": 0.5
       }
     },
-    "graphics/animations/idle/gg_010002": {
+    "animations/idle/gg_010002": {
       "frame": {
-        "x": 1186,
-        "y": 0,
-        "w": 117,
-        "h": 284
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
         "x": 0,
-        "y": 0,
-        "w": 117,
-        "h": 284
-      },
-      "sourceSize": {
-        "w": 117,
-        "h": 284
-      },
-      "pivot": {
-        "x": 0.5,
-        "y": 0.5
-      }
-    },
-    "graphics/animations/idle/gg_010004": {
-      "frame": {
-        "x": 1303,
         "y": 0,
         "w": 117,
         "h": 284
@@ -624,9 +384,9 @@
         "y": 0.5
       }
     },
-    "graphics/animations/idle/gg_010006": {
+    "animations/idle/gg_010004": {
       "frame": {
-        "x": 1420,
+        "x": 117,
         "y": 0,
         "w": 117,
         "h": 284
@@ -648,9 +408,9 @@
         "y": 0.5
       }
     },
-    "graphics/animations/idle/gg_010008": {
+    "animations/idle/gg_010006": {
       "frame": {
-        "x": 1537,
+        "x": 234,
         "y": 0,
         "w": 117,
         "h": 284
@@ -672,9 +432,9 @@
         "y": 0.5
       }
     },
-    "graphics/animations/idle/gg_010010": {
+    "animations/idle/gg_010008": {
       "frame": {
-        "x": 1654,
+        "x": 351,
         "y": 0,
         "w": 117,
         "h": 284
@@ -696,9 +456,33 @@
         "y": 0.5
       }
     },
-    "graphics/animations/move/gg_0030002": {
+    "animations/idle/gg_010010": {
       "frame": {
-        "x": 1771,
+        "x": 468,
+        "y": 0,
+        "w": 117,
+        "h": 284
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 117,
+        "h": 284
+      },
+      "sourceSize": {
+        "w": 117,
+        "h": 284
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "animations/move/gg_0030002": {
+      "frame": {
+        "x": 585,
         "y": 0,
         "w": 168,
         "h": 284
@@ -720,9 +504,9 @@
         "y": 0.5
       }
     },
-    "graphics/animations/move/gg_0030004": {
+    "animations/move/gg_0030004": {
       "frame": {
-        "x": 1939,
+        "x": 753,
         "y": 0,
         "w": 168,
         "h": 284
@@ -744,9 +528,9 @@
         "y": 0.5
       }
     },
-    "graphics/animations/move/gg_0030006": {
+    "animations/move/gg_0030006": {
       "frame": {
-        "x": 2107,
+        "x": 921,
         "y": 0,
         "w": 168,
         "h": 284
@@ -768,9 +552,9 @@
         "y": 0.5
       }
     },
-    "graphics/animations/move/gg_0030008": {
+    "animations/move/gg_0030008": {
       "frame": {
-        "x": 2275,
+        "x": 1089,
         "y": 0,
         "w": 168,
         "h": 284
@@ -792,9 +576,9 @@
         "y": 0.5
       }
     },
-    "graphics/animations/move/gg_0030010": {
+    "animations/move/gg_0030010": {
       "frame": {
-        "x": 2443,
+        "x": 1257,
         "y": 0,
         "w": 168,
         "h": 284
@@ -816,9 +600,9 @@
         "y": 0.5
       }
     },
-    "graphics/animations/punch/gg_kulaki0002": {
+    "animations/punch/gg_kulaki0002": {
       "frame": {
-        "x": 2726,
+        "x": 1425,
         "y": 0,
         "w": 178,
         "h": 292
@@ -840,9 +624,9 @@
         "y": 0.5
       }
     },
-    "graphics/animations/punch/gg_kulaki0004": {
+    "animations/punch/gg_kulaki0004": {
       "frame": {
-        "x": 2904,
+        "x": 1603,
         "y": 0,
         "w": 178,
         "h": 292
@@ -864,9 +648,9 @@
         "y": 0.5
       }
     },
-    "graphics/animations/punch/gg_kulaki0006": {
+    "animations/punch/gg_kulaki0006": {
       "frame": {
-        "x": 3082,
+        "x": 1781,
         "y": 0,
         "w": 178,
         "h": 292
@@ -888,9 +672,9 @@
         "y": 0.5
       }
     },
-    "graphics/animations/punch/gg_kulaki0008": {
+    "animations/punch/gg_kulaki0008": {
       "frame": {
-        "x": 3260,
+        "x": 1959,
         "y": 0,
         "w": 178,
         "h": 292
@@ -912,9 +696,9 @@
         "y": 0.5
       }
     },
-    "graphics/animations/punch/gg_kulaki0010": {
+    "animations/punch/gg_kulaki0010": {
       "frame": {
-        "x": 3438,
+        "x": 2137,
         "y": 0,
         "w": 178,
         "h": 292
@@ -940,10 +724,10 @@
   "meta": {
     "app": "http://github.com/odrick/free-tex-packer-cli",
     "version": "0.3.0",
-    "image": "assets.png",
+    "image": "player-anims.png",
     "format": "RGBA8888",
     "size": {
-      "w": 3616,
+      "w": 2315,
       "h": 292
     },
     "scale": 1

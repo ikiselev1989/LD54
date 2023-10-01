@@ -4,7 +4,7 @@ export default {
 	debug: true,
 	showFps: false,
 	sceneFadeDuration: 400,
-	characterSpeed: 200,
+	characterSpeed: 300,
 	input: {
 		keyboard: {
 			left: Keys.A,
