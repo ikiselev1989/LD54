@@ -40,15 +40,19 @@ export default abstract class Character extends Actor {
 				},
 				IDLE: {
 					onState: this.onIdleState.bind(this),
-					transitions: ['MOVE', 'PUNCH', 'HURT'],
+					transitions: ['MOVE', 'PUNCH', 'HURT', 'BLOCK'],
 				},
 				MOVE: {
 					onState: this.onMoveState.bind(this),
-					transitions: ['IDLE', 'PUNCH'],
+					transitions: ['IDLE', 'PUNCH', 'BLOCK'],
 				},
 				PUNCH: {
 					onState: this.onPunchState.bind(this),
 					transitions: ['IDLE'],
+				},
+				BLOCK: {
+					onState: this.onBlockState.bind(this),
+					transitions: ['IDLE', 'MOVE'],
 				},
 				HURT: {
 					onState: this.onHurtState.bind(this),
@@ -74,6 +78,9 @@ export default abstract class Character extends Actor {
 	}
 
 	onPunchState() {
+	}
+
+	onBlockState() {
 	}
 
 	onIdleState() {
@@ -125,7 +132,13 @@ export default abstract class Character extends Actor {
 		this.enemy && this.enemy.hurt();
 	}
 
-	protected clinch() {
-		console.log('clinch');
+	protected block() {
+		console.log('block');
+		this.fsm.go('BLOCK');
+	}
+
+	protected unBlock() {
+		console.log('unBlock');
+		this.fsm.go('IDLE');
 	}
 }

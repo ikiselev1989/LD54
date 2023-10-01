@@ -12,7 +12,7 @@ export default {
 			down: Keys.S,
 			punch: Keys.J,
 			kick: Keys.K,
-			clinch: Keys.L,
+			block: Keys.L,
 		},
 	},
 	character: {

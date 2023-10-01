@@ -30,6 +30,24 @@ export default class Player extends Character {
 		this.graphics.use(<Animation>anims);
 	}
 
+	onBlockState() {
+		this.vel.setTo(0, 0);
+
+		const anims = <Animation>this.animations.getAnimation(`animations/block`, {
+			strategy: AnimationStrategy.Freeze,
+		});
+
+		anims.reset();
+
+		const anchor = vec(56 / (anims?.width || 1), 1);
+
+		this.graphics.use(<Animation>anims, {
+			anchor: this.graphics.flipHorizontal ? vec(1 - 56 / (anims?.width || 1), 1) : anchor,
+		});
+
+		anims.play();
+	}
+
 	async onPunchState() {
 		this.vel.setTo(0, 0);
 		this.punchCount = this.enemy ? (this.punchCount + 1) % config.character.punchCount : 0;
@@ -54,7 +72,7 @@ export default class Player extends Character {
 			});
 		}
 
-		anims?.play();
+		anims.play();
 
 		anims.events.once('end', () => {
 			this.fsm.go('IDLE');
@@ -102,7 +120,10 @@ export default class Player extends Character {
 		game.inputMapper.on(({ keyboard }) => keyboard.wasPressed(config.input.keyboard.kick),
 			this.kick.bind(this));
 
-		game.inputMapper.on(({ keyboard }) => keyboard.wasPressed(config.input.keyboard.clinch),
-			this.clinch.bind(this));
+		game.inputMapper.on(({ keyboard }) => keyboard.wasPressed(config.input.keyboard.block),
+			this.block.bind(this));
+
+		game.inputMapper.on(({ keyboard }) => keyboard.wasReleased(config.input.keyboard.block),
+			this.unBlock.bind(this));
 	}
 }
