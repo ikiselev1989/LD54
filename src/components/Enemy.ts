@@ -1,6 +1,6 @@
 import Character from './Character';
 import res from '../res';
-import { Actor, Animation, AnimationStrategy, Sprite } from 'excalibur';
+import { Actor, Animation, AnimationStrategy } from 'excalibur';
 import SpriteSheetAnimation from '../partials/spritesheet-animation';
 import { CHARACTER_STATES } from '../enums';
 
@@ -11,8 +11,6 @@ export class Enemy extends Character {
 		this.animations = new SpriteSheetAnimation([res.enemy]);
 
 		super.onInitialize();
-
-		this.addGraphics();
 
 		this.fsm.go(CHARACTER_STATES.MOVE);
 	}
@@ -51,8 +49,4 @@ export class Enemy extends Character {
 	}
 
 	onPunchState(): void {}
-
-	private addGraphics() {
-		this.graphics.use(<Sprite>res.assets.getFrameSprite('graphics/vrag_1'));
-	}
 }

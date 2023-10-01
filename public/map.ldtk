@@ -11,7 +11,7 @@
 	"iid": "020f9d00-3b70-11ee-a438-63425c07273f",
 	"jsonVersion": "1.4.1",
 	"appBuildId": 471015,
-	"nextUid": 5,
+	"nextUid": 7,
 	"identifierStyle": "Capitalize",
 	"toc": [],
 	"worldLayout": "Free",
@@ -43,7 +43,7 @@
 	"defs": { "layers": [
 		{
 			"__type": "Entities",
-			"identifier": "Tables",
+			"identifier": "Entities",
 			"type": "Entities",
 			"uid": 4,
 			"doc": null,
@@ -140,6 +140,40 @@
 			"pivotX": 0.5,
 			"pivotY": 1,
 			"fieldDefs": []
+		},
+		{
+			"identifier": "Beam",
+			"uid": 6,
+			"tags": [],
+			"exportToToc": false,
+			"doc": null,
+			"width": 16,
+			"height": 256,
+			"resizableX": false,
+			"resizableY": false,
+			"minWidth": null,
+			"maxWidth": null,
+			"minHeight": null,
+			"maxHeight": null,
+			"keepAspectRatio": false,
+			"tileOpacity": 1,
+			"fillOpacity": 1,
+			"lineOpacity": 1,
+			"hollow": false,
+			"color": "#EAD4AA",
+			"renderMode": "Rectangle",
+			"showName": true,
+			"tilesetId": null,
+			"tileRenderMode": "FitInside",
+			"tileRect": null,
+			"uiTileRect": null,
+			"nineSliceBorders": [],
+			"maxCount": 0,
+			"limitScope": "PerLevel",
+			"limitBehavior": "MoveLastOne",
+			"pivotX": 0.5,
+			"pivotY": 1,
+			"fieldDefs": []
 		}
 	], "tilesets": [
 		{
@@ -188,7 +222,7 @@
 			"fieldInstances": [],
 			"layerInstances": [
 				{
-					"__identifier": "Tables",
+					"__identifier": "Entities",
 					"__type": "Entities",
 					"__cWid": 120,
 					"__cHei": 68,
@@ -305,6 +339,38 @@
 							"height": 64,
 							"defUid": 1,
 							"px": [680,336],
+							"fieldInstances": []
+						},
+						{
+							"__identifier": "Beam",
+							"__grid": [112,44],
+							"__pivot": [0.5,1],
+							"__tags": [],
+							"__tile": null,
+							"__smartColor": "#EAD4AA",
+							"__worldX": 1800,
+							"__worldY": 720,
+							"iid": "9a34c510-3b70-11ee-a9e7-9d621a108db5",
+							"width": 16,
+							"height": 256,
+							"defUid": 6,
+							"px": [1800,720],
+							"fieldInstances": []
+						},
+						{
+							"__identifier": "Beam",
+							"__grid": [9,44],
+							"__pivot": [0.5,1],
+							"__tags": [],
+							"__tile": null,
+							"__smartColor": "#EAD4AA",
+							"__worldX": 152,
+							"__worldY": 720,
+							"iid": "a315b810-3b70-11ee-a9e7-7900ad0b3560",
+							"width": 16,
+							"height": 256,
+							"defUid": 6,
+							"px": [152,720],
 							"fieldInstances": []
 						}
 					]

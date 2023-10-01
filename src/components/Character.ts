@@ -93,7 +93,8 @@ export default abstract class Character extends Actor {
 
 		this.fightTrigger.on('collisionstart', e => {
 			this.resetPunchCount();
-			this.enemy = <Character>e.other;
+			const enemy = e.other;
+			if (enemy instanceof Character) this.enemy = enemy;
 		});
 
 		this.fightTrigger.on('collisionend', () => {

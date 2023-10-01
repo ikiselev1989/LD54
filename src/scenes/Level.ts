@@ -6,6 +6,7 @@ import { LDtkLayer } from '../types';
 import Table from '../components/Table';
 import Character from '../components/Character';
 import { Enemy } from '../components/Enemy';
+import Beam from '../components/Beam';
 
 export default class Level extends Scene {
 	private player!: Player;
@@ -15,6 +16,7 @@ export default class Level extends Scene {
 	}
 
 	onActivate(_context: SceneActivationContext<unknown>) {
+		this.addBeam();
 		this.addTables();
 		this.addPlayer();
 		this.addEnemy();
@@ -22,7 +24,7 @@ export default class Level extends Scene {
 
 	onPreDraw() {
 		for (let actor of this.entities) {
-			if (actor instanceof Character || actor instanceof Table) {
+			if (actor instanceof Character || actor instanceof Table || actor instanceof Beam) {
 				(<Actor>actor).z = game.halfDrawHeight + (<Actor>actor).pos.y;
 			}
 		}
@@ -45,13 +47,28 @@ export default class Level extends Scene {
 	}
 
 	private addTables() {
-		const layer = <LDtkLayer>res.map.getLevelLayersByName(0, 'Tables')[0];
+		const layer = <LDtkLayer>res.map.getLevelLayersByName(0, 'Entities')[0];
 		const tables = (layer?.entityInstances || []).filter(ent => ent.__identifier === 'Table');
 
 		for (let tableConfig of tables) {
 			const { __worldX, __worldY } = tableConfig;
 
 			const table = new Table({
+				pos: vec(__worldX, __worldY),
+			});
+
+			this.add(table);
+		}
+	}
+
+	private addBeam() {
+		const layer = <LDtkLayer>res.map.getLevelLayersByName(0, 'Entities')[0];
+		const beams = (layer?.entityInstances || []).filter(ent => ent.__identifier === 'Beam');
+
+		for (let beamConfig of beams) {
+			const { __worldX, __worldY } = beamConfig;
+
+			const table = new Beam({
 				pos: vec(__worldX, __worldY),
 			});
 
