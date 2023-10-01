@@ -1,10 +1,10 @@
-import { ActorArgs, Animation, AnimationStrategy, vec, Vector } from 'excalibur';
+import { ActorArgs, Animation, AnimationStrategy, Engine, vec, Vector } from 'excalibur';
 import config from '../config';
 import res from '../res';
 import game from '../game';
 import Character from './Character';
 import SpriteSheetAnimation from '../partials/spritesheet-animation';
-import { CHARACTER_EVENTS, CHARACTER_STATES } from '../enums';
+import { CHARACTER_EVENTS, CHARACTER_STATES, EVENTS } from '../enums';
 
 export default class Player extends Character {
 	private animations!: SpriteSheetAnimation;
@@ -93,6 +93,12 @@ export default class Player extends Character {
 	}
 
 	onHurtState(): void {}
+
+	onPostUpdate(_engine: Engine, _delta: number) {
+		super.onPostUpdate(_engine, _delta);
+
+		game.events.emit(EVENTS.PLAYER_STATUS_UPDATE);
+	}
 
 	private setVel(vel: Vector) {
 		if (this.fsm.in(CHARACTER_STATES.MOVE) || this.fsm.in(CHARACTER_STATES.IDLE)) {

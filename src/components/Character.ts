@@ -6,7 +6,7 @@ import { CHARACTER_EVENTS, CHARACTER_STATES } from '../enums';
 export default abstract class Character extends Actor {
 	enemy!: Character | undefined;
 	fightTrigger!: Actor;
-	protected condition!: number;
+	condition!: number;
 	protected punchCount!: number;
 	protected fsm!: StateMachine<CHARACTER_STATES, never>;
 
@@ -151,6 +151,7 @@ export default abstract class Character extends Actor {
 
 	protected kick() {
 		console.log('kick');
+		this.drink();
 		// this.enemy && this.enemy.damage();
 	}
 
@@ -160,5 +161,9 @@ export default abstract class Character extends Actor {
 
 	protected unBlock() {
 		this.fsm.go(CHARACTER_STATES.IDLE);
+	}
+
+	protected drink() {
+		this.condition += 20;
 	}
 }

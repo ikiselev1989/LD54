@@ -22,3 +22,7 @@ export enum CHARACTER_EVENTS {
 	TOO_MUCH_BOOZE = 'tooMuchBooze',
 	NOT_ENOUGH_BOOZE = 'notEnoughBooze',
 }
+
+export enum EVENTS {
+	PLAYER_STATUS_UPDATE = 'playerStatusUpdate',
+}
