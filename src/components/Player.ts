@@ -4,7 +4,7 @@ import res from '../res';
 import game from '../game';
 import Character from './Character';
 import SpriteSheetAnimation from '../partials/spritesheet-animation';
-import { CHARACTER_STATES } from '../enums';
+import { CHARACTER_EVENTS, CHARACTER_STATES } from '../enums';
 
 export default class Player extends Character {
 	private animations!: SpriteSheetAnimation;
@@ -20,7 +20,6 @@ export default class Player extends Character {
 		this.animations = new SpriteSheetAnimation([res.player]);
 		super.onInitialize();
 
-		this.addGraphics();
 		this.registerEvents();
 	}
 
@@ -95,10 +94,6 @@ export default class Player extends Character {
 
 	onHurtState(): void {}
 
-	private addGraphics() {
-		// this.graphics.add(<Sprite>res.assets.getFrameSprite('graphics/gg'));
-	}
-
 	private setVel(vel: Vector) {
 		if (this.fsm.in(CHARACTER_STATES.MOVE) || this.fsm.in(CHARACTER_STATES.IDLE)) {
 			if (vel.equals(Vector.Zero)) {
@@ -115,6 +110,9 @@ export default class Player extends Character {
 	}
 
 	private registerEvents() {
+		this.events.on(CHARACTER_EVENTS.NOT_ENOUGH_BOOZE, () => {});
+		this.events.on(CHARACTER_EVENTS.TOO_MUCH_BOOZE, () => {});
+
 		game.inputMapper.on(({ keyboard }) => {
 			if (keyboard.isHeld(config.input.keyboard.left)) return Vector.Left;
 			if (keyboard.isHeld(config.input.keyboard.right)) return Vector.Right;

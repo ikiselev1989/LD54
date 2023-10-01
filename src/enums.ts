@@ -17,3 +17,8 @@ export enum CHARACTER_STATES {
 	BLOCK = 'block',
 	DAMAGE = 'damage',
 }
+
+export enum CHARACTER_EVENTS {
+	TOO_MUCH_BOOZE = 'tooMuchBooze',
+	NOT_ENOUGH_BOOZE = 'notEnoughBooze',
+}

@@ -26,6 +26,11 @@ export default {
 			height: 50,
 		},
 		punchCount: 3,
+		boozeCoolDown: 10,
+		damage: {
+			value: 10,
+			ratio: [1.5, 1, 1.25],
+		},
 	},
 	ui: {
 		offset: 50,
