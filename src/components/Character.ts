@@ -1,4 +1,4 @@
-import { Actor, ActorArgs, CollisionType, EasingFunctions, PossibleStates, Shape, StateMachine, vec, Vector } from 'excalibur';
+import { Actor, ActorArgs, CollisionType, EasingFunctions, Shape, StateMachine, vec, Vector } from 'excalibur';
 import config from '../config';
 import { characterCanCollide } from '../collisions';
 import { CHARACTER_STATES } from '../enums';
@@ -7,13 +7,13 @@ export default abstract class Character extends Actor {
 	enemy!: Character | undefined;
 	fightTrigger!: Actor;
 	protected punchCount!: number;
-	protected fsm!: StateMachine<PossibleStates<any>>;
+	protected fsm!: StateMachine<CHARACTER_STATES, never>;
 
 	constructor(props: ActorArgs = {}) {
 		super({
 			...props,
 			anchor: vec(0.5, 1),
-			collider: Shape.Box(config.character.width, config.character.height),
+			collider: Shape.Circle(config.character.width / 2),
 			collisionType: CollisionType.Active,
 		});
 	}
@@ -24,9 +24,9 @@ export default abstract class Character extends Actor {
 		this.addFightTrigger();
 
 		this.fsm = StateMachine.create({
-			start: 'INIT',
+			start: CHARACTER_STATES.INIT,
 			states: {
-				INIT: {
+				[CHARACTER_STATES.INIT]: {
 					transitions: [CHARACTER_STATES.IDLE],
 				},
 				[CHARACTER_STATES.IDLE]: {
@@ -87,7 +87,7 @@ export default abstract class Character extends Actor {
 	protected addFightTrigger() {
 		this.fightTrigger = new Actor({
 			pos: vec(config.character.trigger.xOffset, 0),
-			collider: Shape.Box(config.character.trigger.width, config.character.trigger.height),
+			collider: Shape.Circle(config.character.trigger.width / 2),
 			collisionGroup: characterCanCollide,
 		});
 
@@ -111,7 +111,7 @@ export default abstract class Character extends Actor {
 
 	protected kick() {
 		console.log('kick');
-		this.enemy && this.enemy.damage();
+		// this.enemy && this.enemy.damage();
 	}
 
 	protected block() {

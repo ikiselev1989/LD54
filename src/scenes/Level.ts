@@ -7,6 +7,7 @@ import Table from '../components/Table';
 import Character from '../components/Character';
 import { Enemy } from '../components/Enemy';
 import Beam from '../components/Beam';
+import PlayerAlcoholMeter from '../components/PlayerAlcoholMeter';
 
 export default class Level extends Scene {
 	private player!: Player;
@@ -16,6 +17,7 @@ export default class Level extends Scene {
 	}
 
 	onActivate(_context: SceneActivationContext<unknown>) {
+		this.addUI();
 		this.addBeam();
 		this.addTables();
 		this.addPlayer();
@@ -30,6 +32,12 @@ export default class Level extends Scene {
 		}
 	}
 
+	private addUI() {
+		const pam = new PlayerAlcoholMeter();
+
+		this.add(pam);
+	}
+
 	private addEnemy() {
 		const enemy = new Enemy({
 			pos: vec(game.halfDrawWidth, game.halfDrawHeight),
@@ -39,8 +47,11 @@ export default class Level extends Scene {
 	}
 
 	private addPlayer() {
+		const layer = <LDtkLayer>res.map.getLevelLayersByName(0, 'Entities')[0];
+		const playerSpawn = (layer?.entityInstances || []).filter(ent => ent.__identifier === 'PlayerSpawn')[0];
+
 		this.player = new Player({
-			pos: vec(game.halfDrawWidth, game.halfDrawHeight),
+			pos: vec(playerSpawn.__worldX, playerSpawn.__worldY),
 		});
 
 		this.add(this.player);

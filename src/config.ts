@@ -27,4 +27,7 @@ export default {
 		},
 		punchCount: 3,
 	},
+	ui: {
+		offset: 50,
+	},
 };

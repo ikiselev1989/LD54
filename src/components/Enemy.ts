@@ -11,8 +11,6 @@ export class Enemy extends Character {
 		this.animations = new SpriteSheetAnimation([res.enemy]);
 
 		super.onInitialize();
-
-		this.fsm.go(CHARACTER_STATES.MOVE);
 	}
 
 	onBlockState(): void {}

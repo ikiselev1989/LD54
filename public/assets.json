@@ -72,7 +72,7 @@
         "y": 0.5
       }
     },
-    "graphics/player-state/icon0002": {
+    "graphics/player-state/1": {
       "frame": {
         "x": 0,
         "y": 439,
@@ -96,7 +96,7 @@
         "y": 0.5
       }
     },
-    "graphics/player-state/icon0004": {
+    "graphics/player-state/3": {
       "frame": {
         "x": 0,
         "y": 600,
@@ -120,7 +120,7 @@
         "y": 0.5
       }
     },
-    "graphics/player-state/icon0005": {
+    "graphics/player-state/4": {
       "frame": {
         "x": 128,
         "y": 439,
@@ -144,7 +144,7 @@
         "y": 0.5
       }
     },
-    "graphics/player-state/icon0001": {
+    "graphics/player-state/0": {
       "frame": {
         "x": 143,
         "y": 270,
@@ -168,7 +168,7 @@
         "y": 0.5
       }
     },
-    "graphics/player-state/icon0003": {
+    "graphics/player-state/2": {
       "frame": {
         "x": 128,
         "y": 600,
