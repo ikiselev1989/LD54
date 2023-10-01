@@ -1,4 +1,4 @@
-import { Actor, Engine, Scene, SceneActivationContext, vec, Vector } from 'excalibur';
+import { Actor, Engine, range, Scene, SceneActivationContext, Timer, vec, Vector } from 'excalibur';
 import res from '../res';
 import Player from '../components/Player';
 import game from '../game';
@@ -8,9 +8,14 @@ import Character from '../components/Character';
 import { Enemy } from '../components/Enemy';
 import Beam from '../components/Beam';
 import PlayerAlcoholMeter from '../components/PlayerAlcoholMeter';
+import { random } from '../utils';
+import Beer from '../components/booze/Beer';
+import Cocktail from '../components/booze/Cocktail';
+import Vodka from '../components/booze/Vodka';
 
 export default class Level extends Scene {
 	private player!: Player;
+	private prevSpawnInd!: number;
 
 	onInitialize(_engine: Engine) {
 		this.addBackground();
@@ -22,6 +27,15 @@ export default class Level extends Scene {
 		this.addTables();
 		this.addPlayer();
 		this.addEnemy();
+
+		const timer = new Timer({
+			fcn: () => this.addBooze(),
+			repeats: true,
+			interval: 5000,
+		});
+
+		this.add(timer);
+		timer.start();
 	}
 
 	onPreDraw() {
@@ -94,5 +108,20 @@ export default class Level extends Scene {
 		});
 
 		this.add(bg);
+	}
+
+	private addBooze() {
+		const layer = <LDtkLayer>res.map.getLevelLayersByName(0, 'Entities')[0];
+		const boozeSpawn = (layer?.entityInstances || []).filter(ent => ent.__identifier === 'BoozeSpawn');
+
+		this.prevSpawnInd = random.pickOne(range(0, boozeSpawn.length - 1).filter(ind => ind !== this.prevSpawnInd));
+
+		const spawn = boozeSpawn[this.prevSpawnInd];
+		const BoozeClass = random.pickOne([Beer, Cocktail, Vodka]);
+		const booze = new BoozeClass({
+			pos: vec(spawn.__worldX, spawn.__worldY),
+		});
+
+		this.add(booze);
 	}
 }
