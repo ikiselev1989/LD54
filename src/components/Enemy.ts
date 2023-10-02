@@ -29,7 +29,7 @@ export class Enemy extends Character {
 				},
 				[ENEMY_STATES.FOLLOW_TARGET]: {
 					onState: this.onFollowTargetState.bind(this),
-					transitions: [ENEMY_STATES.FIGHT, ENEMY_STATES.FOLLOW_TARGET, ENEMY_STATES.IDLE],
+					transitions: [ENEMY_STATES.FOLLOW_TARGET, ENEMY_STATES.IDLE],
 				},
 				[ENEMY_STATES.FIGHT]: {
 					onState: this.onFightState.bind(this),
@@ -46,7 +46,7 @@ export class Enemy extends Character {
 
 		this.fightTrigger.on('collisionstart', e => {
 			if (!(e.other instanceof Character)) return;
-			this.fsmAI.go(ENEMY_STATES.FIGHT);
+			this.fsmAI.go(ENEMY_STATES.IDLE);
 		});
 
 		await game.waitFor(1000);
