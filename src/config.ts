@@ -33,13 +33,13 @@ export default {
 	},
 	enemy: {
 		startCount: 1,
-		reactionTime: 200,
+		reactionTime: 450,
 	},
 	bar: {
 		beerTimeout: 5000,
-		boozeInterval: 3000,
+		boozeInterval: 15000,
 		useDistance: 150,
-		conditionFx: 20,
+		conditionFx: 35,
 	},
 	ui: {
 		offset: 70,

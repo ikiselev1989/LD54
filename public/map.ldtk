@@ -535,50 +535,50 @@
 						},
 						{
 							"__identifier": "BoozeSpawn",
-							"__grid": [639,324],
+							"__grid": [802,324],
 							"__pivot": [0.5,1],
 							"__tags": [],
 							"__tile": { "tilesetUid": 2, "x": 48, "y": 272, "w": 16, "h": 16 },
 							"__smartColor": "#BE4A2F",
-							"__worldX": 639,
+							"__worldX": 802,
 							"__worldY": 325,
 							"iid": "ea5f7550-3b70-11ee-89e1-4f0ea5a2fd3f",
 							"width": 64,
 							"height": 64,
 							"defUid": 1,
-							"px": [639,325],
+							"px": [802,325],
 							"fieldInstances": []
 						},
 						{
 							"__identifier": "BoozeSpawn",
-							"__grid": [853,324],
+							"__grid": [928,324],
 							"__pivot": [0.5,1],
 							"__tags": [],
 							"__tile": { "tilesetUid": 2, "x": 48, "y": 272, "w": 16, "h": 16 },
 							"__smartColor": "#BE4A2F",
-							"__worldX": 853,
+							"__worldX": 928,
 							"__worldY": 325,
 							"iid": "eb883de0-3b70-11ee-89e1-db91a89150a3",
 							"width": 64,
 							"height": 64,
 							"defUid": 1,
-							"px": [853,325],
+							"px": [928,325],
 							"fieldInstances": []
 						},
 						{
 							"__identifier": "BoozeSpawn",
-							"__grid": [1052,324],
+							"__grid": [1055,324],
 							"__pivot": [0.5,1],
 							"__tags": [],
 							"__tile": { "tilesetUid": 2, "x": 48, "y": 272, "w": 16, "h": 16 },
 							"__smartColor": "#BE4A2F",
-							"__worldX": 1052,
+							"__worldX": 1055,
 							"__worldY": 325,
 							"iid": "f0586390-3b70-11ee-89e1-ffc668fe9738",
 							"width": 64,
 							"height": 64,
 							"defUid": 1,
-							"px": [1052,325],
+							"px": [1055,325],
 							"fieldInstances": []
 						},
 						{
@@ -710,78 +710,6 @@
 							"fieldInstances": []
 						},
 						{
-							"__identifier": "BoozeTrigger",
-							"__grid": [1052,459],
-							"__pivot": [0.5,1],
-							"__tags": [],
-							"__tile": null,
-							"__smartColor": "#FEAE34",
-							"__worldX": 1052,
-							"__worldY": 460,
-							"iid": "8e9d9110-3b70-11ee-a9e7-7ff1ba707c18",
-							"width": 64,
-							"height": 64,
-							"defUid": 10,
-							"px": [1052,460],
-							"fieldInstances": [{ "__identifier": "spwan", "__type": "EntityRef", "__value": {
-								"entityIid": "f0586390-3b70-11ee-89e1-ffc668fe9738",
-								"layerIid": "bd79c680-3b70-11ee-89e1-29366627f3f3",
-								"levelIid": "020f9d02-3b70-11ee-a438-fd8494f204d1",
-								"worldIid": "020f9d01-3b70-11ee-a438-89de687b9908"
-							}, "__tile": null, "defUid": 11, "realEditorValues": [{
-								"id": "V_String",
-								"params": ["f0586390-3b70-11ee-89e1-ffc668fe9738"]
-							}] }]
-						},
-						{
-							"__identifier": "BoozeTrigger",
-							"__grid": [853,459],
-							"__pivot": [0.5,1],
-							"__tags": [],
-							"__tile": null,
-							"__smartColor": "#FEAE34",
-							"__worldX": 853,
-							"__worldY": 460,
-							"iid": "9192b530-3b70-11ee-a9e7-0910d477cda3",
-							"width": 64,
-							"height": 64,
-							"defUid": 10,
-							"px": [853,460],
-							"fieldInstances": [{ "__identifier": "spwan", "__type": "EntityRef", "__value": {
-								"entityIid": "eb883de0-3b70-11ee-89e1-db91a89150a3",
-								"layerIid": "bd79c680-3b70-11ee-89e1-29366627f3f3",
-								"levelIid": "020f9d02-3b70-11ee-a438-fd8494f204d1",
-								"worldIid": "020f9d01-3b70-11ee-a438-89de687b9908"
-							}, "__tile": null, "defUid": 11, "realEditorValues": [{
-								"id": "V_String",
-								"params": ["eb883de0-3b70-11ee-89e1-db91a89150a3"]
-							}] }]
-						},
-						{
-							"__identifier": "BoozeTrigger",
-							"__grid": [639,459],
-							"__pivot": [0.5,1],
-							"__tags": [],
-							"__tile": null,
-							"__smartColor": "#FEAE34",
-							"__worldX": 639,
-							"__worldY": 460,
-							"iid": "93648f00-3b70-11ee-a9e7-5362b7615a5a",
-							"width": 64,
-							"height": 64,
-							"defUid": 10,
-							"px": [639,460],
-							"fieldInstances": [{ "__identifier": "spwan", "__type": "EntityRef", "__value": {
-								"entityIid": "ea5f7550-3b70-11ee-89e1-4f0ea5a2fd3f",
-								"layerIid": "bd79c680-3b70-11ee-89e1-29366627f3f3",
-								"levelIid": "020f9d02-3b70-11ee-a438-fd8494f204d1",
-								"worldIid": "020f9d01-3b70-11ee-a438-89de687b9908"
-							}, "__tile": null, "defUid": 11, "realEditorValues": [{
-								"id": "V_String",
-								"params": ["ea5f7550-3b70-11ee-89e1-4f0ea5a2fd3f"]
-							}] }]
-						},
-						{
 							"__identifier": "Bar",
 							"__grid": [887,430],
 							"__pivot": [0.5,1],
@@ -875,6 +803,22 @@
 							"height": 32,
 							"defUid": 7,
 							"px": [1494,712],
+							"fieldInstances": []
+						},
+						{
+							"__identifier": "BoozeSpawn",
+							"__grid": [1170,324],
+							"__pivot": [0.5,1],
+							"__tags": [],
+							"__tile": { "tilesetUid": 2, "x": 48, "y": 272, "w": 16, "h": 16 },
+							"__smartColor": "#BE4A2F",
+							"__worldX": 1170,
+							"__worldY": 325,
+							"iid": "d7b0dfe0-3b70-11ee-99dd-b3fac981f4d7",
+							"width": 64,
+							"height": 64,
+							"defUid": 1,
+							"px": [1170,325],
 							"fieldInstances": []
 						}
 					]
