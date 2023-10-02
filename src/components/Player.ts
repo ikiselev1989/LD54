@@ -153,6 +153,32 @@ export default class Player extends Character {
 		anim.play();
 	}
 
+	async onKickState() {
+		this.vel.setTo(0, 0);
+
+		const anims = <Animation>this.animations.getAnimation('animations/kick', {
+			strategy: AnimationStrategy.Freeze,
+		});
+
+		anims.reset();
+
+		const anchor = vec(65 / (anims?.width || 1), 1);
+
+		this.graphics.use(<Animation>anims, {
+			anchor: this.graphics.flipHorizontal ? vec(1 - 65 / (anims?.width || 1), 1) : anchor,
+		});
+
+		anims.play();
+
+		anims.events.once('end', () => {
+			this.fsm.go(CHARACTER_STATES.IDLE);
+		});
+
+		await game.waitFor(300);
+
+		this.damageToEnemy();
+	}
+
 	private setVel(vel: Vector) {
 		if (this.fsm.in(CHARACTER_STATES.MOVE) || this.fsm.in(CHARACTER_STATES.IDLE)) {
 			if (vel.equals(Vector.Zero)) {

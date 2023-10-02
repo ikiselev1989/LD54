@@ -59,6 +59,8 @@ export class Enemy extends Character {
 
 	onBlockState(): void {}
 
+	onKickState(): void {}
+
 	onDamageState(): void {
 		this.actions.clearActions();
 
@@ -113,6 +115,8 @@ export class Enemy extends Character {
 	}
 
 	onFallState() {
+		this.fsmAI.go(ENEMY_STATES.IDLE);
+
 		const anim = <Animation>this.animations.getAnimation('enemy/enemy1/fall', {
 			strategy: AnimationStrategy.Freeze,
 		});
@@ -136,6 +140,8 @@ export class Enemy extends Character {
 	}
 
 	protected async onAIIdleState() {
+		if (this.fsm.in(CHARACTER_STATES.FALL)) return;
+
 		this.fsm.go(CHARACTER_STATES.IDLE);
 
 		if (this.enemy && !this.enemy.isDied()) {

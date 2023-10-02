@@ -31,7 +31,7 @@ export default {
 		},
 	},
 	enemy: {
-		startCount: 4,
+		startCount: 1,
 		reactionTime: 400,
 	},
 	bar: {

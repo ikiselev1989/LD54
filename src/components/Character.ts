@@ -50,14 +50,25 @@ export default abstract class Character extends Actor {
 				},
 				[CHARACTER_STATES.IDLE]: {
 					onState: this.onIdleState.bind(this),
-					transitions: [CHARACTER_STATES.MOVE, CHARACTER_STATES.PUNCH, CHARACTER_STATES.DAMAGE, CHARACTER_STATES.BLOCK, CHARACTER_STATES.FALL],
+					transitions: [
+						CHARACTER_STATES.MOVE,
+						CHARACTER_STATES.PUNCH,
+						CHARACTER_STATES.KICK,
+						CHARACTER_STATES.DAMAGE,
+						CHARACTER_STATES.BLOCK,
+						CHARACTER_STATES.FALL,
+					],
 				},
 				[CHARACTER_STATES.MOVE]: {
 					onState: this.onMoveState.bind(this),
-					transitions: [CHARACTER_STATES.IDLE, CHARACTER_STATES.PUNCH, CHARACTER_STATES.BLOCK, CHARACTER_STATES.DAMAGE],
+					transitions: [CHARACTER_STATES.IDLE, CHARACTER_STATES.PUNCH, CHARACTER_STATES.KICK, CHARACTER_STATES.BLOCK, CHARACTER_STATES.DAMAGE],
 				},
 				[CHARACTER_STATES.PUNCH]: {
 					onState: this.onPunchState.bind(this),
+					transitions: [CHARACTER_STATES.IDLE, CHARACTER_STATES.DAMAGE],
+				},
+				[CHARACTER_STATES.KICK]: {
+					onState: this.onKickState.bind(this),
 					transitions: [CHARACTER_STATES.IDLE, CHARACTER_STATES.DAMAGE],
 				},
 				[CHARACTER_STATES.BLOCK]: {
@@ -90,6 +101,8 @@ export default abstract class Character extends Actor {
 	}
 
 	abstract onPunchState(): void;
+
+	abstract onKickState(): void;
 
 	abstract onBlockState(): void;
 
@@ -157,7 +170,7 @@ export default abstract class Character extends Actor {
 			collisionGroup: characterCanCollide,
 		});
 
-		this.fightTrigger.on('collisionstart', e => {
+		this.fightTrigger.on('collisionstart', () => {
 			this.resetPunchCount();
 		});
 
@@ -175,9 +188,9 @@ export default abstract class Character extends Actor {
 	}
 
 	protected damageToEnemy() {
-		if (!this.fsm.in(CHARACTER_STATES.PUNCH)) return;
+		if (!this.fsm.in(CHARACTER_STATES.PUNCH) && !this.fsm.in(CHARACTER_STATES.KICK)) return;
 
-		this.enemy && this.enemy.damage(this.enemy.pos.sub(this.pos).normalize(), this.punchCount + 1);
+		this.enemy && this.enemy.damage(this.enemy.pos.sub(this.pos).normalize(), this.fsm.in(CHARACTER_STATES.KICK) ? 3 : this.punchCount + 1);
 	}
 
 	protected punch() {
@@ -185,8 +198,8 @@ export default abstract class Character extends Actor {
 	}
 
 	protected kick() {
-		console.log('kick');
-		this.drink();
+		this.fsm.go(CHARACTER_STATES.KICK);
+		// this.drink();
 		// this.enemy && this.enemy.damage();
 	}
 

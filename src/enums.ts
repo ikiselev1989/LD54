@@ -14,6 +14,7 @@ export enum CHARACTER_STATES {
 	IDLE = 'idle',
 	MOVE = 'move',
 	PUNCH = 'punch',
+	KICK = 'kick',
 	BLOCK = 'block',
 	DAMAGE = 'damage',
 	FALL = 'fall',
