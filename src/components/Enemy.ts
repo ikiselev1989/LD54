@@ -115,6 +115,7 @@ export class Enemy extends Character {
 	}
 
 	onFallState() {
+		this.actions.clearActions();
 		this.fsmAI.go(ENEMY_STATES.IDLE);
 
 		const anim = <Animation>this.animations.getAnimation('enemy/enemy1/fall', {

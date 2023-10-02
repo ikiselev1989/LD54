@@ -62,7 +62,7 @@ export default class Level extends Scene {
 			anchor: vec(0.5, 1),
 		});
 
-		door.graphics.use(<Sprite>res.assets.getFrameSprite('graphics/door'));
+		door.graphics.use(<Sprite>res.assets.getFrameSprite('graphics/door-closed'));
 
 		this.add(door);
 	}

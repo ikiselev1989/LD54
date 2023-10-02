@@ -86,7 +86,7 @@ export default class Player extends Character {
 		});
 
 		if (this.punchCount === config.character.punchCount - 1) {
-			await game.waitFor(800);
+			await game.waitFor(300);
 		}
 
 		this.damageToEnemy();
@@ -162,10 +162,10 @@ export default class Player extends Character {
 
 		anims.reset();
 
-		const anchor = vec(65 / (anims?.width || 1), 1);
+		const anchor = vec(80 / (anims?.width || 1), 1);
 
 		this.graphics.use(<Animation>anims, {
-			anchor: this.graphics.flipHorizontal ? vec(1 - 65 / (anims?.width || 1), 1) : anchor,
+			anchor: this.graphics.flipHorizontal ? vec(1 - 80 / (anims?.width || 1), 1) : anchor,
 		});
 
 		anims.play();
@@ -174,7 +174,7 @@ export default class Player extends Character {
 			this.fsm.go(CHARACTER_STATES.IDLE);
 		});
 
-		await game.waitFor(300);
+		await game.waitFor(150);
 
 		this.damageToEnemy();
 	}
