@@ -1,6 +1,6 @@
 import Character from './Character';
 import res from '../res';
-import { Animation, AnimationStrategy, StateMachine, vec } from 'excalibur';
+import { Animation, AnimationStrategy, CollisionType, StateMachine, vec } from 'excalibur';
 import SpriteSheetAnimation from '../partials/spritesheet-animation';
 import { CHARACTER_STATES, ENEMY_STATES } from '../enums';
 import { random } from '../utils';
@@ -126,6 +126,7 @@ export class Enemy extends Character {
 		});
 
 		anim.events.once('end', async () => {
+			this.body.collisionType = CollisionType.PreventCollision;
 			this.graphics.visible = false;
 			await this.actions.blink(100, 100, 4).toPromise();
 			this.kill();

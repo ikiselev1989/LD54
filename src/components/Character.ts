@@ -159,6 +159,9 @@ export default abstract class Character extends Actor {
 
 		this.fightTrigger.on('collisionstart', e => {
 			this.resetPunchCount();
+		});
+
+		this.fightTrigger.on('precollision', e => {
 			const enemy = e.other;
 			if (enemy instanceof Character) this.enemy = enemy;
 		});

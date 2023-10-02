@@ -1,4 +1,4 @@
-import { ActorArgs, Animation, AnimationStrategy, Engine, vec, Vector } from 'excalibur';
+import { ActorArgs, Animation, AnimationStrategy, CollisionType, Engine, vec, Vector } from 'excalibur';
 import config from '../config';
 import res from '../res';
 import game from '../game';
@@ -121,27 +121,36 @@ export default class Player extends Character {
 	}
 
 	onFallState(): void {
-		if (this.condition < 100) return;
-
 		this.vel.setTo(0, 0);
+		let anim;
+		if (this.condition < 100) {
+			anim = <Animation>this.animations.getAnimation('animations/die', {
+				strategy: AnimationStrategy.Freeze,
+			});
 
-		const anims = <Animation>this.animations.getAnimation('animations/boozed', {
-			strategy: AnimationStrategy.Freeze,
+			const anchor = vec(280 / (anim?.width || 1), 1);
+
+			this.graphics.use(<Animation>anim, {
+				anchor: this.graphics.flipHorizontal ? vec(1 - 280 / (anim?.width || 1), 1) : anchor,
+			});
+		} else {
+			anim = <Animation>this.animations.getAnimation('animations/boozed', {
+				strategy: AnimationStrategy.Freeze,
+			});
+
+			const anchor = vec(280 / (anim?.width || 1), 1);
+
+			this.graphics.use(<Animation>anim, {
+				anchor: this.graphics.flipHorizontal ? vec(1 - 280 / (anim?.width || 1), 1) : anchor,
+			});
+		}
+
+		anim.events.on('end', () => {
+			this.body.collisionType = CollisionType.PreventCollision;
 		});
 
-		anims.reset();
-
-		const anchor = vec(280 / (anims?.width || 1), 1);
-
-		this.graphics.use(<Animation>anims, {
-			anchor: this.graphics.flipHorizontal ? vec(1 - 280 / (anims?.width || 1), 1) : anchor,
-		});
-
-		anims.events.on('end', () => {
-			this.fsm.go(CHARACTER_STATES.IDLE);
-		});
-
-		anims.play();
+		anim.reset();
+		anim.play();
 	}
 
 	private setVel(vel: Vector) {
