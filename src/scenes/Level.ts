@@ -14,6 +14,7 @@ import config from '../config';
 import { EVENTS } from '../enums';
 import Door from '../components/Door';
 import Barman from '../components/Barman';
+import Customer from '../components/Customer';
 
 export default class Level extends Scene {
 	private player!: Player;
@@ -141,10 +142,16 @@ export default class Level extends Scene {
 		const layer = <LDtkLayer>res.map.getLevelLayersByName(0, 'Entities')[0];
 		const tables = (layer?.entityInstances || []).filter(ent => ent.__identifier === 'Table');
 
-		for (let tableConfig of tables) {
+		for (let [index, tableConfig] of tables.entries()) {
 			const { __worldX, __worldY } = tableConfig;
 
-			const table = new Table({
+			let TableClass = Table;
+
+			if (index === 0) {
+				TableClass = Customer;
+			}
+
+			const table = new TableClass({
 				pos: vec(__worldX, __worldY),
 			});
 

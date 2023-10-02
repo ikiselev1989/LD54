@@ -17,7 +17,7 @@ export default class Table extends Actor {
 		this.addGraphics();
 	}
 
-	private addGraphics() {
+	protected addGraphics() {
 		this.graphics.use(<Sprite>res.assets.getFrameSprite('graphics/table'), {
 			offset: vec(-10, 0),
 		});
