@@ -1,4 +1,4 @@
-import { Actor, CollisionType, Engine, Scene, SceneActivationContext, Sprite, vec, Vector } from 'excalibur';
+import { Actor, CollisionType, Color, Engine, Rectangle, Scene, SceneActivationContext, Sprite, vec, Vector } from 'excalibur';
 import res from '../res';
 import Player from '../components/Player';
 import game from '../game';
@@ -20,12 +20,14 @@ import Runner from '../components/Runner';
 export default class Level extends Scene {
 	private player!: Player;
 	private door!: Door;
+	private tutorialed!: boolean;
 
 	onInitialize(_engine: Engine) {
+		this.tutorialed = false;
 		this.registerEvents();
 	}
 
-	onActivate(_context: SceneActivationContext<unknown>) {
+	async onActivate(_context: SceneActivationContext<unknown>) {
 		this.addBackground();
 		this.addBorders();
 		this.addBarman();
@@ -34,7 +36,12 @@ export default class Level extends Scene {
 		this.addUI();
 		this.addBeam();
 		this.addTables();
-		this.spawnCharacters();
+
+		if (!this.tutorialed) {
+			this.addTutorial();
+		} else {
+			this.events.emit(EVENTS.START);
+		}
 	}
 
 	onPreDraw() {
@@ -51,7 +58,41 @@ export default class Level extends Scene {
 		return random.pickOne(boozes);
 	}
 
+	private addTutorial() {
+		const tutorial = new Actor({
+			pos: vec(game.halfDrawWidth, game.halfDrawHeight),
+			z: 5000,
+		});
+
+		tutorial.graphics.add(
+			new Rectangle({
+				width: game.drawWidth,
+				height: game.drawHeight,
+				color: Color.fromRGB(0, 0, 0, 0.6),
+			}),
+		);
+		tutorial.graphics.add(<Sprite>res.assets.getFrameSprite('graphics/tutor'));
+		tutorial.graphics.layers
+			.create({
+				name: 'button',
+				order: 0,
+				offset: vec(0, game.halfDrawHeight),
+			})
+			.use(<Sprite>res.assets.getFrameSprite('graphics/enter'), {
+				anchor: vec(0.5, 1),
+			});
+
+		this.add(tutorial);
+
+		this.events.once(EVENTS.START, async () => {
+			await tutorial.actions.fade(0, 400).toPromise();
+			tutorial.kill();
+		});
+	}
+
 	private registerEvents() {
+		this.events.once(EVENTS.START, () => this.spawnCharacters());
+
 		this.events.on(EVENTS.NEW_ENEMY, () => {
 			if (random.bool(0.1) && !this.entities.filter(en => en instanceof Runner && !en.isDied()).length) {
 				return this.addRunner();
@@ -59,6 +100,16 @@ export default class Level extends Scene {
 
 			return this.addNewEnemy();
 		});
+
+		game.inputMapper.on(
+			({ keyboard }) => {
+				return (keyboard.wasPressed(config.input.keyboard.enter) || keyboard.wasPressed(config.input.keyboard.space)) && !this.tutorialed;
+			},
+			async () => {
+				this.tutorialed = true;
+				this.events.emit(EVENTS.START);
+			},
+		);
 	}
 
 	private async addRunner() {

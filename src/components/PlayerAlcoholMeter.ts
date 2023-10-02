@@ -1,4 +1,4 @@
-import { ActorArgs, GraphicsLayer, ScreenElement, Sprite, vec } from 'excalibur';
+import { ActorArgs, GraphicsLayer, ScreenElement, Sprite, vec, Vector } from 'excalibur';
 import res from '../res';
 import game from '../game';
 import config from '../config';
@@ -47,21 +47,27 @@ export default class PlayerAlcoholMeter extends ScreenElement {
 	}
 
 	private updateGraphics() {
-		const { condition } = <Character>this.scene.world.entityManager.getByName('Player')[0];
+		const player = <Character>this.scene.world.entityManager.getByName('Player')[0];
+
+		if (!player) return;
+
+		const { condition } = player;
 
 		const index = 5 - Math.floor(condition / (100 / 5));
 		const sprite = res.assets.getFrameSprite(`graphics/player-state/${index - 1}`);
 
 		sprite &&
 			this.faceLayer.use(<Sprite>sprite, {
-				anchor: vec(0.5, 0.5),
+				anchor: Vector.Half,
 			});
 
 		this.indicatorLayer.offset.y = lerp(100, -90, condition / 100);
 	}
 
 	private addGraphics() {
-		this.faceLayer.use(<Sprite>res.assets.getFrameSprite('graphics/player-state/2'));
+		this.faceLayer.use(<Sprite>res.assets.getFrameSprite('graphics/player-state/2'), {
+			anchor: Vector.Half,
+		});
 		this.scaleLayer.use(<Sprite>res.assets.getFrameSprite('graphics/scale'));
 		this.indicatorLayer.use(<Sprite>res.assets.getFrameSprite('graphics/scale-indicator'));
 	}

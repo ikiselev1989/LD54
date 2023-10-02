@@ -21,14 +21,10 @@ export enum CHARACTER_STATES {
 	FALL = 'fall',
 }
 
-export enum CHARACTER_EVENTS {
-	TOO_MUCH_BOOZE = 'tooMuchBooze',
-	NOT_ENOUGH_BOOZE = 'notEnoughBooze',
-}
-
 export enum EVENTS {
 	PLAYER_STATUS_UPDATE = 'playerStatusUpdate',
 	NEW_ENEMY = 'newEnemy',
+	START = 'start',
 }
 
 export enum ENEMY_STATES {
