@@ -125,10 +125,12 @@ export default class Runner extends Character {
 	}
 
 	private async onAiIdleState() {
+		if (this.isKilled()) return;
+
 		this.actions.clearActions();
 		this.fsm.go(CHARACTER_STATES.IDLE);
 
-		await game.waitFor(2000);
+		await game.waitFor(5000);
 
 		this.ai.go(ENEMY_STATES.FIND_TARGET);
 	}
