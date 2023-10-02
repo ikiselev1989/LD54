@@ -71,7 +71,7 @@ class Game extends Engine {
 		loader.suppressPlayButton = true;
 
 		await loader.load();
-
+		this.browser.document.nativeComponent.querySelector('.loader')?.remove();
 		this.goToScene(SCENES.INTRO);
 	}
 

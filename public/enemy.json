@@ -792,11 +792,11 @@
         "y": 0.5
       }
     },
-    "enemy/enemy3/damage-up/9494940001": {
+    "enemy/enemy3/damage-up/Untitled-40001": {
       "frame": {
         "x": 270,
         "y": 478,
-        "w": 295,
+        "w": 302,
         "h": 247
       },
       "rotated": false,
@@ -804,11 +804,11 @@
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 295,
+        "w": 302,
         "h": 247
       },
       "sourceSize": {
-        "w": 295,
+        "w": 302,
         "h": 247
       },
       "pivot": {
@@ -816,11 +816,11 @@
         "y": 0.5
       }
     },
-    "enemy/enemy3/damage-up/9494940003": {
+    "enemy/enemy3/damage-up/Untitled-40003": {
       "frame": {
-        "x": 569,
+        "x": 576,
         "y": 478,
-        "w": 295,
+        "w": 302,
         "h": 247
       },
       "rotated": false,
@@ -828,11 +828,11 @@
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 295,
+        "w": 302,
         "h": 247
       },
       "sourceSize": {
-        "w": 295,
+        "w": 302,
         "h": 247
       },
       "pivot": {
@@ -840,11 +840,11 @@
         "y": 0.5
       }
     },
-    "enemy/enemy3/damage-up/9494940005": {
+    "enemy/enemy3/damage-up/Untitled-40005": {
       "frame": {
-        "x": 868,
+        "x": 882,
         "y": 480,
-        "w": 295,
+        "w": 302,
         "h": 247
       },
       "rotated": false,
@@ -852,11 +852,11 @@
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 295,
+        "w": 302,
         "h": 247
       },
       "sourceSize": {
-        "w": 295,
+        "w": 302,
         "h": 247
       },
       "pivot": {
@@ -864,11 +864,11 @@
         "y": 0.5
       }
     },
-    "enemy/enemy3/damage-up/9494940007": {
+    "enemy/enemy3/damage-up/Untitled-40007": {
       "frame": {
-        "x": 1167,
+        "x": 1188,
         "y": 480,
-        "w": 295,
+        "w": 302,
         "h": 247
       },
       "rotated": false,
@@ -876,11 +876,11 @@
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 295,
+        "w": 302,
         "h": 247
       },
       "sourceSize": {
-        "w": 295,
+        "w": 302,
         "h": 247
       },
       "pivot": {
@@ -888,11 +888,11 @@
         "y": 0.5
       }
     },
-    "enemy/enemy3/damage-up/9494940009": {
+    "enemy/enemy3/damage-up/Untitled-40009": {
       "frame": {
-        "x": 1466,
+        "x": 1494,
         "y": 480,
-        "w": 295,
+        "w": 302,
         "h": 247
       },
       "rotated": false,
@@ -900,11 +900,11 @@
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 295,
+        "w": 302,
         "h": 247
       },
       "sourceSize": {
-        "w": 295,
+        "w": 302,
         "h": 247
       },
       "pivot": {
@@ -914,7 +914,7 @@
     },
     "enemy/enemy3/punch/Untitled-40001": {
       "frame": {
-        "x": 1765,
+        "x": 1800,
         "y": 480,
         "w": 264,
         "h": 247
@@ -938,7 +938,7 @@
     },
     "enemy/enemy3/punch/Untitled-40004": {
       "frame": {
-        "x": 2033,
+        "x": 2068,
         "y": 480,
         "w": 264,
         "h": 247
@@ -962,7 +962,7 @@
     },
     "enemy/enemy3/punch/Untitled-40006": {
       "frame": {
-        "x": 2301,
+        "x": 2336,
         "y": 480,
         "w": 264,
         "h": 247
@@ -986,7 +986,7 @@
     },
     "enemy/enemy3/punch/Untitled-40008": {
       "frame": {
-        "x": 2569,
+        "x": 2604,
         "y": 480,
         "w": 264,
         "h": 247
@@ -1010,7 +1010,7 @@
     },
     "enemy/enemy1/damage-up/Untitled-10001": {
       "frame": {
-        "x": 2837,
+        "x": 2872,
         "y": 490,
         "w": 295,
         "h": 250
@@ -1034,7 +1034,7 @@
     },
     "enemy/enemy1/damage-up/Untitled-10003": {
       "frame": {
-        "x": 3136,
+        "x": 3171,
         "y": 492,
         "w": 295,
         "h": 250
@@ -1058,7 +1058,7 @@
     },
     "enemy/enemy1/damage-up/Untitled-10005": {
       "frame": {
-        "x": 3435,
+        "x": 3470,
         "y": 492,
         "w": 295,
         "h": 250
@@ -1082,7 +1082,7 @@
     },
     "enemy/enemy1/damage-up/Untitled-10007": {
       "frame": {
-        "x": 3734,
+        "x": 3769,
         "y": 492,
         "w": 295,
         "h": 250
@@ -1156,20 +1156,20 @@
       "frame": {
         "x": 600,
         "y": 731,
-        "w": 388,
-        "h": 252
+        "w": 362,
+        "h": 257
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 388,
-        "h": 252
+        "w": 362,
+        "h": 257
       },
       "sourceSize": {
-        "w": 388,
-        "h": 252
+        "w": 362,
+        "h": 257
       },
       "pivot": {
         "x": 0.5,
@@ -1178,22 +1178,22 @@
     },
     "enemy/enemy3/fall/Untitled-40003": {
       "frame": {
-        "x": 992,
+        "x": 966,
         "y": 731,
-        "w": 388,
-        "h": 252
+        "w": 362,
+        "h": 257
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 388,
-        "h": 252
+        "w": 362,
+        "h": 257
       },
       "sourceSize": {
-        "w": 388,
-        "h": 252
+        "w": 362,
+        "h": 257
       },
       "pivot": {
         "x": 0.5,
@@ -1202,22 +1202,22 @@
     },
     "enemy/enemy3/fall/Untitled-40005": {
       "frame": {
-        "x": 1384,
+        "x": 1332,
         "y": 731,
-        "w": 388,
-        "h": 252
+        "w": 362,
+        "h": 257
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 388,
-        "h": 252
+        "w": 362,
+        "h": 257
       },
       "sourceSize": {
-        "w": 388,
-        "h": 252
+        "w": 362,
+        "h": 257
       },
       "pivot": {
         "x": 0.5,
@@ -1226,22 +1226,22 @@
     },
     "enemy/enemy3/fall/Untitled-40007": {
       "frame": {
-        "x": 1776,
+        "x": 1698,
         "y": 731,
-        "w": 388,
-        "h": 252
+        "w": 362,
+        "h": 257
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 388,
-        "h": 252
+        "w": 362,
+        "h": 257
       },
       "sourceSize": {
-        "w": 388,
-        "h": 252
+        "w": 362,
+        "h": 257
       },
       "pivot": {
         "x": 0.5,
@@ -1250,22 +1250,22 @@
     },
     "enemy/enemy3/fall/Untitled-40009": {
       "frame": {
-        "x": 2168,
+        "x": 2064,
         "y": 731,
-        "w": 388,
-        "h": 252
+        "w": 362,
+        "h": 257
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 388,
-        "h": 252
+        "w": 362,
+        "h": 257
       },
       "sourceSize": {
-        "w": 388,
-        "h": 252
+        "w": 362,
+        "h": 257
       },
       "pivot": {
         "x": 0.5,
@@ -1274,22 +1274,22 @@
     },
     "enemy/enemy3/fall/Untitled-40011": {
       "frame": {
-        "x": 2560,
-        "y": 744,
-        "w": 388,
-        "h": 252
+        "x": 2430,
+        "y": 731,
+        "w": 362,
+        "h": 257
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 388,
-        "h": 252
+        "w": 362,
+        "h": 257
       },
       "sourceSize": {
-        "w": 388,
-        "h": 252
+        "w": 362,
+        "h": 257
       },
       "pivot": {
         "x": 0.5,
@@ -1298,22 +1298,22 @@
     },
     "enemy/enemy3/fall/Untitled-40013": {
       "frame": {
-        "x": 2952,
-        "y": 746,
-        "w": 388,
-        "h": 252
+        "x": 2796,
+        "y": 744,
+        "w": 362,
+        "h": 257
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 388,
-        "h": 252
+        "w": 362,
+        "h": 257
       },
       "sourceSize": {
-        "w": 388,
-        "h": 252
+        "w": 362,
+        "h": 257
       },
       "pivot": {
         "x": 0.5,
@@ -1322,46 +1322,22 @@
     },
     "enemy/enemy3/fall/Untitled-40015": {
       "frame": {
-        "x": 3344,
+        "x": 3162,
         "y": 746,
-        "w": 388,
-        "h": 252
+        "w": 362,
+        "h": 257
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 388,
-        "h": 252
+        "w": 362,
+        "h": 257
       },
       "sourceSize": {
-        "w": 388,
-        "h": 252
-      },
-      "pivot": {
-        "x": 0.5,
-        "y": 0.5
-      }
-    },
-    "enemy/enemy2/damage/uron0001": {
-      "frame": {
-        "x": 3736,
-        "y": 746,
-        "w": 254,
-        "h": 309
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 254,
-        "h": 309
-      },
-      "sourceSize": {
-        "w": 254,
-        "h": 309
+        "w": 362,
+        "h": 257
       },
       "pivot": {
         "x": 0.5,
@@ -1370,22 +1346,22 @@
     },
     "enemy/enemy3/fall/Untitled-40017": {
       "frame": {
-        "x": 2,
-        "y": 983,
-        "w": 388,
-        "h": 252
+        "x": 3528,
+        "y": 746,
+        "w": 362,
+        "h": 257
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 388,
-        "h": 252
+        "w": 362,
+        "h": 257
       },
       "sourceSize": {
-        "w": 388,
-        "h": 252
+        "w": 362,
+        "h": 257
       },
       "pivot": {
         "x": 0.5,
@@ -1394,22 +1370,22 @@
     },
     "enemy/enemy3/fall/Untitled-40019": {
       "frame": {
-        "x": 394,
-        "y": 987,
-        "w": 388,
-        "h": 252
+        "x": 2,
+        "y": 983,
+        "w": 362,
+        "h": 257
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 388,
-        "h": 252
+        "w": 362,
+        "h": 257
       },
       "sourceSize": {
-        "w": 388,
-        "h": 252
+        "w": 362,
+        "h": 257
       },
       "pivot": {
         "x": 0.5,
@@ -1418,8 +1394,8 @@
     },
     "enemy/enemy2/punch/Untitled-10001": {
       "frame": {
-        "x": 786,
-        "y": 987,
+        "x": 368,
+        "y": 992,
         "w": 492,
         "h": 284
       },
@@ -1442,8 +1418,8 @@
     },
     "enemy/enemy2/punch/Untitled-10003": {
       "frame": {
-        "x": 1282,
-        "y": 987,
+        "x": 864,
+        "y": 992,
         "w": 492,
         "h": 284
       },
@@ -1466,8 +1442,8 @@
     },
     "enemy/enemy2/punch/Untitled-10005": {
       "frame": {
-        "x": 1778,
-        "y": 987,
+        "x": 1360,
+        "y": 992,
         "w": 492,
         "h": 284
       },
@@ -1490,8 +1466,8 @@
     },
     "enemy/enemy2/punch/Untitled-10007": {
       "frame": {
-        "x": 2274,
-        "y": 1000,
+        "x": 1856,
+        "y": 992,
         "w": 492,
         "h": 284
       },
@@ -1514,8 +1490,8 @@
     },
     "enemy/enemy2/punch/Untitled-10009": {
       "frame": {
-        "x": 2770,
-        "y": 1002,
+        "x": 2352,
+        "y": 1005,
         "w": 492,
         "h": 284
       },
@@ -1530,30 +1506,6 @@
       "sourceSize": {
         "w": 492,
         "h": 284
-      },
-      "pivot": {
-        "x": 0.5,
-        "y": 0.5
-      }
-    },
-    "enemy/enemy2/damage/uron0003": {
-      "frame": {
-        "x": 3266,
-        "y": 1002,
-        "w": 254,
-        "h": 309
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 254,
-        "h": 309
-      },
-      "sourceSize": {
-        "w": 254,
-        "h": 309
       },
       "pivot": {
         "x": 0.5,
@@ -1562,8 +1514,8 @@
     },
     "enemy/enemy2/punch/Untitled-10011": {
       "frame": {
-        "x": 3524,
-        "y": 1059,
+        "x": 2848,
+        "y": 1007,
         "w": 492,
         "h": 284
       },
@@ -1584,10 +1536,34 @@
         "y": 0.5
       }
     },
-    "enemy/enemy2/damage/uron0005": {
+    "enemy/enemy2/damage/uron0001": {
       "frame": {
-        "x": 2,
-        "y": 1239,
+        "x": 3344,
+        "y": 1007,
+        "w": 254,
+        "h": 309
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 254,
+        "h": 309
+      },
+      "sourceSize": {
+        "w": 254,
+        "h": 309
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
+    "enemy/enemy2/damage/uron0003": {
+      "frame": {
+        "x": 3602,
+        "y": 1007,
         "w": 254,
         "h": 309
       },
@@ -1610,8 +1586,8 @@
     },
     "enemy/enemy2/idle/Untitled-33330001": {
       "frame": {
-        "x": 260,
-        "y": 1243,
+        "x": 3860,
+        "y": 1007,
         "w": 232,
         "h": 311
       },
@@ -1632,10 +1608,34 @@
         "y": 0.5
       }
     },
+    "enemy/enemy2/damage/uron0005": {
+      "frame": {
+        "x": 2,
+        "y": 1244,
+        "w": 254,
+        "h": 309
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 254,
+        "h": 309
+      },
+      "sourceSize": {
+        "w": 254,
+        "h": 309
+      },
+      "pivot": {
+        "x": 0.5,
+        "y": 0.5
+      }
+    },
     "enemy/enemy2/idle/Untitled-33330003": {
       "frame": {
-        "x": 496,
-        "y": 1243,
+        "x": 260,
+        "y": 1280,
         "w": 232,
         "h": 311
       },
@@ -1658,8 +1658,8 @@
     },
     "enemy/enemy2/idle/Untitled-33330005": {
       "frame": {
-        "x": 732,
-        "y": 1275,
+        "x": 496,
+        "y": 1280,
         "w": 232,
         "h": 311
       },
@@ -1682,8 +1682,8 @@
     },
     "enemy/enemy2/idle/Untitled-33330007": {
       "frame": {
-        "x": 968,
-        "y": 1275,
+        "x": 732,
+        "y": 1280,
         "w": 232,
         "h": 311
       },
@@ -1706,8 +1706,8 @@
     },
     "enemy/enemy2/idle/Untitled-33330009": {
       "frame": {
-        "x": 1204,
-        "y": 1275,
+        "x": 968,
+        "y": 1280,
         "w": 232,
         "h": 311
       },
@@ -1730,8 +1730,8 @@
     },
     "enemy/enemy2/idle/Untitled-33330011": {
       "frame": {
-        "x": 1440,
-        "y": 1275,
+        "x": 1204,
+        "y": 1280,
         "w": 232,
         "h": 311
       },
@@ -1754,8 +1754,8 @@
     },
     "enemy/enemy2/die/494949490001": {
       "frame": {
-        "x": 1676,
-        "y": 1275,
+        "x": 1440,
+        "y": 1280,
         "w": 551,
         "h": 364
       },
@@ -1778,8 +1778,8 @@
     },
     "enemy/enemy2/die/494949490003": {
       "frame": {
-        "x": 2231,
-        "y": 1290,
+        "x": 1995,
+        "y": 1293,
         "w": 551,
         "h": 364
       },
@@ -1802,8 +1802,8 @@
     },
     "enemy/enemy2/die/494949490005": {
       "frame": {
-        "x": 2786,
-        "y": 1315,
+        "x": 2550,
+        "y": 1295,
         "w": 551,
         "h": 364
       },
@@ -1826,8 +1826,8 @@
     },
     "enemy/enemy2/die/494949490007": {
       "frame": {
-        "x": 3341,
-        "y": 1347,
+        "x": 3105,
+        "y": 1320,
         "w": 551,
         "h": 364
       },
@@ -1851,7 +1851,7 @@
     "enemy/enemy2/die/494949490009": {
       "frame": {
         "x": 2,
-        "y": 1558,
+        "y": 1595,
         "w": 551,
         "h": 364
       },
@@ -1875,7 +1875,7 @@
     "enemy/enemy2/die/494949490011": {
       "frame": {
         "x": 557,
-        "y": 1590,
+        "y": 1595,
         "w": 551,
         "h": 364
       },
@@ -1899,7 +1899,7 @@
     "enemy/enemy2/die/494949490013": {
       "frame": {
         "x": 1112,
-        "y": 1590,
+        "y": 1648,
         "w": 551,
         "h": 364
       },
@@ -1923,7 +1923,7 @@
     "enemy/enemy2/die/494949490015": {
       "frame": {
         "x": 1667,
-        "y": 1643,
+        "y": 1661,
         "w": 551,
         "h": 364
       },
@@ -1947,7 +1947,7 @@
     "enemy/enemy2/die/494949490017": {
       "frame": {
         "x": 2222,
-        "y": 1658,
+        "y": 1663,
         "w": 551,
         "h": 364
       },
@@ -1971,7 +1971,7 @@
     "enemy/enemy2/die/494949490019": {
       "frame": {
         "x": 2777,
-        "y": 1683,
+        "y": 1688,
         "w": 551,
         "h": 364
       },
@@ -1995,7 +1995,7 @@
     "enemy/enemy2/die/494949490021": {
       "frame": {
         "x": 3332,
-        "y": 1715,
+        "y": 1688,
         "w": 551,
         "h": 364
       },
@@ -2018,7 +2018,7 @@
     },
     "enemy/enemy1/damage-up/Untitled-10002": {
       "frame": {
-        "x": 2837,
+        "x": 2872,
         "y": 490,
         "w": 295,
         "h": 250
@@ -2042,7 +2042,7 @@
     },
     "enemy/enemy1/damage-up/Untitled-10004": {
       "frame": {
-        "x": 3136,
+        "x": 3171,
         "y": 492,
         "w": 295,
         "h": 250
@@ -2066,7 +2066,7 @@
     },
     "enemy/enemy1/damage-up/Untitled-10006": {
       "frame": {
-        "x": 3435,
+        "x": 3470,
         "y": 492,
         "w": 295,
         "h": 250
@@ -2090,7 +2090,7 @@
     },
     "enemy/enemy1/damage-up/Untitled-10008": {
       "frame": {
-        "x": 3734,
+        "x": 3769,
         "y": 492,
         "w": 295,
         "h": 250
@@ -2738,8 +2738,8 @@
     },
     "enemy/enemy2/damage/uron0002": {
       "frame": {
-        "x": 3736,
-        "y": 746,
+        "x": 3344,
+        "y": 1007,
         "w": 254,
         "h": 309
       },
@@ -2762,8 +2762,8 @@
     },
     "enemy/enemy2/damage/uron0004": {
       "frame": {
-        "x": 3266,
-        "y": 1002,
+        "x": 3602,
+        "y": 1007,
         "w": 254,
         "h": 309
       },
@@ -2787,7 +2787,7 @@
     "enemy/enemy2/damage/uron0006": {
       "frame": {
         "x": 2,
-        "y": 1239,
+        "y": 1244,
         "w": 254,
         "h": 309
       },
@@ -2810,8 +2810,8 @@
     },
     "enemy/enemy2/die/494949490002": {
       "frame": {
-        "x": 1676,
-        "y": 1275,
+        "x": 1440,
+        "y": 1280,
         "w": 551,
         "h": 364
       },
@@ -2834,8 +2834,8 @@
     },
     "enemy/enemy2/die/494949490004": {
       "frame": {
-        "x": 2231,
-        "y": 1290,
+        "x": 1995,
+        "y": 1293,
         "w": 551,
         "h": 364
       },
@@ -2858,8 +2858,8 @@
     },
     "enemy/enemy2/die/494949490006": {
       "frame": {
-        "x": 2786,
-        "y": 1315,
+        "x": 2550,
+        "y": 1295,
         "w": 551,
         "h": 364
       },
@@ -2882,8 +2882,8 @@
     },
     "enemy/enemy2/die/494949490008": {
       "frame": {
-        "x": 3341,
-        "y": 1347,
+        "x": 3105,
+        "y": 1320,
         "w": 551,
         "h": 364
       },
@@ -2907,7 +2907,7 @@
     "enemy/enemy2/die/494949490010": {
       "frame": {
         "x": 2,
-        "y": 1558,
+        "y": 1595,
         "w": 551,
         "h": 364
       },
@@ -2931,7 +2931,7 @@
     "enemy/enemy2/die/494949490012": {
       "frame": {
         "x": 557,
-        "y": 1590,
+        "y": 1595,
         "w": 551,
         "h": 364
       },
@@ -2955,7 +2955,7 @@
     "enemy/enemy2/die/494949490014": {
       "frame": {
         "x": 1112,
-        "y": 1590,
+        "y": 1648,
         "w": 551,
         "h": 364
       },
@@ -2979,7 +2979,7 @@
     "enemy/enemy2/die/494949490016": {
       "frame": {
         "x": 1667,
-        "y": 1643,
+        "y": 1661,
         "w": 551,
         "h": 364
       },
@@ -3003,7 +3003,7 @@
     "enemy/enemy2/die/494949490018": {
       "frame": {
         "x": 2222,
-        "y": 1658,
+        "y": 1663,
         "w": 551,
         "h": 364
       },
@@ -3027,7 +3027,7 @@
     "enemy/enemy2/die/494949490020": {
       "frame": {
         "x": 2777,
-        "y": 1683,
+        "y": 1688,
         "w": 551,
         "h": 364
       },
@@ -3050,8 +3050,8 @@
     },
     "enemy/enemy2/idle/Untitled-33330002": {
       "frame": {
-        "x": 260,
-        "y": 1243,
+        "x": 3860,
+        "y": 1007,
         "w": 232,
         "h": 311
       },
@@ -3074,8 +3074,8 @@
     },
     "enemy/enemy2/idle/Untitled-33330004": {
       "frame": {
-        "x": 496,
-        "y": 1243,
+        "x": 260,
+        "y": 1280,
         "w": 232,
         "h": 311
       },
@@ -3098,8 +3098,8 @@
     },
     "enemy/enemy2/idle/Untitled-33330006": {
       "frame": {
-        "x": 732,
-        "y": 1275,
+        "x": 496,
+        "y": 1280,
         "w": 232,
         "h": 311
       },
@@ -3122,8 +3122,8 @@
     },
     "enemy/enemy2/idle/Untitled-33330008": {
       "frame": {
-        "x": 968,
-        "y": 1275,
+        "x": 732,
+        "y": 1280,
         "w": 232,
         "h": 311
       },
@@ -3146,8 +3146,8 @@
     },
     "enemy/enemy2/idle/Untitled-33330010": {
       "frame": {
-        "x": 1204,
-        "y": 1275,
+        "x": 968,
+        "y": 1280,
         "w": 232,
         "h": 311
       },
@@ -3170,8 +3170,8 @@
     },
     "enemy/enemy2/idle/Untitled-33330012": {
       "frame": {
-        "x": 1440,
-        "y": 1275,
+        "x": 1204,
+        "y": 1280,
         "w": 232,
         "h": 311
       },
@@ -3194,8 +3194,8 @@
     },
     "enemy/enemy2/punch/Untitled-10002": {
       "frame": {
-        "x": 786,
-        "y": 987,
+        "x": 368,
+        "y": 992,
         "w": 492,
         "h": 284
       },
@@ -3218,8 +3218,8 @@
     },
     "enemy/enemy2/punch/Untitled-10004": {
       "frame": {
-        "x": 1282,
-        "y": 987,
+        "x": 864,
+        "y": 992,
         "w": 492,
         "h": 284
       },
@@ -3242,8 +3242,8 @@
     },
     "enemy/enemy2/punch/Untitled-10006": {
       "frame": {
-        "x": 1778,
-        "y": 987,
+        "x": 1360,
+        "y": 992,
         "w": 492,
         "h": 284
       },
@@ -3266,8 +3266,8 @@
     },
     "enemy/enemy2/punch/Untitled-10008": {
       "frame": {
-        "x": 2274,
-        "y": 1000,
+        "x": 1856,
+        "y": 992,
         "w": 492,
         "h": 284
       },
@@ -3290,8 +3290,8 @@
     },
     "enemy/enemy2/punch/Untitled-10010": {
       "frame": {
-        "x": 2770,
-        "y": 1002,
+        "x": 2352,
+        "y": 1005,
         "w": 492,
         "h": 284
       },
@@ -3314,8 +3314,8 @@
     },
     "enemy/enemy2/punch/Untitled-10012": {
       "frame": {
-        "x": 3524,
-        "y": 1059,
+        "x": 2848,
+        "y": 1007,
         "w": 492,
         "h": 284
       },
@@ -3336,11 +3336,11 @@
         "y": 0.5
       }
     },
-    "enemy/enemy3/damage-up/9494940002": {
+    "enemy/enemy3/damage-up/Untitled-40002": {
       "frame": {
         "x": 270,
         "y": 478,
-        "w": 295,
+        "w": 302,
         "h": 247
       },
       "rotated": false,
@@ -3348,11 +3348,11 @@
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 295,
+        "w": 302,
         "h": 247
       },
       "sourceSize": {
-        "w": 295,
+        "w": 302,
         "h": 247
       },
       "pivot": {
@@ -3360,11 +3360,11 @@
         "y": 0.5
       }
     },
-    "enemy/enemy3/damage-up/9494940004": {
+    "enemy/enemy3/damage-up/Untitled-40004": {
       "frame": {
-        "x": 569,
+        "x": 576,
         "y": 478,
-        "w": 295,
+        "w": 302,
         "h": 247
       },
       "rotated": false,
@@ -3372,11 +3372,11 @@
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 295,
+        "w": 302,
         "h": 247
       },
       "sourceSize": {
-        "w": 295,
+        "w": 302,
         "h": 247
       },
       "pivot": {
@@ -3384,11 +3384,11 @@
         "y": 0.5
       }
     },
-    "enemy/enemy3/damage-up/9494940006": {
+    "enemy/enemy3/damage-up/Untitled-40006": {
       "frame": {
-        "x": 868,
+        "x": 882,
         "y": 480,
-        "w": 295,
+        "w": 302,
         "h": 247
       },
       "rotated": false,
@@ -3396,11 +3396,11 @@
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 295,
+        "w": 302,
         "h": 247
       },
       "sourceSize": {
-        "w": 295,
+        "w": 302,
         "h": 247
       },
       "pivot": {
@@ -3408,11 +3408,11 @@
         "y": 0.5
       }
     },
-    "enemy/enemy3/damage-up/9494940008": {
+    "enemy/enemy3/damage-up/Untitled-40008": {
       "frame": {
-        "x": 1167,
+        "x": 1188,
         "y": 480,
-        "w": 295,
+        "w": 302,
         "h": 247
       },
       "rotated": false,
@@ -3420,11 +3420,11 @@
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 295,
+        "w": 302,
         "h": 247
       },
       "sourceSize": {
-        "w": 295,
+        "w": 302,
         "h": 247
       },
       "pivot": {
@@ -3432,11 +3432,11 @@
         "y": 0.5
       }
     },
-    "enemy/enemy3/damage-up/9494940010": {
+    "enemy/enemy3/damage-up/Untitled-40010": {
       "frame": {
-        "x": 1466,
+        "x": 1494,
         "y": 480,
-        "w": 295,
+        "w": 302,
         "h": 247
       },
       "rotated": false,
@@ -3444,11 +3444,11 @@
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 295,
+        "w": 302,
         "h": 247
       },
       "sourceSize": {
-        "w": 295,
+        "w": 302,
         "h": 247
       },
       "pivot": {
@@ -3460,20 +3460,20 @@
       "frame": {
         "x": 600,
         "y": 731,
-        "w": 388,
-        "h": 252
+        "w": 362,
+        "h": 257
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 388,
-        "h": 252
+        "w": 362,
+        "h": 257
       },
       "sourceSize": {
-        "w": 388,
-        "h": 252
+        "w": 362,
+        "h": 257
       },
       "pivot": {
         "x": 0.5,
@@ -3482,22 +3482,22 @@
     },
     "enemy/enemy3/fall/Untitled-40004": {
       "frame": {
-        "x": 992,
+        "x": 966,
         "y": 731,
-        "w": 388,
-        "h": 252
+        "w": 362,
+        "h": 257
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 388,
-        "h": 252
+        "w": 362,
+        "h": 257
       },
       "sourceSize": {
-        "w": 388,
-        "h": 252
+        "w": 362,
+        "h": 257
       },
       "pivot": {
         "x": 0.5,
@@ -3506,22 +3506,22 @@
     },
     "enemy/enemy3/fall/Untitled-40006": {
       "frame": {
-        "x": 1384,
+        "x": 1332,
         "y": 731,
-        "w": 388,
-        "h": 252
+        "w": 362,
+        "h": 257
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 388,
-        "h": 252
+        "w": 362,
+        "h": 257
       },
       "sourceSize": {
-        "w": 388,
-        "h": 252
+        "w": 362,
+        "h": 257
       },
       "pivot": {
         "x": 0.5,
@@ -3530,22 +3530,22 @@
     },
     "enemy/enemy3/fall/Untitled-40008": {
       "frame": {
-        "x": 1776,
+        "x": 1698,
         "y": 731,
-        "w": 388,
-        "h": 252
+        "w": 362,
+        "h": 257
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 388,
-        "h": 252
+        "w": 362,
+        "h": 257
       },
       "sourceSize": {
-        "w": 388,
-        "h": 252
+        "w": 362,
+        "h": 257
       },
       "pivot": {
         "x": 0.5,
@@ -3554,22 +3554,22 @@
     },
     "enemy/enemy3/fall/Untitled-40010": {
       "frame": {
-        "x": 2168,
+        "x": 2064,
         "y": 731,
-        "w": 388,
-        "h": 252
+        "w": 362,
+        "h": 257
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 388,
-        "h": 252
+        "w": 362,
+        "h": 257
       },
       "sourceSize": {
-        "w": 388,
-        "h": 252
+        "w": 362,
+        "h": 257
       },
       "pivot": {
         "x": 0.5,
@@ -3578,22 +3578,22 @@
     },
     "enemy/enemy3/fall/Untitled-40012": {
       "frame": {
-        "x": 2560,
-        "y": 744,
-        "w": 388,
-        "h": 252
+        "x": 2430,
+        "y": 731,
+        "w": 362,
+        "h": 257
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 388,
-        "h": 252
+        "w": 362,
+        "h": 257
       },
       "sourceSize": {
-        "w": 388,
-        "h": 252
+        "w": 362,
+        "h": 257
       },
       "pivot": {
         "x": 0.5,
@@ -3602,22 +3602,22 @@
     },
     "enemy/enemy3/fall/Untitled-40014": {
       "frame": {
-        "x": 2952,
-        "y": 746,
-        "w": 388,
-        "h": 252
+        "x": 2796,
+        "y": 744,
+        "w": 362,
+        "h": 257
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 388,
-        "h": 252
+        "w": 362,
+        "h": 257
       },
       "sourceSize": {
-        "w": 388,
-        "h": 252
+        "w": 362,
+        "h": 257
       },
       "pivot": {
         "x": 0.5,
@@ -3626,22 +3626,22 @@
     },
     "enemy/enemy3/fall/Untitled-40016": {
       "frame": {
-        "x": 3344,
+        "x": 3162,
         "y": 746,
-        "w": 388,
-        "h": 252
+        "w": 362,
+        "h": 257
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 388,
-        "h": 252
+        "w": 362,
+        "h": 257
       },
       "sourceSize": {
-        "w": 388,
-        "h": 252
+        "w": 362,
+        "h": 257
       },
       "pivot": {
         "x": 0.5,
@@ -3650,22 +3650,22 @@
     },
     "enemy/enemy3/fall/Untitled-40018": {
       "frame": {
-        "x": 2,
-        "y": 983,
-        "w": 388,
-        "h": 252
+        "x": 3528,
+        "y": 746,
+        "w": 362,
+        "h": 257
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 388,
-        "h": 252
+        "w": 362,
+        "h": 257
       },
       "sourceSize": {
-        "w": 388,
-        "h": 252
+        "w": 362,
+        "h": 257
       },
       "pivot": {
         "x": 0.5,
@@ -3674,22 +3674,22 @@
     },
     "enemy/enemy3/fall/Untitled-40020": {
       "frame": {
-        "x": 394,
-        "y": 987,
-        "w": 388,
-        "h": 252
+        "x": 2,
+        "y": 983,
+        "w": 362,
+        "h": 257
       },
       "rotated": false,
       "trimmed": false,
       "spriteSourceSize": {
         "x": 0,
         "y": 0,
-        "w": 388,
-        "h": 252
+        "w": 362,
+        "h": 257
       },
       "sourceSize": {
-        "w": 388,
-        "h": 252
+        "w": 362,
+        "h": 257
       },
       "pivot": {
         "x": 0.5,
@@ -3914,7 +3914,7 @@
     },
     "enemy/enemy3/punch/Untitled-40002": {
       "frame": {
-        "x": 1765,
+        "x": 1800,
         "y": 480,
         "w": 264,
         "h": 247
@@ -3938,7 +3938,7 @@
     },
     "enemy/enemy3/punch/Untitled-40003": {
       "frame": {
-        "x": 1765,
+        "x": 1800,
         "y": 480,
         "w": 264,
         "h": 247
@@ -3962,7 +3962,7 @@
     },
     "enemy/enemy3/punch/Untitled-40010": {
       "frame": {
-        "x": 1765,
+        "x": 1800,
         "y": 480,
         "w": 264,
         "h": 247
@@ -3986,7 +3986,7 @@
     },
     "enemy/enemy3/punch/Untitled-40005": {
       "frame": {
-        "x": 2033,
+        "x": 2068,
         "y": 480,
         "w": 264,
         "h": 247
@@ -4010,7 +4010,7 @@
     },
     "enemy/enemy3/punch/Untitled-40007": {
       "frame": {
-        "x": 2301,
+        "x": 2336,
         "y": 480,
         "w": 264,
         "h": 247
@@ -4034,7 +4034,7 @@
     },
     "enemy/enemy3/punch/Untitled-40009": {
       "frame": {
-        "x": 2569,
+        "x": 2604,
         "y": 480,
         "w": 264,
         "h": 247
@@ -4063,8 +4063,8 @@
     "image": "enemy.png",
     "format": "RGBA8888",
     "size": {
-      "w": 4067,
-      "h": 2081
+      "w": 4094,
+      "h": 2054
     },
     "scale": 1
   }

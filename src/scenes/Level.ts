@@ -1,4 +1,4 @@
-import { Actor, CollisionType, Color, Engine, Rectangle, Scene, SceneActivationContext, Sprite, vec, Vector } from 'excalibur';
+import { Actor, CollisionType, Color, Engine, Rectangle, Scene, SceneActivationContext, ScreenElement, Sprite, vec, Vector } from 'excalibur';
 import res from '../res';
 import Player from '../components/Player';
 import game from '../game';
@@ -253,6 +253,22 @@ export default class Level extends Scene {
 
 			this.add(table);
 		}
+
+		const cust1 = new Actor({
+			pos: vec(game.halfDrawWidth + 200, game.drawHeight),
+			anchor: vec(0.5, 1),
+			z: 4990,
+		});
+		cust1.graphics.use(<Sprite>res.assets.getFrameSprite('graphics/customer8'));
+		this.add(cust1);
+
+		const cust2 = new Actor({
+			pos: vec(game.drawWidth - 200, game.drawHeight),
+			anchor: vec(0.5, 1),
+			z: 4990,
+		});
+		cust2.graphics.use(<Sprite>res.assets.getFrameSprite('graphics/customer5'));
+		this.add(cust2);
 	}
 
 	private addBeam() {

@@ -44,7 +44,7 @@ export default class Table extends Actor {
 		}
 
 		if (this.type === TABLE_TYPE.CUSTOMER2) {
-			const sprite = <Sprite>res.assets.getFrameSprite('graphics/customer2');
+			const sprite = <Sprite>res.assets.getFrameSprite('graphics/customer7');
 
 			this.graphics.layers
 				.create({
@@ -62,9 +62,19 @@ export default class Table extends Actor {
 				.create({
 					name: 'add',
 					order: 0,
-					offset: vec(75, 30),
+					offset: vec(-70, 30),
 				})
 				.use(sprite);
+
+			const sprite2 = <Sprite>res.assets.getFrameSprite('graphics/customer6');
+
+			this.graphics.layers
+				.create({
+					name: 'add2',
+					order: 0,
+					offset: vec(75, 20),
+				})
+				.use(sprite2);
 		}
 	}
 }
