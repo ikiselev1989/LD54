@@ -1,13 +1,14 @@
-import { Actor, ActorArgs, CollisionType, Sprite, vec } from 'excalibur';
+import { Actor, ActorArgs, CollisionType, Shape, Sprite, vec } from 'excalibur';
 import res from '../res';
 
 export default class Table extends Actor {
 	constructor(props: ActorArgs) {
 		super({
 			...props,
-			width: 300,
-			height: 100,
+			width: 200,
+			height: 200,
 			anchor: vec(0.5, 0.8),
+			collider: Shape.Circle(200 / 2),
 			collisionType: CollisionType.Fixed,
 		});
 	}
@@ -17,6 +18,8 @@ export default class Table extends Actor {
 	}
 
 	private addGraphics() {
-		this.graphics.use(<Sprite>res.assets.getFrameSprite('graphics/table'));
+		this.graphics.use(<Sprite>res.assets.getFrameSprite('graphics/table'), {
+			offset: vec(-10, 0),
+		});
 	}
 }

@@ -54,7 +54,11 @@ export default abstract class Character extends Actor {
 				},
 				[CHARACTER_STATES.DAMAGE]: {
 					onState: this.onDamageState.bind(this),
-					transitions: [CHARACTER_STATES.IDLE, CHARACTER_STATES.DAMAGE],
+					transitions: [CHARACTER_STATES.IDLE, CHARACTER_STATES.DAMAGE, CHARACTER_STATES.FALL],
+				},
+				[CHARACTER_STATES.FALL]: {
+					onState: this.onFallState.bind(this),
+					transitions: [],
 				},
 			},
 		});
@@ -83,6 +87,8 @@ export default abstract class Character extends Actor {
 
 	abstract onDamageState(): void;
 
+	abstract onFallState(): void;
+
 	protected boozeColdDown(delta: number) {
 		const deltaValue = (config.character.boozeCoolDown / 1000) * delta;
 
@@ -96,10 +102,12 @@ export default abstract class Character extends Actor {
 
 		if (this.condition === 0) {
 			this.events.emit(CHARACTER_EVENTS.NOT_ENOUGH_BOOZE);
+			this.fsm.go(CHARACTER_STATES.FALL);
 		}
 
 		if (this.condition === 100) {
 			this.events.emit(CHARACTER_EVENTS.TOO_MUCH_BOOZE);
+			this.fsm.go(CHARACTER_STATES.FALL);
 		}
 	}
 

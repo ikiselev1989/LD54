@@ -1,6 +1,6 @@
 import Character from './Character';
 import res from '../res';
-import { Animation, AnimationStrategy, StateMachine, vec } from 'excalibur';
+import { Animation, AnimationStrategy, Engine, StateMachine, vec } from 'excalibur';
 import SpriteSheetAnimation from '../partials/spritesheet-animation';
 import { CHARACTER_STATES, ENEMY_STATES } from '../enums';
 import { random } from '../utils';
@@ -41,9 +41,7 @@ export class Enemy extends Character {
 
 		super.onInitialize();
 
-		this.fightTrigger.on('collisionstart', () => {
-			this.fsmAI.go(ENEMY_STATES.FIGHT);
-		});
+		this.fightTrigger.on('collisionstart', () => this.fsmAI.go(ENEMY_STATES.FIGHT));
 
 		await game.waitFor(1000);
 		this.fsmAI.go(ENEMY_STATES.FIND_TARGET);
@@ -87,7 +85,11 @@ export class Enemy extends Character {
 
 		anim.reset();
 
-		this.graphics.use(<Animation>anim);
+		const anchor = vec(110 / (anim.width || 1), 1);
+
+		this.graphics.use(<Animation>anim, {
+			anchor: this.graphics.flipHorizontal ? vec(1 - 110 / (anim.width || 1), 1) : anchor,
+		});
 
 		anim.events.once('end', () => {
 			this.fsmAI.go(ENEMY_STATES.IDLE);
@@ -98,10 +100,41 @@ export class Enemy extends Character {
 		this.damageToEnemy();
 	}
 
-	protected onAIIdleState() {
+	onFallState() {
+		const anim = <Animation>this.animations.getAnimation('enemy/enemy1/fall', {
+			strategy: AnimationStrategy.Freeze,
+		});
+
+		anim.reset();
+
+		const anchor = vec(110 / (anim.width || 1), 1);
+
+		this.graphics.use(<Animation>anim, {
+			anchor: this.graphics.flipHorizontal ? vec(1 - 110 / (anim.width || 1), 1) : anchor,
+		});
+
+		anim.events.once('end', async () => {
+			this.graphics.visible = false;
+			await this.actions.blink(100, 100, 4).toPromise();
+			this.kill();
+		});
+
+		anim.play();
+	}
+
+	onPostUpdate(_engine: Engine, _delta: number) {
+		super.onPostUpdate(_engine, _delta);
+
+		this.vel.x !== 0 && this.flipX(this.vel.x < 0);
+	}
+
+	protected async onAIIdleState() {
 		this.fsm.go(CHARACTER_STATES.IDLE);
 
-		if (this.enemy) return this.fsmAI.go(ENEMY_STATES.FIGHT);
+		if (this.enemy) {
+			await game.waitFor(config.enemy.reactionTime);
+			return this.fsmAI.go(ENEMY_STATES.FIGHT);
+		}
 		if (this.target) return this.fsmAI.go(ENEMY_STATES.FOLLOW_TARGET);
 
 		return this.fsmAI.go(ENEMY_STATES.FIND_TARGET);

@@ -16,6 +16,7 @@ export enum CHARACTER_STATES {
 	PUNCH = 'punch',
 	BLOCK = 'block',
 	DAMAGE = 'damage',
+	FALL = 'fall',
 }
 
 export enum CHARACTER_EVENTS {

@@ -120,6 +120,8 @@ export default class Player extends Character {
 		game.events.emit(EVENTS.PLAYER_STATUS_UPDATE);
 	}
 
+	onFallState(): void {}
+
 	private setVel(vel: Vector) {
 		if (this.fsm.in(CHARACTER_STATES.MOVE) || this.fsm.in(CHARACTER_STATES.IDLE)) {
 			if (vel.equals(Vector.Zero)) {

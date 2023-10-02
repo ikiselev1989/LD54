@@ -1,7 +1,7 @@
 import { Keys } from 'excalibur';
 
 export default {
-	debug: false,
+	debug: true,
 	showFps: true,
 	sceneFadeDuration: 400,
 	input: {
@@ -31,6 +31,9 @@ export default {
 			value: 10,
 			ratio: [1.5, 1, 1.25],
 		},
+	},
+	enemy: {
+		reactionTime: 300,
 	},
 	ui: {
 		offset: 50,
