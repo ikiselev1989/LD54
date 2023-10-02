@@ -33,7 +33,7 @@ export default {
 	},
 	enemy: {
 		startCount: 3,
-		reactionTime: 450,
+		reactionTime: 300,
 	},
 	bar: {
 		beerTimeout: 5000,
