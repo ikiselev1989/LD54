@@ -804,22 +804,6 @@
 							"defUid": 7,
 							"px": [1494,712],
 							"fieldInstances": []
-						},
-						{
-							"__identifier": "BoozeSpawn",
-							"__grid": [1170,324],
-							"__pivot": [0.5,1],
-							"__tags": [],
-							"__tile": { "tilesetUid": 2, "x": 48, "y": 272, "w": 16, "h": 16 },
-							"__smartColor": "#BE4A2F",
-							"__worldX": 1170,
-							"__worldY": 325,
-							"iid": "d7b0dfe0-3b70-11ee-99dd-b3fac981f4d7",
-							"width": 64,
-							"height": 64,
-							"defUid": 1,
-							"px": [1170,325],
-							"fieldInstances": []
 						}
 					]
 				}
