@@ -16,6 +16,7 @@ import Door from '../components/Door';
 import Barman from '../components/Barman';
 import Runner from '../components/Runner';
 import GameOver from '../components/GameOver';
+import Logo from '../components/Logo';
 
 export default class Level extends Scene {
 	private player!: Player;
@@ -301,6 +302,9 @@ export default class Level extends Scene {
 	}
 
 	private addBar() {
+		const logo = new Logo();
+		this.add(logo);
+
 		const layer = <LDtkLayer>res.map.getLevelLayersByName(0, 'Entities')[0];
 		const barConfig = (layer?.entityInstances || []).filter(ent => ent.__identifier === 'Bar')[0];
 		const { __worldX, __worldY } = barConfig;
