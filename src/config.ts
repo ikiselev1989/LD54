@@ -34,6 +34,9 @@ export default {
 		startCount: 1,
 		reactionTime: 400,
 	},
+	bar: {
+		boozeInterval: 10000,
+	},
 	ui: {
 		offset: 50,
 	},

@@ -4,7 +4,7 @@ import res from '../res';
 import game from '../game';
 import Character from './Character';
 import SpriteSheetAnimation from '../partials/spritesheet-animation';
-import { CHARACTER_EVENTS, CHARACTER_STATES, EVENTS } from '../enums';
+import { CHARACTER_STATES, EVENTS } from '../enums';
 
 export default class Player extends Character {
 	private animations!: SpriteSheetAnimation;
@@ -120,7 +120,29 @@ export default class Player extends Character {
 		game.events.emit(EVENTS.PLAYER_STATUS_UPDATE);
 	}
 
-	onFallState(): void {}
+	onFallState(): void {
+		if (this.condition < 100) return;
+
+		this.vel.setTo(0, 0);
+
+		const anims = <Animation>this.animations.getAnimation('animations/boozed', {
+			strategy: AnimationStrategy.Freeze,
+		});
+
+		anims.reset();
+
+		const anchor = vec(280 / (anims?.width || 1), 1);
+
+		this.graphics.use(<Animation>anims, {
+			anchor: this.graphics.flipHorizontal ? vec(1 - 280 / (anims?.width || 1), 1) : anchor,
+		});
+
+		anims.events.on('end', () => {
+			this.fsm.go(CHARACTER_STATES.IDLE);
+		});
+
+		anims.play();
+	}
 
 	private setVel(vel: Vector) {
 		if (this.fsm.in(CHARACTER_STATES.MOVE) || this.fsm.in(CHARACTER_STATES.IDLE)) {
@@ -138,9 +160,6 @@ export default class Player extends Character {
 	}
 
 	private registerEvents() {
-		this.events.on(CHARACTER_EVENTS.NOT_ENOUGH_BOOZE, () => {});
-		this.events.on(CHARACTER_EVENTS.TOO_MUCH_BOOZE, () => {});
-
 		game.inputMapper.on(({ keyboard }) => {
 			if (keyboard.isHeld(config.input.keyboard.left)) return Vector.Left;
 			if (keyboard.isHeld(config.input.keyboard.right)) return Vector.Right;

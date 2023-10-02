@@ -2,7 +2,7 @@ import Character from './Character';
 import res from '../res';
 import { Animation, AnimationStrategy, Engine, StateMachine, vec } from 'excalibur';
 import SpriteSheetAnimation from '../partials/spritesheet-animation';
-import { CHARACTER_STATES, ENEMY_STATES } from '../enums';
+import { CHARACTER_EVENTS, CHARACTER_STATES, ENEMY_STATES } from '../enums';
 import { random } from '../utils';
 import game from '../game';
 import config from '../config';
@@ -44,13 +44,17 @@ export class Enemy extends Character {
 
 		super.onInitialize();
 
+		this.registerEvents();
+
+		await game.waitFor(1000);
+		this.fsmAI.go(ENEMY_STATES.FIND_TARGET);
+	}
+
+	registerEvents() {
 		this.fightTrigger.on('collisionstart', e => {
 			if (!(e.other instanceof Character)) return;
 			this.fsmAI.go(ENEMY_STATES.IDLE);
 		});
-
-		await game.waitFor(1000);
-		this.fsmAI.go(ENEMY_STATES.FIND_TARGET);
 	}
 
 	onBlockState(): void {}
@@ -191,8 +195,8 @@ export class Enemy extends Character {
 
 		if (booze && !booze.isKilled()) {
 			this.fsm.go(CHARACTER_STATES.MOVE);
-			await this.actions.moveTo(vec(booze.pos.x, this.pos.y), config.character.speed).toPromise();
 			await this.actions.moveTo(vec(this.pos.x, booze.pos.y + 150), config.character.speed).toPromise();
+			await this.actions.moveTo(vec(booze.pos.x, this.pos.y), config.character.speed).toPromise();
 
 			if (booze && !booze.isKilled()) {
 				booze.use();

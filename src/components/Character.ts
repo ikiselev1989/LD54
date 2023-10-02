@@ -1,7 +1,7 @@
 import { Actor, ActorArgs, CollisionType, Engine, Shape, StateMachine, vec, Vector } from 'excalibur';
 import config from '../config';
 import { characterCanCollide } from '../collisions';
-import { CHARACTER_EVENTS, CHARACTER_STATES } from '../enums';
+import { CHARACTER_STATES } from '../enums';
 
 export default abstract class Character extends Actor {
 	enemy!: Character | undefined;
@@ -38,7 +38,7 @@ export default abstract class Character extends Actor {
 				},
 				[CHARACTER_STATES.IDLE]: {
 					onState: this.onIdleState.bind(this),
-					transitions: [CHARACTER_STATES.MOVE, CHARACTER_STATES.PUNCH, CHARACTER_STATES.DAMAGE, CHARACTER_STATES.BLOCK],
+					transitions: [CHARACTER_STATES.MOVE, CHARACTER_STATES.PUNCH, CHARACTER_STATES.DAMAGE, CHARACTER_STATES.BLOCK, CHARACTER_STATES.FALL],
 				},
 				[CHARACTER_STATES.MOVE]: {
 					onState: this.onMoveState.bind(this),
@@ -46,7 +46,7 @@ export default abstract class Character extends Actor {
 				},
 				[CHARACTER_STATES.PUNCH]: {
 					onState: this.onPunchState.bind(this),
-					transitions: [CHARACTER_STATES.IDLE],
+					transitions: [CHARACTER_STATES.IDLE, CHARACTER_STATES.DAMAGE],
 				},
 				[CHARACTER_STATES.BLOCK]: {
 					onState: this.onBlockState.bind(this),
@@ -90,10 +90,12 @@ export default abstract class Character extends Actor {
 	abstract onFallState(): void;
 
 	isDied() {
-		return this.condition === 0;
+		return this.condition === 0 || this.condition === 100;
 	}
 
 	protected boozeColdDown(delta: number) {
+		if (this.fsm.in(CHARACTER_STATES.FALL)) return;
+
 		const deltaValue = (config.character.boozeCoolDown / 1000) * delta;
 
 		if (this.condition - deltaValue >= (100 / 5) * 2) {
@@ -104,13 +106,7 @@ export default abstract class Character extends Actor {
 	protected checkCondition() {
 		this.condition = Math.min(Math.max(this.condition, 0), 100);
 
-		if (this.condition === 0) {
-			this.events.emit(CHARACTER_EVENTS.NOT_ENOUGH_BOOZE);
-			this.fsm.go(CHARACTER_STATES.FALL);
-		}
-
-		if (this.condition === 100) {
-			this.events.emit(CHARACTER_EVENTS.TOO_MUCH_BOOZE);
+		if (this.condition === 0 || this.condition === 100) {
 			this.fsm.go(CHARACTER_STATES.FALL);
 		}
 	}
@@ -164,6 +160,8 @@ export default abstract class Character extends Actor {
 	}
 
 	protected damageToEnemy() {
+		if (!this.fsm.in(CHARACTER_STATES.PUNCH)) return;
+
 		this.enemy && this.enemy.damage(this.enemy.pos.sub(this.pos).normalize(), this.punchCount + 1);
 	}
 

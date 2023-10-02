@@ -31,7 +31,7 @@ export default class Level extends Scene {
 		const timer = new Timer({
 			fcn: () => this.addBooze(),
 			repeats: true,
-			interval: 5000,
+			interval: config.bar.boozeInterval,
 		});
 
 		this.add(timer);
