@@ -1,7 +1,7 @@
 import Character from './Character';
 import SpriteSheetAnimation from '../partials/spritesheet-animation';
 import res from '../res';
-import { Animation, AnimationStrategy, CollisionType, StateMachine } from 'excalibur';
+import { Animation, AnimationStrategy, CollisionType, StateMachine, vec } from 'excalibur';
 import { CHARACTER_STATES, ENEMY_STATES } from '../enums';
 import { random } from '../utils';
 import { Enemy } from './Enemy';
@@ -68,7 +68,9 @@ export default class Runner extends Character {
 
 		anim.reset();
 
-		this.graphics.use(<Animation>anim);
+		this.graphics.use(<Animation>anim, {
+			anchor: vec(0.5, 0.5),
+		});
 
 		anim.events.once('end', async () => {
 			this.body.collisionType = CollisionType.PreventCollision;
@@ -104,7 +106,7 @@ export default class Runner extends Character {
 		this.events.on('collisionstart', e => {
 			if (this.ai.in(ENEMY_STATES.FOLLOW_TARGET) && e.other instanceof Character) {
 				this.enemy = e.other;
-				this.enemy && this.enemy.damage(this.enemy.pos.sub(this.pos).normalize(), 3);
+				this.enemy && this.enemy.damage(this.enemy.pos.sub(this.pos).normalize(), 3, this);
 				this.ai.go(ENEMY_STATES.IDLE);
 			}
 		});
