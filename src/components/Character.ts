@@ -59,7 +59,14 @@ export default abstract class Character extends Actor {
 				},
 				[CHARACTER_STATES.MOVE]: {
 					onState: this.onMoveState.bind(this),
-					transitions: [CHARACTER_STATES.IDLE, CHARACTER_STATES.PUNCH, CHARACTER_STATES.KICK, CHARACTER_STATES.BLOCK, CHARACTER_STATES.DAMAGE],
+					transitions: [
+						CHARACTER_STATES.IDLE,
+						CHARACTER_STATES.PUNCH,
+						CHARACTER_STATES.KICK,
+						CHARACTER_STATES.BLOCK,
+						CHARACTER_STATES.DAMAGE,
+						CHARACTER_STATES.FALL,
+					],
 				},
 				[CHARACTER_STATES.PUNCH]: {
 					onState: this.onPunchState.bind(this),
