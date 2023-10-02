@@ -7,9 +7,9 @@ export default abstract class Character extends Actor {
 	enemy!: Character | undefined;
 	fightTrigger!: Actor;
 	condition!: number;
+	heading!: Vector;
 	protected punchCount!: number;
 	protected fsm!: StateMachine<CHARACTER_STATES, never>;
-	private heading!: Vector;
 
 	constructor(props: ActorArgs = {}) {
 		super({
@@ -35,8 +35,6 @@ export default abstract class Character extends Actor {
 	}
 
 	onInitialize() {
-		this.heading = Vector.Right;
-
 		this.resetCondition();
 		this.resetPunchCount();
 
