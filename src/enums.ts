@@ -1,5 +1,6 @@
 export enum SCENES {
 	LEVEL = 'level',
+	INTRO = 'intro',
 }
 
 export enum DIRECTION {

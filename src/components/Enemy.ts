@@ -178,6 +178,8 @@ export class Enemy extends Character {
 	}
 
 	protected onFindTargetState() {
+		if (!this.scene || this.isKilled()) return;
+
 		const targets = <Character[]>this.scene.entities.filter(en => en instanceof Character && en.id !== this.id && !en.isDied());
 
 		this.target = random.pickOne(targets);
@@ -186,6 +188,8 @@ export class Enemy extends Character {
 	}
 
 	protected async onFollowTargetState() {
+		if (!this.target) return this.ai.go(ENEMY_STATES.IDLE);
+
 		this.fsm.go(CHARACTER_STATES.MOVE);
 
 		await this.actions.moveTo(vec(this.target.pos.x + random.pickOne([this.width, -this.width]), this.pos.y), config.character.speed).toPromise();

@@ -2,7 +2,7 @@ import { Keys } from 'excalibur';
 
 export default {
 	debug: false,
-	showFps: true,
+	showFps: false,
 	sceneFadeDuration: 400,
 	input: {
 		keyboard: {
@@ -14,6 +14,8 @@ export default {
 			kick: Keys.K,
 			block: Keys.L,
 			use: Keys.F,
+			enter: Keys.Enter,
+			space: Keys.Space,
 		},
 	},
 	character: {

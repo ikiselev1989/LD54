@@ -2,6 +2,8 @@ import { Actor, ActorArgs, CollisionType, Engine, Shape, StateMachine, vec, Vect
 import config from '../config';
 import { characterCanCollide } from '../collisions';
 import { CHARACTER_STATES } from '../enums';
+import Player from './Player';
+import game from '../game';
 
 export default abstract class Character extends Actor {
 	enemy!: Character | undefined;
@@ -10,6 +12,7 @@ export default abstract class Character extends Actor {
 	heading!: Vector;
 	protected punchCount!: number;
 	protected fsm!: StateMachine<CHARACTER_STATES, never>;
+	private from!: Character;
 
 	constructor(props: ActorArgs = {}) {
 		super({
@@ -27,6 +30,8 @@ export default abstract class Character extends Actor {
 	}
 
 	onPostUpdate(_engine: Engine, _delta: number) {
+		if (this.fsm.in(CHARACTER_STATES.FALL)) return;
+
 		this.setHeading();
 		this.flipX();
 
@@ -94,7 +99,7 @@ export default abstract class Character extends Actor {
 		this.fsm.go(CHARACTER_STATES.IDLE);
 	}
 
-	async damage(dir: Vector, punchCount: number) {
+	async damage(dir: Vector, punchCount: number, from: Character) {
 		if (this.fsm.in(CHARACTER_STATES.FALL)) return;
 
 		const hurtImpulse = config.character.hurtImpulse * (punchCount === 3 ? 20 : 1);
@@ -103,6 +108,7 @@ export default abstract class Character extends Actor {
 		if (!this.fsm.in(CHARACTER_STATES.BLOCK)) {
 			this.fsm.go(CHARACTER_STATES.DAMAGE);
 			this.condition -= this.calculateDamage();
+			this.from = from;
 		}
 
 		await this.actions.moveTo(this.pos.add(dir.scaleEqual(hurtImpulse)), time).toPromise();
@@ -141,6 +147,12 @@ export default abstract class Character extends Actor {
 
 		if (this.condition === 0 || this.condition === 100) {
 			this.fsm.go(CHARACTER_STATES.FALL);
+
+			if (this.condition === 0) {
+				if (this.from instanceof Player) {
+					game.addProgress();
+				}
+			}
 		}
 	}
 
@@ -198,7 +210,7 @@ export default abstract class Character extends Actor {
 	protected damageToEnemy() {
 		if (!this.fsm.in(CHARACTER_STATES.PUNCH) && !this.fsm.in(CHARACTER_STATES.KICK)) return;
 
-		this.enemy && this.enemy.damage(this.enemy.pos.sub(this.pos).normalize(), this.fsm.in(CHARACTER_STATES.KICK) ? 3 : this.punchCount + 1);
+		this.enemy && this.enemy.damage(this.enemy.pos.sub(this.pos).normalize(), this.fsm.in(CHARACTER_STATES.KICK) ? 3 : this.punchCount + 1, this);
 	}
 
 	protected punch() {

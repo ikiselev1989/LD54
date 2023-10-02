@@ -1,11 +1,15 @@
 import { Color, DisplayMode, Engine, Loader, PointerScope, ScrollPreventionMode } from 'excalibur';
 import { SCENES } from './enums';
 import Level from './scenes/Level';
-import res from './res';
 import config from './config';
 import { Pane } from 'tweakpane';
+import Intro from './scenes/Intro';
+import res from './res';
+import { easyTween } from './utils';
 
 class Game extends Engine {
+	private progress!: number;
+
 	constructor() {
 		super({
 			viewport: {
@@ -26,7 +30,7 @@ class Game extends Engine {
 			pointerScope: PointerScope.Canvas,
 			scrollPreventionMode: ScrollPreventionMode.All,
 			displayMode: DisplayMode.FitScreen,
-			backgroundColor: Color.fromHex('#242424'),
+			backgroundColor: Color.fromHex('#315438'),
 			antialiasing: true,
 		});
 
@@ -34,7 +38,23 @@ class Game extends Engine {
 		config.debug && this.activateDebug();
 	}
 
+	async changeScene(key: SCENES) {
+		await easyTween(progress => {
+			this.canvas.style.setProperty('opacity', (1 - progress).toString());
+		}, config.sceneFadeDuration);
+
+		this.goToScene(key);
+		await this.waitFor(config.sceneFadeDuration);
+
+		await easyTween(progress => {
+			this.canvas.style.setProperty('opacity', progress.toString());
+		}, config.sceneFadeDuration);
+	}
+
 	onInitialize() {
+		this.progress = 0;
+
+		this.addScene(SCENES.INTRO, new Intro());
 		this.addScene(SCENES.LEVEL, new Level());
 	}
 
@@ -45,9 +65,18 @@ class Game extends Engine {
 	}
 
 	async play() {
-		await this.start(new Loader([...Object.values(res)]));
+		await this.start();
 
-		this.goToScene(SCENES.LEVEL);
+		const loader = new Loader([...Object.values(res)]);
+		loader.suppressPlayButton = true;
+
+		await loader.load();
+
+		this.goToScene(SCENES.INTRO);
+	}
+
+	addProgress() {
+		this.progress++;
 	}
 
 	private showFpsCounter() {
