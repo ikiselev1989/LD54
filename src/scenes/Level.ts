@@ -15,6 +15,7 @@ import { EVENTS } from '../enums';
 import Door from '../components/Door';
 import Barman from '../components/Barman';
 import Customer from '../components/Customer';
+import Runner from '../components/Runner';
 
 export default class Level extends Scene {
 	private player!: Player;
@@ -51,7 +52,29 @@ export default class Level extends Scene {
 	}
 
 	private registerEvents() {
-		this.events.on(EVENTS.NEW_ENEMY, () => this.addNewEnemy());
+		this.events.on(EVENTS.NEW_ENEMY, () => {
+			if (random.bool(0.1) && !this.entities.filter(en => en instanceof Runner && !en.isDied()).length) {
+				return this.addRunner();
+			}
+
+			return this.addNewEnemy();
+		});
+	}
+
+	private async addRunner() {
+		const layer = <LDtkLayer>res.map.getLevelLayersByName(0, 'Entities')[0];
+		const enemySpawn = (layer?.entityInstances || []).filter(ent => ent.__identifier === 'EnemySpawn')[0];
+
+		const runner = new Runner({
+			pos: vec(enemySpawn.__worldX, enemySpawn.__worldY),
+		});
+
+		this.add(runner);
+
+		this.door.open();
+
+		await game.waitFor(1000);
+		this.door.close();
 	}
 
 	private async addNewEnemy() {

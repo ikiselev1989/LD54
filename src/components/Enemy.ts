@@ -12,13 +12,13 @@ import Beer from './Beer';
 export class Enemy extends Character {
 	spawned!: boolean;
 	private animations!: SpriteSheetAnimation;
-	private fsmAI!: StateMachine<ENEMY_STATES, never>;
+	private ai!: StateMachine<ENEMY_STATES, never>;
 	private target!: Character;
 
 	async onInitialize() {
 		this.body.collisionType = CollisionType.PreventCollision;
 		this.animations = new SpriteSheetAnimation([res.enemy]);
-		this.fsmAI = StateMachine.create({
+		this.ai = StateMachine.create({
 			start: ENEMY_STATES.IDLE,
 			states: {
 				[ENEMY_STATES.IDLE]: {
@@ -49,13 +49,13 @@ export class Enemy extends Character {
 		this.registerEvents();
 
 		await game.waitFor(1000);
-		this.fsmAI.go(ENEMY_STATES.IDLE);
+		this.ai.go(ENEMY_STATES.IDLE);
 	}
 
 	registerEvents() {
 		this.fightTrigger.on('collisionstart', e => {
 			if (!(e.other instanceof Character)) return;
-			this.fsmAI.go(ENEMY_STATES.IDLE);
+			this.ai.go(ENEMY_STATES.IDLE);
 		});
 	}
 
@@ -78,7 +78,7 @@ export class Enemy extends Character {
 		this.graphics.use(anim);
 
 		anim.events.on('end', () => {
-			this.fsmAI.go(ENEMY_STATES.IDLE);
+			this.ai.go(ENEMY_STATES.IDLE);
 		});
 
 		anim.play();
@@ -112,7 +112,7 @@ export class Enemy extends Character {
 		});
 
 		anim.events.once('end', () => {
-			this.fsmAI.go(ENEMY_STATES.IDLE);
+			this.ai.go(ENEMY_STATES.IDLE);
 		});
 
 		anim.play();
@@ -153,7 +153,7 @@ export class Enemy extends Character {
 			await this.actions.moveTo(vec(this.pos.x, game.halfDrawHeight), config.character.speed).toPromise();
 			this.spawned = false;
 
-			return this.fsmAI.go(ENEMY_STATES.FIND_TARGET);
+			return this.ai.go(ENEMY_STATES.FIND_TARGET);
 		}
 
 		this.body.collisionType = CollisionType.Active;
@@ -161,14 +161,14 @@ export class Enemy extends Character {
 
 		if (this.enemy && !this.enemy.isDied()) {
 			await game.waitFor(config.enemy.reactionTime);
-			return this.fsmAI.go(ENEMY_STATES.FIGHT);
+			return this.ai.go(ENEMY_STATES.FIGHT);
 		}
 		if (this.target && !this.target.isDied()) {
 			await game.waitFor(config.enemy.reactionTime);
-			return this.fsmAI.go(ENEMY_STATES.FOLLOW_TARGET);
+			return this.ai.go(ENEMY_STATES.FOLLOW_TARGET);
 		}
 
-		return this.fsmAI.go(ENEMY_STATES.FIND_TARGET);
+		return this.ai.go(ENEMY_STATES.FIND_TARGET);
 	}
 
 	protected onFightState() {
@@ -182,7 +182,7 @@ export class Enemy extends Character {
 
 		this.target = random.pickOne(targets);
 
-		this.fsmAI.go(ENEMY_STATES.FOLLOW_TARGET);
+		this.ai.go(ENEMY_STATES.FOLLOW_TARGET);
 	}
 
 	protected async onFollowTargetState() {
@@ -191,16 +191,16 @@ export class Enemy extends Character {
 		await this.actions.moveTo(vec(this.target.pos.x + random.pickOne([this.width, -this.width]), this.pos.y), config.character.speed).toPromise();
 		await this.actions.moveTo(vec(this.pos.x, this.target.pos.y), config.character.speed).toPromise();
 
-		if (this.enemy) return this.fsmAI.go(ENEMY_STATES.FIGHT);
+		if (this.enemy) return this.ai.go(ENEMY_STATES.FIGHT);
 
-		return this.fsmAI.go(ENEMY_STATES.FOLLOW_TARGET);
+		return this.ai.go(ENEMY_STATES.FOLLOW_TARGET);
 	}
 
 	protected checkCondition() {
 		const booze = (<Level>this.scene).getBoozePosition();
 
 		if (this.condition < (100 / 5) * 2 && booze && random.bool()) {
-			this.fsmAI.go(ENEMY_STATES.DRINK);
+			this.ai.go(ENEMY_STATES.DRINK);
 		}
 
 		super.checkCondition();
@@ -217,10 +217,10 @@ export class Enemy extends Character {
 			if (booze && !booze.isKilled()) {
 				booze.use();
 				this.drink();
-				return this.fsmAI.go(ENEMY_STATES.IDLE);
+				return this.ai.go(ENEMY_STATES.IDLE);
 			}
 		}
 
-		return this.fsmAI.go(ENEMY_STATES.IDLE);
+		return this.ai.go(ENEMY_STATES.IDLE);
 	}
 }

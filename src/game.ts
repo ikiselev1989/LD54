@@ -22,7 +22,7 @@ class Game extends Engine {
 			suppressConsoleBootMessage: true,
 			suppressPlayButton: true,
 			fixedUpdateFps: 60,
-			maxFps: 60,
+			maxFps: 120,
 			pointerScope: PointerScope.Canvas,
 			scrollPreventionMode: ScrollPreventionMode.All,
 			displayMode: DisplayMode.FitScreen,
@@ -45,9 +45,7 @@ class Game extends Engine {
 	}
 
 	async play() {
-		await this.start(new Loader([
-			...Object.values(res),
-		]));
+		await this.start(new Loader([...Object.values(res)]));
 
 		this.goToScene(SCENES.LEVEL);
 	}
