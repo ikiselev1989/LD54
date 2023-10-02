@@ -89,6 +89,10 @@ export default abstract class Character extends Actor {
 
 	abstract onFallState(): void;
 
+	isDied() {
+		return this.condition === 0;
+	}
+
 	protected boozeColdDown(delta: number) {
 		const deltaValue = (config.character.boozeCoolDown / 1000) * delta;
 

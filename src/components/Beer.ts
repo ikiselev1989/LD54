@@ -1,6 +1,7 @@
-import { Actor, ActorArgs, Timer, vec } from 'excalibur';
+import { Actor, ActorArgs, Sprite, Timer, vec } from 'excalibur';
+import res from '../res';
 
-export default abstract class Booze extends Actor {
+export default class Beer extends Actor {
 	private timer!: Timer;
 
 	constructor(props: ActorArgs = {}) {
@@ -29,10 +30,12 @@ export default abstract class Booze extends Actor {
 		this.timer.start();
 	}
 
-	abstract addGraphics(): void;
-
 	use() {
 		this.timer.cancel();
 		this.kill();
+	}
+
+	private addGraphics() {
+		this.graphics.use(<Sprite>res.assets.getFrameSprite('graphics/beer'));
 	}
 }

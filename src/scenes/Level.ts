@@ -9,9 +9,8 @@ import { Enemy } from '../components/Enemy';
 import Beam from '../components/Beam';
 import PlayerAlcoholMeter from '../components/PlayerAlcoholMeter';
 import { random } from '../utils';
-import Beer from '../components/booze/Beer';
-import Cocktail from '../components/booze/Cocktail';
-import Vodka from '../components/booze/Vodka';
+import Beer from '../components/Beer';
+import config from '../config';
 
 export default class Level extends Scene {
 	private player!: Player;
@@ -27,8 +26,7 @@ export default class Level extends Scene {
 		this.addUI();
 		this.addBeam();
 		this.addTables();
-		this.addPlayer();
-		this.addEnemy();
+		this.spawnCharacters();
 
 		const timer = new Timer({
 			fcn: () => this.addBooze(),
@@ -46,6 +44,12 @@ export default class Level extends Scene {
 				(<Actor>actor).z = game.halfDrawHeight + (<Actor>actor).pos.y;
 			}
 		}
+	}
+
+	getBoozePosition() {
+		const boozes = this.entities.filter(en => en instanceof Beer);
+
+		return random.pickOne(boozes);
 	}
 
 	private addDoor() {
@@ -69,21 +73,39 @@ export default class Level extends Scene {
 		this.add(pam);
 	}
 
-	private addEnemy() {
+	private spawnCharacters() {
+		const layer = <LDtkLayer>res.map.getLevelLayersByName(0, 'Entities')[0];
+		let spawns = (layer?.entityInstances || []).filter(ent => ent.__identifier === 'PlayerSpawn');
+
+		const playerSpawn = random.pickOne(spawns);
+		spawns = spawns.filter(spawn => spawn.iid !== playerSpawn.iid);
+
+		this.addPlayer(vec(playerSpawn.__worldX, playerSpawn.__worldY));
+
+		for (let i = 0; i < config.enemy.startCount; i++) {
+			const spawn = random.pickOne(spawns);
+			spawns = spawns.filter(sp => sp.iid !== spawn.iid);
+
+			this.addEnemy(vec(spawn.__worldX, spawn.__worldY));
+		}
+	}
+
+	private addEnemy(pos: Vector) {
 		const enemy = new Enemy({
-			pos: vec(game.halfDrawWidth, game.halfDrawHeight),
+			pos,
 		});
+
+		enemy.graphics.flipHorizontal = pos.x > game.halfDrawWidth;
 
 		this.add(enemy);
 	}
 
-	private addPlayer() {
-		const layer = <LDtkLayer>res.map.getLevelLayersByName(0, 'Entities')[0];
-		const playerSpawn = (layer?.entityInstances || []).filter(ent => ent.__identifier === 'PlayerSpawn')[0];
-
+	private addPlayer(pos: Vector) {
 		this.player = new Player({
-			pos: vec(playerSpawn.__worldX, playerSpawn.__worldY),
+			pos,
 		});
+
+		this.player.graphics.flipHorizontal = pos.x > game.halfDrawWidth;
 
 		this.add(this.player);
 	}
@@ -166,8 +188,7 @@ export default class Level extends Scene {
 		this.prevSpawnInd = random.pickOne(range(0, boozeSpawn.length - 1).filter(ind => ind !== this.prevSpawnInd));
 
 		const spawn = boozeSpawn[this.prevSpawnInd];
-		const BoozeClass = random.pickOne([Beer, Cocktail, Vodka]);
-		const booze = new BoozeClass({
+		const booze = new Beer({
 			pos: vec(spawn.__worldX, spawn.__worldY),
 		});
 

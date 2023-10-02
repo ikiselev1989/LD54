@@ -1,7 +1,7 @@
 import { Keys } from 'excalibur';
 
 export default {
-	debug: true,
+	debug: false,
 	showFps: true,
 	sceneFadeDuration: 400,
 	input: {
@@ -17,22 +17,21 @@ export default {
 	},
 	character: {
 		speed: 300,
-		width: 70,
-		height: 50,
+		width: 50,
 		hurtImpulse: 15,
 		trigger: {
-			xOffset: 70,
-			width: 70,
-			height: 50,
+			xOffset: 80,
+			width: 100,
 		},
 		punchCount: 3,
 		boozeCoolDown: 2,
 		damage: {
-			value: 10,
+			value: 5,
 			ratio: [1.5, 1, 1.25],
 		},
 	},
 	enemy: {
+		startCount: 4,
 		reactionTime: 300,
 	},
 	ui: {
