@@ -44,7 +44,10 @@ export class Enemy extends Character {
 
 		super.onInitialize();
 
-		this.fightTrigger.on('collisionstart', () => this.fsmAI.go(ENEMY_STATES.FIGHT));
+		this.fightTrigger.on('collisionstart', e => {
+			if (!(e.other instanceof Character)) return;
+			this.fsmAI.go(ENEMY_STATES.FIGHT);
+		});
 
 		await game.waitFor(1000);
 		this.fsmAI.go(ENEMY_STATES.FIND_TARGET);
@@ -140,7 +143,10 @@ export class Enemy extends Character {
 			await game.waitFor(config.enemy.reactionTime);
 			return this.fsmAI.go(ENEMY_STATES.FIGHT);
 		}
-		if (this.target && !this.target.isDied()) return this.fsmAI.go(ENEMY_STATES.FOLLOW_TARGET);
+		if (this.target && !this.target.isDied()) {
+			await game.waitFor(config.enemy.reactionTime);
+			return this.fsmAI.go(ENEMY_STATES.FOLLOW_TARGET);
+		}
 
 		return this.fsmAI.go(ENEMY_STATES.FIND_TARGET);
 	}

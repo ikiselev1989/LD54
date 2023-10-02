@@ -31,8 +31,8 @@ export default {
 		},
 	},
 	enemy: {
-		startCount: 4,
-		reactionTime: 300,
+		startCount: 1,
+		reactionTime: 400,
 	},
 	ui: {
 		offset: 50,
