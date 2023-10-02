@@ -38,6 +38,6 @@ export default {
 		boozeInterval: 10000,
 	},
 	ui: {
-		offset: 50,
+		offset: 70,
 	},
 };

@@ -12,10 +12,12 @@ import { random } from '../utils';
 import Beer from '../components/Beer';
 import config from '../config';
 import { EVENTS } from '../enums';
+import Door from '../components/Door';
 
 export default class Level extends Scene {
 	private player!: Player;
 	private prevSpawnInd!: number;
+	private door!: Door;
 
 	onInitialize(_engine: Engine) {
 		this.registerEvents();
@@ -56,17 +58,24 @@ export default class Level extends Scene {
 	}
 
 	private registerEvents() {
-		this.events.on(EVENTS.NEW_ENEMY, () => {
-			this.addNewEnemy();
-		});
+		this.events.on(EVENTS.NEW_ENEMY, () => this.addNewEnemy());
 	}
 
-	private addNewEnemy() {
+	private async addNewEnemy() {
 		const layer = <LDtkLayer>res.map.getLevelLayersByName(0, 'Entities')[0];
 		const enemySpawn = (layer?.entityInstances || []).filter(ent => ent.__identifier === 'EnemySpawn')[0];
 
 		const enemy = this.addEnemy(vec(enemySpawn.__worldX, enemySpawn.__worldY));
 		enemy.spawned = true;
+
+		this.door.open();
+
+		await game.waitFor(1000);
+		this.door.close();
+
+		if (random.bool(0.1)) {
+			this.addNewEnemy();
+		}
 	}
 
 	private addDoor() {
@@ -74,14 +83,11 @@ export default class Level extends Scene {
 		const doorConfig = (layer?.entityInstances || []).filter(ent => ent.__identifier === 'Door')[0];
 		const { __worldX, __worldY } = doorConfig;
 
-		const door = new Actor({
+		this.door = new Door({
 			pos: vec(__worldX, __worldY),
-			anchor: vec(0.5, 1),
 		});
 
-		door.graphics.use(<Sprite>res.assets.getFrameSprite('graphics/door-closed'));
-
-		this.add(door);
+		this.add(this.door);
 	}
 
 	private addUI() {
