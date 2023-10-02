@@ -95,7 +95,7 @@ export default class Level extends Scene {
 			pos,
 		});
 
-		enemy.graphics.flipHorizontal = pos.x > game.halfDrawWidth;
+		// enemy.graphics.flipHorizontal = pos.x > game.halfDrawWidth;
 
 		this.add(enemy);
 	}
@@ -105,7 +105,7 @@ export default class Level extends Scene {
 			pos,
 		});
 
-		this.player.graphics.flipHorizontal = pos.x > game.halfDrawWidth;
+		// this.player.graphics.flipHorizontal = pos.x > game.halfDrawWidth;
 
 		this.add(this.player);
 	}

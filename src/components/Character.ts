@@ -9,6 +9,7 @@ export default abstract class Character extends Actor {
 	condition!: number;
 	protected punchCount!: number;
 	protected fsm!: StateMachine<CHARACTER_STATES, never>;
+	private heading!: Vector;
 
 	constructor(props: ActorArgs = {}) {
 		super({
@@ -19,12 +20,23 @@ export default abstract class Character extends Actor {
 		});
 	}
 
+	setHeading() {
+		if (this.vel.x === 0 || !this.fsm.in(CHARACTER_STATES.MOVE)) return;
+
+		this.heading = this.vel.x < 0 ? Vector.Left : Vector.Right;
+	}
+
 	onPostUpdate(_engine: Engine, _delta: number) {
+		this.setHeading();
+		this.flipX();
+
 		this.boozeColdDown(_delta);
 		this.checkCondition();
 	}
 
 	onInitialize() {
+		this.heading = Vector.Right;
+
 		this.resetCondition();
 		this.resetPunchCount();
 
@@ -133,9 +145,9 @@ export default abstract class Character extends Actor {
 		this.punchCount = -1;
 	}
 
-	protected flipX(val = false) {
-		this.graphics.flipHorizontal = val;
-		this.fightTrigger.pos.x = (val ? -1 : 1) * config.character.trigger.xOffset;
+	protected flipX() {
+		this.graphics.flipHorizontal = this.heading?.equals(Vector.Left);
+		this.fightTrigger.pos.x = (this.graphics.flipHorizontal ? -1 : 1) * config.character.trigger.xOffset;
 	}
 
 	protected addFightTrigger() {

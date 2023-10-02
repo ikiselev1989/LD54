@@ -153,9 +153,6 @@ export default class Player extends Character {
 			}
 
 			this.vel = vel.scaleEqual(config.character.speed);
-
-			if (vel.x === 0) return;
-			this.flipX(vel.x < -1);
 		}
 	}
 

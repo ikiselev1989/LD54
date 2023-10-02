@@ -1,8 +1,8 @@
 import Character from './Character';
 import res from '../res';
-import { Animation, AnimationStrategy, Engine, StateMachine, vec } from 'excalibur';
+import { Animation, AnimationStrategy, StateMachine, vec } from 'excalibur';
 import SpriteSheetAnimation from '../partials/spritesheet-animation';
-import { CHARACTER_EVENTS, CHARACTER_STATES, ENEMY_STATES } from '../enums';
+import { CHARACTER_STATES, ENEMY_STATES } from '../enums';
 import { random } from '../utils';
 import game from '../game';
 import config from '../config';
@@ -132,12 +132,6 @@ export class Enemy extends Character {
 		});
 
 		anim.play();
-	}
-
-	onPostUpdate(_engine: Engine, _delta: number) {
-		super.onPostUpdate(_engine, _delta);
-
-		this.vel.x !== 0 && this.flipX(this.vel.x < 0);
 	}
 
 	protected async onAIIdleState() {
