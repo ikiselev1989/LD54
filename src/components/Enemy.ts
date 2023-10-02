@@ -2,7 +2,7 @@ import Character from './Character';
 import res from '../res';
 import { Animation, AnimationStrategy, CollisionType, StateMachine, vec } from 'excalibur';
 import SpriteSheetAnimation from '../partials/spritesheet-animation';
-import { CHARACTER_STATES, ENEMY_STATES } from '../enums';
+import { CHARACTER_STATES, ENEMY_STATES, EVENTS } from '../enums';
 import { random } from '../utils';
 import game from '../game';
 import config from '../config';
@@ -10,18 +10,20 @@ import Level from '../scenes/Level';
 import Beer from './Beer';
 
 export class Enemy extends Character {
+	spawned!: boolean;
 	private animations!: SpriteSheetAnimation;
 	private fsmAI!: StateMachine<ENEMY_STATES, never>;
 	private target!: Character;
 
 	async onInitialize() {
+		this.body.collisionType = CollisionType.PreventCollision;
 		this.animations = new SpriteSheetAnimation([res.enemy]);
 		this.fsmAI = StateMachine.create({
 			start: ENEMY_STATES.IDLE,
 			states: {
 				[ENEMY_STATES.IDLE]: {
 					onState: this.onAIIdleState.bind(this),
-					transitions: [ENEMY_STATES.FIND_TARGET, ENEMY_STATES.FOLLOW_TARGET, ENEMY_STATES.FIGHT, ENEMY_STATES.DRINK],
+					transitions: [ENEMY_STATES.FIND_TARGET, ENEMY_STATES.FOLLOW_TARGET, ENEMY_STATES.FIGHT, ENEMY_STATES.DRINK, ENEMY_STATES.IDLE],
 				},
 				[ENEMY_STATES.FIND_TARGET]: {
 					onState: this.onFindTargetState.bind(this),
@@ -47,7 +49,7 @@ export class Enemy extends Character {
 		this.registerEvents();
 
 		await game.waitFor(1000);
-		this.fsmAI.go(ENEMY_STATES.FIND_TARGET);
+		this.fsmAI.go(ENEMY_STATES.IDLE);
 	}
 
 	registerEvents() {
@@ -55,6 +57,10 @@ export class Enemy extends Character {
 			if (!(e.other instanceof Character)) return;
 			this.fsmAI.go(ENEMY_STATES.IDLE);
 		});
+	}
+
+	onPreKill() {
+		this.scene.events.emit(EVENTS.NEW_ENEMY);
 	}
 
 	onBlockState(): void {}
@@ -143,6 +149,15 @@ export class Enemy extends Character {
 	protected async onAIIdleState() {
 		if (this.fsm.in(CHARACTER_STATES.FALL)) return;
 
+		if (this.spawned) {
+			this.fsm.go(CHARACTER_STATES.MOVE);
+			await this.actions.moveTo(vec(this.pos.x, game.halfDrawHeight), config.character.speed).toPromise();
+			this.spawned = false;
+
+			return this.fsmAI.go(ENEMY_STATES.FIND_TARGET);
+		}
+
+		this.body.collisionType = CollisionType.Active;
 		this.fsm.go(CHARACTER_STATES.IDLE);
 
 		if (this.enemy && !this.enemy.isDied()) {
@@ -164,7 +179,7 @@ export class Enemy extends Character {
 	}
 
 	protected onFindTargetState() {
-		const targets = <Character[]>this.scene.entities.filter(en => en instanceof Character && en.id !== this.id);
+		const targets = <Character[]>this.scene.entities.filter(en => en instanceof Character && en.id !== this.id && !en.isDied());
 
 		this.target = random.pickOne(targets);
 
@@ -185,7 +200,7 @@ export class Enemy extends Character {
 	protected checkCondition() {
 		const booze = (<Level>this.scene).getBoozePosition();
 
-		if (this.condition < (100 / 5) * 2 && booze) {
+		if (this.condition < (100 / 5) * 2 && booze && random.bool()) {
 			this.fsmAI.go(ENEMY_STATES.DRINK);
 		}
 

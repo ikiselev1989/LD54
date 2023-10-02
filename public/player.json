@@ -1752,54 +1752,6 @@
         "y": 0.5
       }
     },
-    "animations/block/Untitled-20002": {
-      "frame": {
-        "x": 2672,
-        "y": 1764,
-        "w": 138,
-        "h": 290
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 138,
-        "h": 290
-      },
-      "sourceSize": {
-        "w": 138,
-        "h": 290
-      },
-      "pivot": {
-        "x": 0.5,
-        "y": 0.5
-      }
-    },
-    "animations/block/Untitled-20004": {
-      "frame": {
-        "x": 2572,
-        "y": 886,
-        "w": 138,
-        "h": 290
-      },
-      "rotated": false,
-      "trimmed": false,
-      "spriteSourceSize": {
-        "x": 0,
-        "y": 0,
-        "w": 138,
-        "h": 290
-      },
-      "sourceSize": {
-        "w": 138,
-        "h": 290
-      },
-      "pivot": {
-        "x": 0.5,
-        "y": 0.5
-      }
-    },
     "animations/block/Untitled-20006": {
       "frame": {
         "x": 2572,

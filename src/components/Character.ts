@@ -88,13 +88,14 @@ export default abstract class Character extends Actor {
 	}
 
 	async damage(dir: Vector, punchCount: number) {
-		if (this.fsm.in(CHARACTER_STATES.BLOCK)) return;
-
 		const hurtImpulse = config.character.hurtImpulse * (punchCount === 3 ? 20 : 1);
 		const time = 100 * (punchCount === 3 ? 10 : 1);
 
-		this.fsm.go(CHARACTER_STATES.DAMAGE);
-		this.condition -= this.calculateDamage();
+		if (!this.fsm.in(CHARACTER_STATES.BLOCK)) {
+			this.fsm.go(CHARACTER_STATES.DAMAGE);
+			this.condition -= this.calculateDamage();
+		}
+
 		await this.actions.moveTo(this.pos.add(dir.scaleEqual(hurtImpulse)), time).toPromise();
 	}
 

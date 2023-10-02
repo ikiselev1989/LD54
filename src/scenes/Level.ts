@@ -11,12 +11,15 @@ import PlayerAlcoholMeter from '../components/PlayerAlcoholMeter';
 import { random } from '../utils';
 import Beer from '../components/Beer';
 import config from '../config';
+import { EVENTS } from '../enums';
 
 export default class Level extends Scene {
 	private player!: Player;
 	private prevSpawnInd!: number;
 
-	onInitialize(_engine: Engine) {}
+	onInitialize(_engine: Engine) {
+		this.registerEvents();
+	}
 
 	onActivate(_context: SceneActivationContext<unknown>) {
 		this.addBackground();
@@ -50,6 +53,20 @@ export default class Level extends Scene {
 		const boozes = this.entities.filter(en => en instanceof Beer);
 
 		return random.pickOne(boozes);
+	}
+
+	private registerEvents() {
+		this.events.on(EVENTS.NEW_ENEMY, () => {
+			this.addNewEnemy();
+		});
+	}
+
+	private addNewEnemy() {
+		const layer = <LDtkLayer>res.map.getLevelLayersByName(0, 'Entities')[0];
+		const enemySpawn = (layer?.entityInstances || []).filter(ent => ent.__identifier === 'EnemySpawn')[0];
+
+		const enemy = this.addEnemy(vec(enemySpawn.__worldX, enemySpawn.__worldY));
+		enemy.spawned = true;
 	}
 
 	private addDoor() {
@@ -98,6 +115,8 @@ export default class Level extends Scene {
 		enemy.heading = pos.x > game.halfDrawWidth ? Vector.Left : Vector.Right;
 
 		this.add(enemy);
+
+		return enemy;
 	}
 
 	private addPlayer(pos: Vector) {
