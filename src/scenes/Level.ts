@@ -11,7 +11,7 @@ import PlayerAlcoholMeter from '../components/PlayerAlcoholMeter';
 import { random } from '../utils';
 import Beer from '../components/Beer';
 import config from '../config';
-import { EVENTS } from '../enums';
+import { ENEMY_TYPE, EVENTS } from '../enums';
 import Door from '../components/Door';
 import Barman from '../components/Barman';
 import Customer from '../components/Customer';
@@ -189,9 +189,12 @@ export default class Level extends Scene {
 	}
 
 	private addEnemy(pos: Vector) {
-		const enemy = new Enemy({
-			pos,
-		});
+		const enemy = new Enemy(
+			{
+				pos,
+			},
+			random.pickOne([ENEMY_TYPE.ENEMY1, ENEMY_TYPE.ENEMY3]),
+		);
 
 		enemy.heading = pos.x > game.halfDrawWidth ? Vector.Left : Vector.Right;
 

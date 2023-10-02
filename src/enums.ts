@@ -35,3 +35,8 @@ export enum ENEMY_STATES {
 	FIGHT = 'punch',
 	DRINK = 'drink',
 }
+
+export enum ENEMY_TYPE {
+	ENEMY1 = 'enemy1',
+	ENEMY3 = 'enemy3',
+}

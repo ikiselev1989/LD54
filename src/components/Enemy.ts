@@ -1,8 +1,8 @@
 import Character from './Character';
 import res from '../res';
-import { Animation, AnimationStrategy, CollisionType, StateMachine, vec } from 'excalibur';
+import { ActorArgs, Animation, AnimationStrategy, CollisionType, StateMachine, vec } from 'excalibur';
 import SpriteSheetAnimation from '../partials/spritesheet-animation';
-import { CHARACTER_STATES, ENEMY_STATES, EVENTS } from '../enums';
+import { CHARACTER_STATES, ENEMY_STATES, ENEMY_TYPE, EVENTS } from '../enums';
 import { random } from '../utils';
 import game from '../game';
 import config from '../config';
@@ -14,6 +14,13 @@ export class Enemy extends Character {
 	private animations!: SpriteSheetAnimation;
 	private ai!: StateMachine<ENEMY_STATES, never>;
 	private target!: Character;
+
+	constructor(
+		props: ActorArgs = {},
+		private type: ENEMY_TYPE = ENEMY_TYPE.ENEMY1,
+	) {
+		super(props);
+	}
 
 	async onInitialize() {
 		this.body.collisionType = CollisionType.PreventCollision;
@@ -70,7 +77,7 @@ export class Enemy extends Character {
 	onDamageState(): void {
 		this.actions.clearActions();
 
-		const anim = <Animation>this.animations.getAnimation('enemy/enemy1/damage-up', {
+		const anim = <Animation>this.animations.getAnimation(`enemy/${this.type}/damage-up`, {
 			strategy: AnimationStrategy.Freeze,
 		});
 
@@ -87,19 +94,19 @@ export class Enemy extends Character {
 	onIdleState(): void {
 		this.actions.clearActions();
 
-		const anims = <Animation>this.animations.getAnimation('enemy/enemy1/idle');
+		const anims = <Animation>this.animations.getAnimation(`enemy/${this.type}/idle`);
 		anims.play();
 		this.graphics.use(anims);
 	}
 
 	onMoveState(): void {
-		const anims = this.animations.getAnimation('enemy/enemy1/move');
+		const anims = this.animations.getAnimation(`enemy/${this.type}/move`);
 		anims?.play();
 		this.graphics.use(<Animation>anims);
 	}
 
 	onPunchState(): void {
-		const anim = <Animation>this.animations.getAnimation('enemy/enemy1/punch', {
+		const anim = <Animation>this.animations.getAnimation(`enemy/${this.type}/punch`, {
 			strategy: AnimationStrategy.Freeze,
 		});
 
@@ -123,7 +130,7 @@ export class Enemy extends Character {
 	onFallState() {
 		this.actions.clearActions();
 
-		const anim = <Animation>this.animations.getAnimation('enemy/enemy1/fall', {
+		const anim = <Animation>this.animations.getAnimation(`enemy/${this.type}/fall`, {
 			strategy: AnimationStrategy.Freeze,
 		});
 
