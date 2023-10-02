@@ -1,8 +1,13 @@
-import { Actor, ActorArgs, CollisionType, Shape, Sprite, vec } from 'excalibur';
+import { Actor, ActorArgs, Animation, CollisionType, Shape, Sprite, vec } from 'excalibur';
 import res from '../res';
+import { TABLE_TYPE } from '../enums';
+import SpriteSheetAnimation from '../partials/spritesheet-animation';
 
 export default class Table extends Actor {
-	constructor(props: ActorArgs) {
+	constructor(
+		props: ActorArgs,
+		private type: TABLE_TYPE = TABLE_TYPE.MAIN,
+	) {
 		super({
 			...props,
 			width: 200,
@@ -21,5 +26,45 @@ export default class Table extends Actor {
 		this.graphics.use(<Sprite>res.assets.getFrameSprite('graphics/table'), {
 			offset: vec(-10, 0),
 		});
+
+		if (this.type === TABLE_TYPE.CUSTOMER1) {
+			const animations = new SpriteSheetAnimation([res.assets]);
+
+			const anim = <Animation>animations.getAnimation('graphics/customer');
+
+			this.graphics.layers
+				.create({
+					name: 'add',
+					order: 0,
+					offset: vec(75, 0),
+				})
+				.use(anim);
+
+			anim.play();
+		}
+
+		if (this.type === TABLE_TYPE.CUSTOMER2) {
+			const sprite = <Sprite>res.assets.getFrameSprite('graphics/customer2');
+
+			this.graphics.layers
+				.create({
+					name: 'add',
+					order: 0,
+					offset: vec(120, 10),
+				})
+				.use(sprite);
+		}
+
+		if (this.type === TABLE_TYPE.CUSTOMER3) {
+			const sprite = <Sprite>res.assets.getFrameSprite('graphics/customer3');
+
+			this.graphics.layers
+				.create({
+					name: 'add',
+					order: 0,
+					offset: vec(75, 30),
+				})
+				.use(sprite);
+		}
 	}
 }

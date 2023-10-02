@@ -40,3 +40,10 @@ export enum ENEMY_TYPE {
 	ENEMY1 = 'enemy1',
 	ENEMY3 = 'enemy3',
 }
+
+export enum TABLE_TYPE {
+	MAIN,
+	CUSTOMER1,
+	CUSTOMER2,
+	CUSTOMER3,
+}

@@ -11,10 +11,9 @@ import PlayerAlcoholMeter from '../components/PlayerAlcoholMeter';
 import { random } from '../utils';
 import Beer from '../components/Beer';
 import config from '../config';
-import { ENEMY_TYPE, EVENTS } from '../enums';
+import { ENEMY_TYPE, EVENTS, TABLE_TYPE } from '../enums';
 import Door from '../components/Door';
 import Barman from '../components/Barman';
-import Customer from '../components/Customer';
 import Runner from '../components/Runner';
 import GameOver from '../components/GameOver';
 
@@ -220,15 +219,26 @@ export default class Level extends Scene {
 		for (let [index, tableConfig] of tables.entries()) {
 			const { __worldX, __worldY } = tableConfig;
 
-			let TableClass = Table;
+			let type = TABLE_TYPE.MAIN;
 
 			if (index === 0) {
-				TableClass = Customer;
+				type = TABLE_TYPE.CUSTOMER1;
 			}
 
-			const table = new TableClass({
-				pos: vec(__worldX, __worldY),
-			});
+			if (index === 1) {
+				type = TABLE_TYPE.CUSTOMER2;
+			}
+
+			if (index === 2) {
+				type = TABLE_TYPE.CUSTOMER3;
+			}
+
+			const table = new Table(
+				{
+					pos: vec(__worldX, __worldY),
+				},
+				type,
+			);
 
 			this.add(table);
 		}
