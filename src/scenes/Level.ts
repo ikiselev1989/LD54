@@ -13,6 +13,7 @@ import Beer from '../components/Beer';
 import config from '../config';
 import { EVENTS } from '../enums';
 import Door from '../components/Door';
+import Barman from '../components/Barman';
 
 export default class Level extends Scene {
 	private player!: Player;
@@ -26,6 +27,7 @@ export default class Level extends Scene {
 	onActivate(_context: SceneActivationContext<unknown>) {
 		this.addBackground();
 		this.addBorders();
+		this.addBarman();
 		this.addBar();
 		this.addDoor();
 		this.addUI();
@@ -189,6 +191,11 @@ export default class Level extends Scene {
 
 			this.add(border);
 		}
+	}
+
+	private addBarman() {
+		const barman = new Barman();
+		this.add(barman);
 	}
 
 	private addBar() {

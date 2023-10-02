@@ -32,7 +32,7 @@ export default {
 	},
 	enemy: {
 		startCount: 3,
-		reactionTime: 150,
+		reactionTime: 200,
 	},
 	bar: {
 		boozeInterval: 10000,

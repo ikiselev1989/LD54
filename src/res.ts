@@ -7,5 +7,6 @@ export default {
 	assets: new JSONSpriteSheet('/assets.json'),
 	player: new JSONSpriteSheet('/player.json'),
 	enemy: new JSONSpriteSheet('/enemy.json'),
+	barman: new JSONSpriteSheet('/barman.json'),
 	map: new LDtkResource('/map.ldtk'),
 };
