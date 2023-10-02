@@ -148,6 +148,7 @@ export default class Player extends Character {
 
 		anim.events.on('end', () => {
 			this.body.collisionType = CollisionType.PreventCollision;
+			this.scene.events.emit(EVENTS.GAME_OVER);
 		});
 
 		anim.reset();

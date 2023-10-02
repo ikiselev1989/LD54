@@ -16,6 +16,7 @@ import Door from '../components/Door';
 import Barman from '../components/Barman';
 import Customer from '../components/Customer';
 import Runner from '../components/Runner';
+import GameOver from '../components/GameOver';
 
 export default class Level extends Scene {
 	private player!: Player;
@@ -90,7 +91,14 @@ export default class Level extends Scene {
 		});
 	}
 
+	private gameOver() {
+		const gameOver = new GameOver();
+
+		this.add(gameOver);
+	}
+
 	private registerEvents() {
+		this.events.once(EVENTS.GAME_OVER, () => this.gameOver());
 		this.events.once(EVENTS.START, () => this.spawnCharacters());
 
 		this.events.on(EVENTS.NEW_ENEMY, () => {

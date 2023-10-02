@@ -25,6 +25,7 @@ export enum EVENTS {
 	PLAYER_STATUS_UPDATE = 'playerStatusUpdate',
 	NEW_ENEMY = 'newEnemy',
 	START = 'start',
+	GAME_OVER = 'gameOver',
 }
 
 export enum ENEMY_STATES {

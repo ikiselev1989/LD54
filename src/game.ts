@@ -30,7 +30,7 @@ class Game extends Engine {
 			pointerScope: PointerScope.Canvas,
 			scrollPreventionMode: ScrollPreventionMode.All,
 			displayMode: DisplayMode.FitScreen,
-			backgroundColor: Color.fromHex('#315438'),
+			backgroundColor: Color.fromHex('#72AD7D'),
 			antialiasing: true,
 		});
 
