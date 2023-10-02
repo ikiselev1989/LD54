@@ -57,7 +57,7 @@ export default class PlayerAlcoholMeter extends ScreenElement {
 				anchor: vec(0.5, 0.5),
 			});
 
-		this.indicatorLayer.offset.y = lerp(80, -80, condition / 100);
+		this.indicatorLayer.offset.y = lerp(100, -90, condition / 100);
 	}
 
 	private addGraphics() {

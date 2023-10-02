@@ -53,7 +53,7 @@ export default abstract class Character extends Actor {
 					transitions: [CHARACTER_STATES.IDLE, CHARACTER_STATES.MOVE],
 				},
 				[CHARACTER_STATES.DAMAGE]: {
-					onState: this.onHurtState.bind(this),
+					onState: this.onDamageState.bind(this),
 					transitions: [CHARACTER_STATES.IDLE, CHARACTER_STATES.DAMAGE],
 				},
 			},
@@ -81,7 +81,7 @@ export default abstract class Character extends Actor {
 
 	abstract onMoveState(): void;
 
-	abstract onHurtState(): void;
+	abstract onDamageState(): void;
 
 	protected boozeColdDown(delta: number) {
 		const deltaValue = (config.character.boozeCoolDown / 1000) * delta;
@@ -118,7 +118,7 @@ export default abstract class Character extends Actor {
 	}
 
 	protected resetCondition() {
-		this.condition = 50;
+		this.condition = (100 / 5) * 4;
 	}
 
 	protected resetPunchCount() {
@@ -149,6 +149,10 @@ export default abstract class Character extends Actor {
 		});
 
 		this.addChild(this.fightTrigger);
+	}
+
+	protected damageToEnemy() {
+		this.enemy && this.enemy.damage(this.enemy.pos.sub(this.pos).normalize(), this.punchCount + 1);
 	}
 
 	protected punch() {

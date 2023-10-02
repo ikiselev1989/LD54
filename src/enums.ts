@@ -26,3 +26,11 @@ export enum CHARACTER_EVENTS {
 export enum EVENTS {
 	PLAYER_STATUS_UPDATE = 'playerStatusUpdate',
 }
+
+export enum ENEMY_STATES {
+	IDLE = 'idle',
+	FIND_TARGET = 'findTarget',
+	FOLLOW_TARGET = 'followTarget',
+	FIGHT = 'punch',
+	DRINK = 'drink',
+}

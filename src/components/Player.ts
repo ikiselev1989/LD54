@@ -89,10 +89,30 @@ export default class Player extends Character {
 			await game.waitFor(800);
 		}
 
-		this.enemy && this.enemy.damage(this.enemy.pos.sub(this.pos).normalize(), this.punchCount + 1);
+		this.damageToEnemy();
 	}
 
-	onHurtState(): void {}
+	onDamageState(): void {
+		this.vel.setTo(0, 0);
+
+		const anims = <Animation>this.animations.getAnimation('animations/damage-up', {
+			strategy: AnimationStrategy.Freeze,
+		});
+
+		anims.reset();
+
+		const anchor = vec(56 / (anims?.width || 1), 1);
+
+		this.graphics.use(<Animation>anims, {
+			anchor: this.graphics.flipHorizontal ? vec(1 - 56 / (anims?.width || 1), 1) : anchor,
+		});
+
+		anims.events.on('end', () => {
+			this.fsm.go(CHARACTER_STATES.IDLE);
+		});
+
+		anims.play();
+	}
 
 	onPostUpdate(_engine: Engine, _delta: number) {
 		super.onPostUpdate(_engine, _delta);
