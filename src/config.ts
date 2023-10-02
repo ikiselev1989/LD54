@@ -16,6 +16,7 @@ export default {
 			use: Keys.F,
 			enter: Keys.Enter,
 			space: Keys.Space,
+			restart: Keys.R,
 		},
 	},
 	character: {

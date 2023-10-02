@@ -2,8 +2,11 @@ import { Actor, Sprite, vec } from 'excalibur';
 import res from '../res';
 import game from '../game';
 import config from '../config';
+import { SCENES } from '../enums';
 
 export default class GameOver extends Actor {
+	private restarted!: boolean;
+
 	constructor() {
 		super({
 			pos: vec(game.halfDrawWidth, 0),
@@ -12,7 +15,23 @@ export default class GameOver extends Actor {
 		});
 	}
 
+	registerEvents() {
+		game.inputMapper.on(
+			({ keyboard }) => {
+				return keyboard.wasPressed(config.input.keyboard.restart) && !this.restarted;
+			},
+			async () => {
+				this.restarted = true;
+				this.kill();
+				game.changeScene(SCENES.INTRO);
+			},
+		);
+	}
+
 	async onInitialize() {
+		this.restarted = false;
+		//
+		// this.registerEvents();
 		this.addGraphics();
 
 		await this.actions.moveBy(vec(0, 2200), config.character.speed).toPromise();
@@ -27,15 +46,15 @@ export default class GameOver extends Actor {
 			})
 			.use(<Sprite>res.assets.getFrameSprite('graphics/thanks'));
 
-		await game.waitFor(700);
-
-		this.graphics.layers
-			.create({
-				name: 'R',
-				order: 0,
-				offset: vec(700, -1600),
-			})
-			.use(<Sprite>res.assets.getFrameSprite('graphics/R'));
+		// await game.waitFor(700);
+		//
+		// this.graphics.layers
+		// 	.create({
+		// 		name: 'R',
+		// 		order: 0,
+		// 		offset: vec(700, -1600),
+		// 	})
+		// 	.use(<Sprite>res.assets.getFrameSprite('graphics/R'));
 	}
 
 	private addGraphics() {

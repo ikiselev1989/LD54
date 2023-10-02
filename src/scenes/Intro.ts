@@ -9,13 +9,14 @@ export default class Intro extends Scene {
 	private entered!: boolean;
 
 	onInitialize(_engine: Engine) {
-		this.entered = false;
 		super.onInitialize(_engine);
 
 		this.registerEvents();
 	}
 
 	onActivate() {
+		this.entered = false;
+
 		const bg2 = new Actor({
 			anchor: Vector.Zero,
 		});

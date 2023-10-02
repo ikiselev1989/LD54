@@ -58,6 +58,16 @@ export default class Level extends Scene {
 		return random.pickOne(boozes);
 	}
 
+	onDeactivate() {
+		for (let timer of this.timers) {
+			timer.cancel();
+		}
+
+		for (let entity of this.entities) {
+			entity.kill();
+		}
+	}
+
 	private addTutorial() {
 		const tutorial = new Actor({
 			pos: vec(game.halfDrawWidth, game.halfDrawHeight),
