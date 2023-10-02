@@ -1,4 +1,4 @@
-import { Actor, ActorArgs, Animation, Timer, vec } from 'excalibur';
+import { Actor, ActorArgs, Animation, AnimationStrategy, Timer, vec } from 'excalibur';
 import res from '../res';
 import SpriteSheetAnimation from '../partials/spritesheet-animation';
 import game from '../game';
@@ -20,12 +20,13 @@ export default class Barman extends Actor {
 	onInitialize() {
 		this.animations = new SpriteSheetAnimation([res.barman]);
 
-		this.addGraphics();
+		this.idleAnimation();
+		this.jokeAnimation();
 
 		const timer = new Timer({
 			fcn: async () => {
 				await this.takeDrinks();
-				this.addGraphics();
+				this.idleAnimation();
 			},
 			repeats: true,
 			interval: config.bar.boozeInterval,
@@ -33,6 +34,15 @@ export default class Barman extends Actor {
 
 		this.scene.add(timer);
 		timer.start();
+
+		const timer2 = new Timer({
+			fcn: () => this.jokeAnimation(),
+			repeats: true,
+			interval: config.bar.boozeInterval * 4 + config.bar.boozeInterval / 2,
+		});
+
+		this.scene.add(timer2);
+		timer2.start();
 	}
 
 	async takeDrinks() {
@@ -59,11 +69,31 @@ export default class Barman extends Actor {
 		}
 	}
 
-	private addGraphics() {
+	private idleAnimation() {
 		const anim = <Animation>this.animations.getAnimation('barman/idle');
 
 		this.graphics.use(anim);
 
+		anim.play();
+	}
+
+	private jokeAnimation() {
+		const anim = <Animation>this.animations.getAnimation('barman/joke', {
+			strategy: AnimationStrategy.End,
+		});
+
+		this.graphics.use(anim, {
+			offset: vec(150, 200),
+		});
+
+		anim.events.on('end', async () => {
+			this.pos.x = game.halfDrawWidth - 150;
+
+			await game.waitFor(1000);
+			this.idleAnimation();
+		});
+
+		anim.reset();
 		anim.play();
 	}
 }
