@@ -88,6 +88,8 @@ export default abstract class Character extends Actor {
 	}
 
 	async damage(dir: Vector, punchCount: number) {
+		if (this.fsm.in(CHARACTER_STATES.FALL)) return;
+
 		const hurtImpulse = config.character.hurtImpulse * (punchCount === 3 ? 20 : 1);
 		const time = 100 * (punchCount === 3 ? 10 : 1);
 

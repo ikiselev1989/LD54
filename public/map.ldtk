@@ -519,18 +519,18 @@
 						},
 						{
 							"__identifier": "Table",
-							"__grid": [414,1001],
+							"__grid": [335,943],
 							"__pivot": [0.5,1],
 							"__tags": [],
 							"__tile": { "tilesetUid": 2, "x": 272, "y": 96, "w": 16, "h": 16 },
 							"__smartColor": "#D77643",
-							"__worldX": 414,
-							"__worldY": 1002,
+							"__worldX": 335,
+							"__worldY": 944,
 							"iid": "cc575140-3b70-11ee-89e1-c1287683088f",
 							"width": 327,
 							"height": 221,
 							"defUid": 3,
-							"px": [414,1002],
+							"px": [335,944],
 							"fieldInstances": []
 						},
 						{
