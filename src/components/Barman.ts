@@ -21,7 +21,6 @@ export default class Barman extends Actor {
 		this.animations = new SpriteSheetAnimation([res.barman]);
 
 		this.idleAnimation();
-		this.jokeAnimation();
 
 		const timer = new Timer({
 			fcn: async () => {
