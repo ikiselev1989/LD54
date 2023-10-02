@@ -200,8 +200,6 @@ export default abstract class Character extends Actor {
 
 	protected kick() {
 		this.fsm.go(CHARACTER_STATES.KICK);
-		// this.drink();
-		// this.enemy && this.enemy.damage();
 	}
 
 	protected block() {
@@ -213,6 +211,6 @@ export default abstract class Character extends Actor {
 	}
 
 	protected drink() {
-		this.condition += 20;
+		this.condition += config.bar.conditionFx;
 	}
 }

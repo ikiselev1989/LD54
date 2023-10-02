@@ -13,6 +13,7 @@ export default {
 			punch: Keys.J,
 			kick: Keys.K,
 			block: Keys.L,
+			use: Keys.F,
 		},
 	},
 	character: {
@@ -31,11 +32,14 @@ export default {
 		},
 	},
 	enemy: {
-		startCount: 3,
+		startCount: 1,
 		reactionTime: 200,
 	},
 	bar: {
-		boozeInterval: 10000,
+		beerTimeout: 5000,
+		boozeInterval: 3000,
+		useDistance: 150,
+		conditionFx: 20,
 	},
 	ui: {
 		offset: 70,

@@ -1,5 +1,6 @@
 import { Actor, ActorArgs, Sprite, Timer, vec } from 'excalibur';
 import res from '../res';
+import config from '../config';
 
 export default class Beer extends Actor {
 	private timer!: Timer;
@@ -23,7 +24,7 @@ export default class Beer extends Actor {
 				await this.actions.blink(250, 250, 4).toPromise();
 				this.kill();
 			},
-			interval: 5000,
+			interval: config.bar.beerTimeout,
 		});
 
 		this.scene.add(this.timer);

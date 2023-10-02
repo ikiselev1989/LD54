@@ -5,6 +5,7 @@ import game from '../game';
 import Character from './Character';
 import SpriteSheetAnimation from '../partials/spritesheet-animation';
 import { CHARACTER_STATES, EVENTS } from '../enums';
+import Beer from './Beer';
 
 export default class Player extends Character {
 	private animations!: SpriteSheetAnimation;
@@ -179,6 +180,16 @@ export default class Player extends Character {
 		this.damageToEnemy();
 	}
 
+	useBooze() {
+		const beers = <Beer[]>this.scene.entities.filter(booze => booze instanceof Beer);
+		const booze = beers.find(beer => beer.pos.distance(this.pos) < config.bar.useDistance);
+
+		if (!booze) return;
+
+		booze.use();
+		this.drink();
+	}
+
 	private setVel(vel: Vector) {
 		if (this.fsm.in(CHARACTER_STATES.MOVE) || this.fsm.in(CHARACTER_STATES.IDLE)) {
 			if (vel.equals(Vector.Zero)) {
@@ -208,5 +219,7 @@ export default class Player extends Character {
 		game.inputMapper.on(({ keyboard }) => keyboard.wasPressed(config.input.keyboard.block), this.block.bind(this));
 
 		game.inputMapper.on(({ keyboard }) => keyboard.wasReleased(config.input.keyboard.block), this.unBlock.bind(this));
+
+		game.inputMapper.on(({ keyboard }) => keyboard.wasReleased(config.input.keyboard.use), this.useBooze.bind(this));
 	}
 }
