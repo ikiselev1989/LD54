@@ -42,3 +42,7 @@ export const chunk = (array: any[], chunkSize: number) => {
 		return array.slice(start, end);
 	});
 };
+
+export const lerp = (start: number, end: number, t: number) => {
+	return start * (1 - t) + end * t;
+};

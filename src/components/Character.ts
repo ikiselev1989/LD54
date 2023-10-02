@@ -84,15 +84,21 @@ export default abstract class Character extends Actor {
 	abstract onHurtState(): void;
 
 	protected boozeColdDown(delta: number) {
-		this.condition -= (config.character.boozeCoolDown / 1000) * delta;
+		const deltaValue = (config.character.boozeCoolDown / 1000) * delta;
+
+		if (this.condition - deltaValue >= (100 / 5) * 2) {
+			this.condition -= deltaValue;
+		}
 	}
 
 	protected checkCondition() {
-		if (this.condition <= 0) {
+		this.condition = Math.min(Math.max(this.condition, 0), 100);
+
+		if (this.condition === 0) {
 			this.events.emit(CHARACTER_EVENTS.NOT_ENOUGH_BOOZE);
 		}
 
-		if (this.condition >= 100) {
+		if (this.condition === 100) {
 			this.events.emit(CHARACTER_EVENTS.TOO_MUCH_BOOZE);
 		}
 	}
